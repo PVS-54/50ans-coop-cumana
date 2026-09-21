@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Coopérants français — IUT de Cumaná (1973-1980)</title>
 <style>
-  \:root{
+  :root{
     --paper:#ece4d3;
     --paper-deep:#e2d8c2;
     --ink:#242821;
@@ -23,9 +23,9 @@
     --unknown:#9c7a3d;
     --unknown-bg:#f1e6cc;
   }
-  *{box-sizing\:border-box;}
+  *{box-sizing:border-box;}
   body{
-    margin:0; background\:var(--paper); color\:var(--ink);
+    margin:0; background:var(--paper); color:var(--ink);
     font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height:1.55;
   }
@@ -35,78 +35,78 @@
     background: linear-gradient(180deg, var(--pine) 0%, var(--pine-dark) 100%);
     color:#f2ede1; padding:54px 24px 40px;
   }
-  .hero-inner{max-width:980px; margin:0 auto; display\:grid; grid-template-columns: 1.3fr 1fr; gap:36px; align-items\:center;}
+  .hero-inner{max-width:980px; margin:0 auto; display:grid; grid-template-columns: 1.3fr 1fr; gap:36px; align-items:center;}
   @media (max-width:780px){ .hero-inner{grid-template-columns:1fr;} }
   .eyebrow{font-size:.82rem; letter-spacing:.03em; color:#c9d8c9; margin:0 0 10px;}
   h1{font-size:2.15rem; margin:0 0 14px; font-weight:600; line-height:1.2;}
   .hero p{color:#d9dfd3; max-width:52ch; font-size:1rem;}
-  .hero-illus{display\:flex; justify-content\:center;}
+  .hero-illus{display:flex; justify-content:center;}
   .map-frame{
     width:100%; max-width:360px; border:3px solid #cfe0cf; border-radius:8px; overflow:hidden;
     box-shadow:0 6px 18px rgba(0,0,0,.25); background:#1c2e26;
   }
-  .map-frame #map { width: 100%; height: 260px; border: 0; display: block; }
+  .map-frame iframe{width:100%; height:260px; border:0; display:block; filter: saturate(0.9);}
   .map-caption{
     padding:8px 12px; font-family:"Iowan Old Style",Georgia,serif; font-size:.82rem;
-    color:#e7e2cf; background:#1c2e26; text-align\:center; letter-spacing:.02em;
+    color:#e7e2cf; background:#1c2e26; text-align:center; letter-spacing:.02em;
   }
 
   main{max-width:980px; margin:0 auto; padding:36px 24px 80px;}
 
   .intro-note{
     background:#fffdf6; border:1px solid var(--line); border-left:4px solid var(--rust);
-    padding:16px 20px; border-radius:3px; font-size:.93rem; color\:var(--ink); margin-bottom:34px;
+    padding:16px 20px; border-radius:3px; font-size:.93rem; color:var(--ink); margin-bottom:34px;
   }
-  .intro-note strong{color\:var(--rust);}
+  .intro-note strong{color:var(--rust);}
 
-  .stats{display\:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
+  .stats{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
   .stat{
     flex:1; min-width:130px; background:#fffdf6; border:1px solid var(--line); border-radius:4px;
     padding:14px 16px;
   }
   .stat .n{font-size:1.5rem; font-weight:700; font-family: "Iowan Old Style", Georgia, serif;}
-  .stat .l{font-size:.78rem; color\:var(--muted);}
-  .stat.alive .n{color\:var(--alive);}
+  .stat .l{font-size:.78rem; color:var(--muted);}
+  .stat.alive .n{color:var(--alive);}
   .stat.dead .n{color:var(--dead);}
-  .stat.unknown .n{color\:var(--unknown);}
+  .stat.unknown .n{color:var(--unknown);}
 
-  .legend{display\:flex; gap:16px; flex-wrap\:wrap; margin-bottom:8px; font-size:.82rem; color:var(--muted);}
-  .legend span{display:inline-flex; align-items\:center; gap:6px;}
-  .dot{width:9px; height:9px; border-radius:50%; display\:inline-block;}
-  .dot.alive{background\:var(--alive);}
-  .dot.dead{background\:var(--dead);}
-  .dot.unknown{background\:var(--unknown);}
+  .legend{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:8px; font-size:.82rem; color:var(--muted);}
+  .legend span{display:inline-flex; align-items:center; gap:6px;}
+  .dot{width:9px; height:9px; border-radius:50%; display:inline-block;}
+  .dot.alive{background:var(--alive);}
+  .dot.dead{background:var(--dead);}
+  .dot.unknown{background:var(--unknown);}
 
-  .filters{display\:flex; gap:8px; flex-wrap\:wrap; margin:18px 0 26px;}
+  .filters{display:flex; gap:8px; flex-wrap:wrap; margin:18px 0 26px;}
   .filters button{
-    border:1px solid var(--line); background:#fffdf6; color\:var(--ink); padding:6px 13px;
-    border-radius:20px; font-size:.82rem; cursor\:pointer;
+    border:1px solid var(--line); background:#fffdf6; color:var(--ink); padding:6px 13px;
+    border-radius:20px; font-size:.82rem; cursor:pointer;
   }
-  .filters button.active{background\:var(--pine); color:#fff; border-color\:var(--pine);}
+  .filters button.active{background:var(--pine); color:#fff; border-color:var(--pine);}
 
   section.gen{margin-bottom:30px;}
   .gen-title{
     font-family:"Iowan Old Style", Georgia, serif; font-size:1.15rem; font-weight:600;
-    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:4px; color\:var(--pine-dark);
+    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:4px; color:var(--pine-dark);
   }
   .gen-sub{font-size:.8rem; color:var(--muted); margin-bottom:14px;}
 
   .card{
-    display:grid; grid-template-columns: 170px 1fr 130px; gap:14px; align-items\:start;
+    display:grid; grid-template-columns: 170px 1fr 130px; gap:14px; align-items:start;
     padding:13px 4px; border-bottom:1px solid var(--line);
   }
   @media (max-width:700px){ .card{grid-template-columns:1fr; gap:4px;} }
   .card .name{font-weight:600;}
-  .card .name .prenom{font-weight:400; color\:var(--muted);}
-  .card .meta{font-size:.86rem; color\:var(--muted);}
-  .card .period{font-size:.86rem; color\:var(--ink);}
+  .card .name .prenom{font-weight:400; color:var(--muted);}
+  .card .meta{font-size:.86rem; color:var(--muted);}
+  .card .period{font-size:.86rem; color:var(--ink);}
   .badge{
     display:inline-block; font-size:.74rem; padding:2px 9px; border-radius:20px; white-space:nowrap;
   }
-  .badge.alive{background\:var(--alive-bg); color\:var(--alive);}
-  .badge.dead{background\:var(--dead-bg); color\:var(--dead);}
-  .badge.unknown{background\:var(--unknown-bg); color:var(--unknown);}
-  .source-tag{font-size:.72rem; color\:var(--muted); margin-top:3px;}
+  .badge.alive{background:var(--alive-bg); color:var(--alive);}
+  .badge.dead{background:var(--dead-bg); color:var(--dead);}
+  .badge.unknown{background:var(--unknown-bg); color:var(--unknown);}
+  .source-tag{font-size:.72rem; color:var(--muted); margin-top:3px;}
 
   .report-section{
     margin-top:56px; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
@@ -114,30 +114,30 @@
   }
   .report-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
   .report-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:60ch;}
-  form#reportForm{display\:grid; gap:14px; max-width:640px;}
-  .field label{display\:block; font-size:.8rem; color\:var(--muted); margin-bottom:4px;}
+  form#reportForm{display:grid; gap:14px; max-width:640px;}
+  .field label{display:block; font-size:.8rem; color:var(--muted); margin-bottom:4px;}
   .field select, .field input, .field textarea{
     width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
-    font-family\:inherit; font-size:.94rem; background:#fff; color\:var(--ink);
+    font-family:inherit; font-size:.94rem; background:#fff; color:var(--ink);
   }
-  .field textarea{min-height:100px; resize\:vertical;}
-  .row2{display\:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .field textarea{min-height:100px; resize:vertical;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media (max-width:600px){ .row2{grid-template-columns:1fr;} }
-  .actions{display\:flex; gap:10px; flex-wrap:wrap; align-items\:center; margin-top:4px;}
+  .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
   button.primary{
-    background:var(--pine); color:#fff; border\:none; padding:10px 20px; border-radius:4px;
+    background:var(--pine); color:#fff; border:none; padding:10px 20px; border-radius:4px;
     font-size:.95rem; cursor:pointer;
   }
-  button.primary\:hover{background\:var(--pine-dark);}
+  button.primary:hover{background:var(--pine-dark);}
   button.secondary{
-    background:#fff; color\:var(--ink); border:1px solid var(--line); padding:10px 18px; border-radius:4px;
+    background:#fff; color:var(--ink); border:1px solid var(--line); padding:10px 18px; border-radius:4px;
     font-size:.9rem; cursor:pointer;
   }
-  .copied-msg{font-size:.85rem; color:var(--alive); display\:none;}
+  .copied-msg{font-size:.85rem; color:var(--alive); display:none;}
 
-  footer{max-width:980px; margin:0 auto; padding:0 24px 50px; color\:var(--muted); font-size:.8rem;}
+  footer{max-width:980px; margin:0 auto; padding:0 24px 50px; color:var(--muted); font-size:.8rem;}
   .mentions{border-top:1px solid var(--line); padding-top:16px; max-width:70ch;}
-  .mentions strong{color\:var(--ink); font-size:.85rem;}
+  .mentions strong{color:var(--ink); font-size:.85rem;}
 
   /* Access gate */
   #gateScreen{
@@ -145,28 +145,20 @@
     border:1px solid var(--line); border-radius:8px;
   }
   #gateScreen h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.2rem; margin:0 0 10px;}
-  #gateScreen p{font-size:.9rem; color\:var(--muted); margin-bottom:18px;}
+  #gateScreen p{font-size:.9rem; color:var(--muted); margin-bottom:18px;}
   #gateScreen input{
     width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
-    font-family\:inherit; font-size:.95rem; margin-bottom:10px;
+    font-family:inherit; font-size:.95rem; margin-bottom:10px;
   }
-  #gateScreen .gate-actions{display\:flex; gap:10px; flex-wrap\:wrap;}
+  #gateScreen .gate-actions{display:flex; gap:10px; flex-wrap:wrap;}
   #gateScreen .toggle-link{
-    background\:none; border\:none; color:var(--pine); text-decoration\:underline; cursor\:pointer;
+    background:none; border:none; color:var(--pine); text-decoration:underline; cursor:pointer;
     font-size:.85rem; padding:0; margin-top:14px;
   }
-  #gateError{color\:var(--rust); font-size:.85rem; margin-top:6px; min-height:1.2em;}
-  #requestBlock{display\:none; margin-top:18px; border-top:1px solid var(--line); padding-top:16px;}
-  #siteContent{display\:none;}
-
-  /* Leaflet Map Styles */
-  .leaflet-container { background: #1c2e26; }
-  .leaflet-control-attribution { background: rgba(255, 255, 255, 0.7); color: #333; }
-  .leaflet-popup-content-wrapper { border-radius: 4px; }
-  .leaflet-popup-content { font-family: inherit; font-size: .9rem; color: #333; }
+  #gateError{color:var(--rust); font-size:.85rem; margin-top:6px; min-height:1.2em;}
+  #requestBlock{display:none; margin-top:18px; border-top:1px solid var(--line); padding-top:16px;}
+  #siteContent{display:none;}
 </style>
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -181,7 +173,10 @@
     </div>
     <div class="hero-illus">
       <div class="map-frame">
-        <div id="map"></div>
+        <iframe
+          title="Carte : Cumaná, État de Sucre, Venezuela"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-64.5200%2C10.3300%2C-63.8800%2C10.6200&amp;layer=mapnik&amp;marker=10.4606%2C-64.1786"
+          loading="lazy"></iframe>
         <div class="map-caption">Cumaná, État de Sucre — Venezuela</div>
       </div>
     </div>
@@ -228,7 +223,7 @@
       <input id="reqEmail" type="email" placeholder="vous@exemple.fr">
     </div>
     <button type="button" class="primary" id="sendRequestBtn" style="margin-top:6px;">Envoyer la demande par e-mail</button>
-    <p style="font-size:.82rem; color\:var(--muted); margin-top:8px;">
+    <p style="font-size:.82rem; color:var(--muted); margin-top:8px;">
       Si rien ne s'ouvre après ce clic, écrivez-nous simplement à
       <strong>vogtphil@yahoo.fr</strong> en indiquant votre nom et votre lien avec le projet.
     </p>
@@ -288,7 +283,7 @@
         <button type="button" class="secondary" id="copyBtn">Copier le message</button>
         <span class="copied-msg" id="copiedMsg">Message copié ✓</span>
       </div>
-      <p style="font-size:.82rem; color\:var(--muted); margin-top:4px;">
+      <p style="font-size:.82rem; color:var(--muted); margin-top:4px;">
         Si le bouton "Envoyer par e-mail" n'ouvre rien chez vous, utilisez "Copier le message"
         et collez-le dans un e-mail à <strong>vogtphil@yahoo.fr</strong>.
       </p>
@@ -312,40 +307,15 @@
   </div>
 </footer>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-const ACCESS_CODE = "cumana1973";
+const ACCESS_CODE = "cumana1973"; // ⚠️ à personnaliser, et à transmettre vous-même aux personnes approuvées
 const REPORT_EMAIL_GATE = "vogtphil@yahoo.fr";
-
-// Initialize the map after the gate is opened
-function initMap() {
-  if (document.getElementById('map')) {
-    const map = L.map('map').setView([10.4606, -64.1786], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18,
-    }).addTo(map);
-
-    L.marker([10.4606, -64.1786])
-      .addTo(map)
-      .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
-
-    L.marker([10.5, -66.8667])
-      .addTo(map)
-      .bindPopup("<b>Caracas</b><br>Capitale du Venezuela, siège de l'IUT initial");
-  }
-}
 
 document.getElementById('gateSubmit').addEventListener('click', () => {
   const val = document.getElementById('gateCode').value.trim().toLowerCase();
   if (val && val === ACCESS_CODE.toLowerCase()) {
     document.getElementById('gateScreen').style.display = 'none';
     document.getElementById('siteContent').style.display = 'block';
-    // Initialize map after site content is displayed
-    setTimeout(initMap, 200);
   } else {
     document.getElementById('gateError').textContent = "Code incorrect. Vérifiez auprès de la personne qui vous l'a transmis, ou demandez l'accès ci-dessous.";
   }
@@ -366,72 +336,8 @@ document.getElementById('sendRequestBtn').addEventListener('click', () => {
   window.location.href = `mailto:${REPORT_EMAIL_GATE}?subject=${subject}&body=${body}`;
 });
 
-const ROWS = [
-  {"gen": 0, "nom": "Bérard", "prenom": "Alain", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA"},
-  {"gen": 1, "nom": "??", "prenom": "Gabriel", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 1, "nom": "Boussac", "prenom": "Jean-Paul", "periode": "1973 - 1976", "discipline": "Electrónica", "dept": "Electricidad", "source": "JMA, Copains d'avant, Gaceta Oficial 29.985 (18/12/1972)"},
-  {"gen": 1, "nom": "Dordor", "prenom": "Patrice", "periode": "1973-1975", "discipline": "Mathématiques", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 1, "nom": "Gibert", "prenom": "Hervé", "periode": "1973 - 1977", "discipline": "Dessin Industriel", "dept": "Electricidad", "source": "PVS & familia, JMA"},
-  {"gen": 1, "nom": "Montet", "prenom": "Roland", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 1, "nom": "Navarro", "prenom": "Jean-Pierre", "periode": "1973 - 1979", "discipline": "Biologia", "dept": "Chef de Dépt. Biologia", "source": "PVS & familia, JMA, Gaceta Oficial 29.985 (18/12/1972)"},
-  {"gen": 2, "nom": "Agnier", "prenom": "Jean-Michel", "periode": "1974 - 1981", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA, PVS & familia"},
-  {"gen": 2, "nom": "Courmont", "prenom": "Didier", "periode": "1974–1976", "discipline": "Electricidad", "dept": "Electricidad, Mecanica ?", "source": "PVS & familia, JMA, Rapport Sénat 1975–1976, Gaceta Oficial 29.985 (18/12/1972)"},
-  {"gen": 2, "nom": "Darbois", "prenom": "Martin", "periode": "1974 - 1979", "discipline": "Microbiologia", "dept": "Biologia", "source": "JMA, PVS & familia"},
-  {"gen": 2, "nom": "Dudon", "prenom": "Alain", "periode": "1974-1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 2, "nom": "Gallego", "prenom": "Jean-Michel", "periode": "1974 - 1987", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"},
-  {"gen": 2, "nom": "Gourmelon", "prenom": "Jean-Jacques", "periode": "1974 - 1976", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"},
-  {"gen": 2, "nom": "Grimaldi", "prenom": "Alain", "periode": "1974 - 1977", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, JMA"},
-  {"gen": 2, "nom": "Lecapelain", "prenom": "Bertrand", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"},
-  {"gen": 2, "nom": "Mounier", "prenom": "Patrick", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"},
-  {"gen": 2, "nom": "Perrier", "prenom": "Richard", "periode": "1974-1976", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 2, "nom": "Vagneur", "prenom": "Jean-Louis", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 3, "nom": "Cascarino", "prenom": "Georges", "periode": "1975 - 1979", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, JMA, Linkedin, Copains d'avant"},
-  {"gen": 3, "nom": "Cavarroc", "prenom": "Jean-Claude", "periode": "1975 - 1977", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"},
-  {"gen": 3, "nom": "Chavanne", "prenom": "Didier", "periode": "1975–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"},
-  {"gen": 3, "nom": "Chevin", "prenom": "Michel", "periode": "1975 - 1977", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia, JMA"},
-  {"gen": 3, "nom": "Genaud", "prenom": "Bernard", "periode": "1975-1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 3, "nom": "Ranchin", "prenom": "Paul Éric", "periode": "1975–1976", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA, Rapport Sénat 1975–1976"},
-  {"gen": 3, "nom": "Sanz", "prenom": "Richard", "periode": "1975 - 1976", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia, JMA"},
-  {"gen": 3, "nom": "Sibiril", "prenom": "Sylvie", "periode": "1975 - ", "discipline": "Bioquimica", "dept": "Biologia", "source": "PVS & familia, JMA, PhB"},
-  {"gen": 4, "nom": "Frichou", "prenom": "Jacques", "periode": "1976–1978", "discipline": "Quimica", "dept": "Quimica", "source": "PVS & familia, Copains d'avant"},
-  {"gen": 4, "nom": "Lefebvre", "prenom": "Thierry", "periode": "1976 - 1981", "discipline": "Electricidad", "dept": "Chef de Dépt. Electricidad", "source": "JMA, PVS & familia, Rapport Sénat 1975–1976"},
-  {"gen": 5, "nom": "Menny", "prenom": "Michel", "periode": "1976 - 1978", "discipline": "Matematica, Fisica", "dept": "Biologia", "source": "Linkedin"},
-  {"gen": 5, "nom": "??", "prenom": "David", "periode": "1977 - 1978", "discipline": "À confirmer", "dept": "Electricidad", "source": "JMA"},
-  {"gen": 5, "nom": "Bouillin", "prenom": "Philippe", "periode": "1977–1978", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Desprez", "prenom": "Pierre", "periode": "1977 - 1980", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Frachet", "prenom": "Jean-Pierre", "periode": "1977–1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Guillouët", "prenom": "Pascal", "periode": "1977–1978", "discipline": "Dessin Industriel", "dept": "Electricidad", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Krafft", "prenom": "André", "periode": "1977–1978", "discipline": "À confirmer", "dept": "Biologia", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Lafforgue", "prenom": "Jacques", "periode": "1977–1978", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Levieil", "prenom": "Gilles", "periode": "1977–1978", "discipline": "Physique", "dept": "Biologia", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Martin", "prenom": "Pierre", "periode": "1977 - 1979", "discipline": "À confirmer", "dept": "Quimica", "source": "JMA, PhB"},
-  {"gen": 5, "nom": "Maurice", "prenom": "Christian", "periode": "1977–1979", "discipline": "À confirmer", "dept": "Quimica", "source": "PhB"},
-  {"gen": 5, "nom": "Moranda", "prenom": "Yves", "periode": "1977–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Niquet", "prenom": "Michel", "periode": "1977–1978 ?", "discipline": "Matematicas", "dept": "Biologia", "source": "PVS & familia, Copains d'avant, Rapport Sénat"},
-  {"gen": 5, "nom": "Rouquier", "prenom": "Paul", "periode": "1977–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Royer", "prenom": "Guy", "periode": "1977-1978", "discipline": "Quimica", "dept": "Biologia", "source": "PVS & familia, PhB"},
-  {"gen": 5, "nom": "Sabarot", "prenom": "Christian", "periode": "1977–1978", "discipline": "À confirmer", "dept": "Biologia", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Sirbat", "prenom": "Pierre", "periode": "1977 - 1978", "discipline": "Microbiologia", "dept": "Biologia", "source": "PVS & familia, PhB"},
-  {"gen": 5, "nom": "Trachez", "prenom": "Bruno", "periode": "1977–1978", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, Copains d'avant, Rapport Sénat"},
-  {"gen": 5, "nom": "Varon", "prenom": "Jean-Louis", "periode": "1977-1978", "discipline": "À confirmer", "dept": "Electricidad", "source": "PVS & familia"},
-  {"gen": 5, "nom": "Vogt-Schilb", "prenom": "Philippe", "periode": "1977–1979", "discipline": "Géométrie, Électrotechnique", "dept": "Básico, Electricidad", "source": "PVS & familia"},
-  {"gen": 6, "nom": "Bonnet", "prenom": "Marc", "periode": "1978–1979", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": 6, "nom": "Monnier", "prenom": "Éric", "periode": "1978-1979", "discipline": "À confirmer", "dept": "Quimica", "source": "PVS & familia, Source indépendante"},
-  {"gen": 6, "nom": "??", "prenom": "Antoine", "periode": "1978-1979", "discipline": "À confirmer", "dept": "Electricidad", "source": "PVS & familia"},
-  {"gen": 7, "nom": "Bargel", "prenom": "Thierry", "periode": "1979-1980", "discipline": "Microbiologia", "dept": "Biologia", "source": "PhB"},
-  {"gen": 7, "nom": "Bonneau", "prenom": "Alain", "periode": "1979-1981", "discipline": "Optica - Mecanica - Termodinamica", "dept": "Quimica", "source": "Linkedin"},
-  {"gen": 7, "nom": "Soiron", "prenom": "Gilles", "periode": "1979-1980", "discipline": "À confirmer", "dept": "Biologia", "source": "PhB"},
-  {"gen": 7, "nom": "Trichereau", "prenom": "Eric", "periode": "1979 - 1980", "discipline": "Mecanica de los fluidos", "dept": "Biologia", "source": "PVS & familia, PhB"},
-  {"gen": "?", "nom": "??", "prenom": "Yves \"El Chiquito\"", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": "?", "nom": "??", "prenom": "Marc", "periode": "À confirmer", "discipline": "À confirmer", "dept": "Quimica ?", "source": "PVS & familia"},
-  {"gen": "?", "nom": "Bernard", "prenom": "Jean-Pierre", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": "?", "nom": "Borderie", "prenom": "Pierre", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA"},
-  {"gen": "?", "nom": "Cohades", "prenom": "Bruno", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA"},
-  {"gen": "?", "nom": "Landry", "prenom": "Christian", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": "?", "nom": "Lavarte", "prenom": "?", "periode": "À confirmer", "discipline": "À confirmer", "dept": "Quimica", "source": "PVS & familia"},
-  {"gen": "?", "nom": "Maillet", "prenom": "Didier", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"},
-  {"gen": "?", "nom": "Mercier", "prenom": "Pierre", "periode": "À confirmer", "discipline": "Química", "dept": "À confirmer", "source": "PVS & familia, Gaceta Oficial 29.985 (18/12/1972)"}
-];
+const ROWS = [{"gen": 0, "nom": "Bérard", "prenom": "Alain", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA"}, {"gen": 1, "nom": "??", "prenom": "Gabriel", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"}, {"gen": 1, "nom": "Boussac", "prenom": "Jean-Paul", "periode": "1973 - 1976", "discipline": "Electrónica", "dept": "Electricidad", "source": " JMA, Copains d'avant, Gaceta Oficial 29.985 (18/12/1972)"}, {"gen": 1, "nom": "Dordor", "prenom": "Patrice", "periode": "1973-1975", "discipline": "Mathématiques", "dept": "Electricidad", "source": "JMA, Linkedin"}, {"gen": 1, "nom": "Gibert", "prenom": "Hervé", "periode": "1973 - 1977", "discipline": "Dessin Industriel", "dept": "Electricidad", "source": "PVS & familia, JMA"}, {"gen": 1, "nom": "Montet", "prenom": "Roland", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"}, {"gen": 1, "nom": "Navarro", "prenom": "Jean-Pierre", "periode": "1973 - 1979", "discipline": "Biologia", "dept": "Chef de Dépt. Biologia", "source": "PVS & familia, JMA, Gaceta Oficial 29.985 (18/12/1972)"}, {"gen": 2, "nom": "Agnier", "prenom": "Jean-Michel", "periode": "1974 - 1981", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA, PVS & familia"}, {"gen": 2, "nom": "Courmont", "prenom": "Didier", "periode": "1974–1976", "discipline": "Electricidad, Mecanica ?", "dept": "Electricidad", "source": "PVS & familia, JMA, Rapport Sénat 1975–1976, Gaceta Oficial 29.985 (18/12/1972)"}, {"gen": 2, "nom": "Darbois", "prenom": "Martin", "periode": "1974 - 1979", "discipline": "Microbiologia", "dept": "Biologia", "source": "JMA, PVS & familia"}, {"gen": 2, "nom": "Dudon", "prenom": "Alain", "periode": "1974-1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"}, {"gen": 2, "nom": "Gallego", "prenom": "Jean-Michel", "periode": "1974 - 1987", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"}, {"gen": 2, "nom": "Gourmelon", "prenom": "Jean-Jacques", "periode": "1974 - 1976", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"}, {"gen": 2, "nom": "Grimaldi", "prenom": "Alain", "periode": "1974 - 1977", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, JMA"}, {"gen": 2, "nom": "Lecapelain", "prenom": "Bertrand", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"}, {"gen": 2, "nom": "Mounier", "prenom": "Patrick", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA"}, {"gen": 2, "nom": "Perrier", "prenom": "Richard", "periode": "1974-1976", "discipline": "Matematicas", "dept": "Electricidad", "source": "JMA, Linkedin"}, {"gen": 2, "nom": "Vagneur", "prenom": "Jean-Louis", "periode": "1974 - 1977", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"}, {"gen": 3, "nom": "Cascarino", "prenom": "Georges", "periode": "1975 - 1979", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, JMA, Linkedin, Copains d'avant"}, {"gen": 3, "nom": "Cavarroc", "prenom": "Jean-Claude", "periode": "1975 - 1977", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"}, {"gen": 3, "nom": "Chavanne", "prenom": "Didier", "periode": "1975–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA, Copains d'avant"}, {"gen": 3, "nom": "Chevin", "prenom": "Michel", "periode": "1975 - 1977", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia, JMA"}, {"gen": 3, "nom": "Genaud", "prenom": "Bernard", "periode": "1975-1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"}, {"gen": 3, "nom": "Ranchin", "prenom": "Paul Éric", "periode": "1975–1976", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia, JMA, Rapport Sénat 1975–1976"}, {"gen": 3, "nom": "Sanz", "prenom": "Richard", "periode": "1975 - 1976", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia, JMA"}, {"gen": 3, "nom": "Sibiril", "prenom": "Sylvie", "periode": "1975 - ", "discipline": "Bioquimica", "dept": "Biologia", "source": "PVS & familia, JMA, PhB"}, {"gen": 4, "nom": "Frichou", "prenom": "Jacques", "periode": "1976–1978", "discipline": "Quimica", "dept": "Quimica", "source": "PVS & familia, Copains d'avant"}, {"gen": 4, "nom": "Lefebvre", "prenom": "Thierry", "periode": "1976 - 1981", "discipline": "Electricidad", "dept": "Chef de Dépt. Electricidad", "source": "JMA, PVS& familia, Rapport Sénat 1975–1976"}, {"gen": 5, "nom": "Menny", "prenom": "Michel", "periode": "1976 - 1978", "discipline": "Matematica, Fisica", "dept": "Biologia", "source": "Linkedin"}, {"gen": 5, "nom": "??", "prenom": "David", "periode": "1977 - 1978", "discipline": "À confirmer", "dept": "Electricidad", "source": "JMA"}, {"gen": 5, "nom": "Bouillin", "prenom": "Philippe", "periode": "1977–1978", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia"}, {"gen": 5, "nom": "Desprez", "prenom": "Pierre", "periode": "1977 - 1980", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia"}, {"gen": 5, "nom": "Frachet", "prenom": "Jean-Pierre", "periode": "1977–1978", "discipline": "Electricidad", "dept": "Electricidad", "source": "PVS & familia"}, {"gen": 5, "nom": "Guillouët", "prenom": "Pascal", "periode": "1977–1978", "discipline": "Dessin Industriel", "dept": "Electricidad", "source": "PVS & familia"}, {"gen": 5, "nom": "Krafft", "prenom": "André", "periode": "1977–1978", "discipline": "À confirmer", "dept": "Biologia", "source": "PVS & familia"}, {"gen": 5, "nom": "Lafforgue", "prenom": "Jacques", "periode": "1977–1978", "discipline": "Matematicas", "dept": "Basico", "source": "PVS & familia"}, {"gen": 5, "nom": "Levieil", "prenom": "Gilles", "periode": "1977–1978", "discipline": "Physique", "dept": "Biologia", "source": "PVS & familia"}, {"gen": 5, "nom": "Martin", "prenom": "Pierre", "periode": "1977 - 1979", "discipline": "À confirmer", "dept": "Quimica", "source": "JMA, PhB"}, {"gen": 5, "nom": "Maurice", "prenom": "Christian", "periode": "1977–1979", "discipline": "À confirmer", "dept": "Quimica", "source": "PhB"}, {"gen": 5, "nom": "Moranda", "prenom": "Yves", "periode": "1977–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": 5, "nom": "Niquet", "prenom": "Michel", "periode": "1977–1978 ?", "discipline": "Matematicas", "dept": "Biologia", "source": "PVS & familia, Copains d'avant, Rapport Sénat"}, {"gen": 5, "nom": "Rouquier", "prenom": "Paul", "periode": "1977–1978", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": 5, "nom": "Royer", "prenom": "Guy", "periode": "1977-1978", "discipline": "Quimica", "dept": "Biologia", "source": "PVS & familia, PhB"}, {"gen": 5, "nom": "Sabarot", "prenom": "Christian", "periode": "1977–1978", "discipline": "À confirmer", "dept": "Biologia", "source": "PVS & familia"}, {"gen": 5, "nom": "Sirbat", "prenom": "Pierre", "periode": "1977 - 1978", "discipline": "Microbiologia", "dept": "Biologia", "source": "PVS & familia, PhB"}, {"gen": 5, "nom": "Trachez", "prenom": "Bruno", "periode": "1977–1978", "discipline": "Biologia", "dept": "Biologia", "source": "PVS & familia, Copains d'avant, Rapport Sénat"}, {"gen": 5, "nom": "Varon", "prenom": "Jean-Louis", "periode": "1977-1978", "discipline": "À confirmer", "dept": "Electricidad", "source": "PVS & familia"}, {"gen": 5, "nom": "Vogt-Schilb", "prenom": "Philippe", "periode": "1977–1979", "discipline": "Géométrie, Électrotechnique", "dept": "Básico, Electricidad", "source": "PVS & familia"}, {"gen": 6, "nom": "Bonnet", "prenom": "Marc", "periode": "1978–1979", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": 6, "nom": "Monnier", "prenom": "Éric", "periode": "1978-1979", "discipline": "À confirmer", "dept": "Quimica", "source": "PVS & familia, Source indépendante"}, {"gen": 6, "nom": "??", "prenom": "Antoine", "periode": "1978-1979", "discipline": "À confirmer", "dept": "Electricidad", "source": "PVS & familia"}, {"gen": 7, "nom": "Bargel", "prenom": "Thierry", "periode": "1979-1980", "discipline": "Microbiologia", "dept": "Biologia", "source": "PhB"}, {"gen": 7, "nom": "Bonneau", "prenom": "Alain", "periode": "1979-1981", "discipline": "Optica - Mecanica - Termodinamica", "dept": "Quimica", "source": "Linkedin"}, {"gen": 7, "nom": "Soiron", "prenom": "Gilles", "periode": "1979-1980", "discipline": "À confirmer", "dept": "Biologia", "source": "PhB"}, {"gen": 7, "nom": "Trichereau", "prenom": "Eric", "periode": "1979 - 1980", "discipline": "Mecanica de los fluidos", "dept": "Biologia", "source": "PVS & familia, PhB"}, {"gen": "?", "nom": "??", "prenom": "Yves \"El Chiquito\"", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": "?", "nom": "??", "prenom": "Marc", "periode": "À confirmer", "discipline": "À confirmer", "dept": "Quimica ?", "source": "PVS & familia"}, {"gen": "?", "nom": "Bernard", "prenom": "Jean-Pierre", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": "?", "nom": "Borderie", "prenom": "Pierre", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA"}, {"gen": "?", "nom": "Cohades", "prenom": "Bruno", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "JMA"}, {"gen": "?", "nom": "Landry", "prenom": "Christian", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": "?", "nom": "Lavarte", "prenom": "?", "periode": "À confirmer", "discipline": "À confirmer", "dept": "Quimica", "source": "PVS & familia"}, {"gen": "?", "nom": "Maillet", "prenom": "Didier", "periode": "À confirmer", "discipline": "À confirmer", "dept": "À confirmer", "source": "PVS & familia"}, {"gen": "?", "nom": "Mercier", "prenom": "Pierre", "periode": "À confirmer", "discipline": "Química", "dept": "À confirmer", "source": "PVS & familia, Gaceta Oficial 29.985 (18/12/1972)"}];
+const REPORT_EMAIL = "vogtphil@yahoo.fr";
 
 const genLabels = {
   0: "Génération 0 — Premier arrivant (1972)",
@@ -486,6 +392,8 @@ function renderStats(){
   `;
 }
 
+
+
 function populatePersonSelect(){
   const sel = document.getElementById('personne');
   sel.innerHTML = '<option value="">— Sélectionner —</option>';
@@ -511,8 +419,6 @@ function buildMessage(){
   return `Signalement — liste des coopérants IUT Cumaná\n\nPersonne concernée : ${personne}\nType : ${type}\n\nDétail :\n${detail}\n\n${contact ? "De la part de : " + contact + "\n" : ""}${email ? "Contact : " + email + "\n" : ""}`;
 }
 
-const REPORT_EMAIL = "vogtphil@yahoo.fr";
-
 document.getElementById('sendBtn').addEventListener('click', () => {
   const subject = encodeURIComponent("Correction / complément — liste coopérants IUT Cumaná");
   const body = encodeURIComponent(buildMessage());
@@ -537,5 +443,6 @@ renderStats();
 render();
 populatePersonSelect();
 </script>
+</div>
 </body>
 </html>
