@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Coopérants français — IUT de Cumaná (1973-1980)</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <style>
-  \:root{
+  :root{
     --paper:#ece4d3;
     --paper-deep:#e2d8c2;
     --ink:#242821;
@@ -16,16 +17,10 @@
     --pine-dark:#1e332a;
     --rust:#a4552c;
     --gold:#b6863c;
-    --alive:#3c6b4a;
-    --alive-bg:#dfeade;
-    --dead:#7c6a5a;
-    --dead-bg:#e7e0d2;
-    --unknown:#9c7a3d;
-    --unknown-bg:#f1e6cc;
   }
-  *{box-sizing\:border-box;}
+  *{box-sizing:border-box;}
   body{
-    margin:0; background\:var(--paper); color\:var(--ink);
+    margin:0; background:var(--paper); color:var(--ink);
     font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height:1.55;
   }
@@ -35,78 +30,55 @@
     background: linear-gradient(180deg, var(--pine) 0%, var(--pine-dark) 100%);
     color:#f2ede1; padding:54px 24px 40px;
   }
-  .hero-inner{max-width:980px; margin:0 auto; display\:grid; grid-template-columns: 1.3fr 1fr; gap:36px; align-items\:center;}
+  .hero-inner{max-width:980px; margin:0 auto; display:grid; grid-template-columns: 1.3fr 1fr; gap:36px; align-items:center;}
   @media (max-width:780px){ .hero-inner{grid-template-columns:1fr;} }
   .eyebrow{font-size:.82rem; letter-spacing:.03em; color:#c9d8c9; margin:0 0 10px;}
   h1{font-size:2.15rem; margin:0 0 14px; font-weight:600; line-height:1.2;}
   .hero p{color:#d9dfd3; max-width:52ch; font-size:1rem;}
-  .hero-illus{display\:flex; justify-content\:center;}
+  .hero-illus{display:flex; justify-content:center;}
   .map-frame{
     width:100%; max-width:360px; border:3px solid #cfe0cf; border-radius:8px; overflow:hidden;
     box-shadow:0 6px 18px rgba(0,0,0,.25); background:#1c2e26;
   }
-  .map-frame #map { width: 100%; height: 260px; border: 0; display: block; }
+  #map{width:100%; height:260px; border:0; display:block;}
   .map-caption{
     padding:8px 12px; font-family:"Iowan Old Style",Georgia,serif; font-size:.82rem;
-    color:#e7e2cf; background:#1c2e26; text-align\:center; letter-spacing:.02em;
+    color:#e7e2cf; background:#1c2e26; text-align:center; letter-spacing:.02em;
   }
 
   main{max-width:980px; margin:0 auto; padding:36px 24px 80px;}
 
   .intro-note{
     background:#fffdf6; border:1px solid var(--line); border-left:4px solid var(--rust);
-    padding:16px 20px; border-radius:3px; font-size:.93rem; color\:var(--ink); margin-bottom:34px;
+    padding:16px 20px; border-radius:3px; font-size:.93rem; color:var(--ink); margin-bottom:34px;
   }
-  .intro-note strong{color\:var(--rust);}
+  .intro-note strong{color:var(--rust);}
 
-  .stats{display\:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
+  .stats{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
   .stat{
     flex:1; min-width:130px; background:#fffdf6; border:1px solid var(--line); border-radius:4px;
     padding:14px 16px;
   }
   .stat .n{font-size:1.5rem; font-weight:700; font-family: "Iowan Old Style", Georgia, serif;}
-  .stat .l{font-size:.78rem; color\:var(--muted);}
-  .stat.alive .n{color\:var(--alive);}
-  .stat.dead .n{color:var(--dead);}
-  .stat.unknown .n{color\:var(--unknown);}
-
-  .legend{display\:flex; gap:16px; flex-wrap\:wrap; margin-bottom:8px; font-size:.82rem; color:var(--muted);}
-  .legend span{display:inline-flex; align-items\:center; gap:6px;}
-  .dot{width:9px; height:9px; border-radius:50%; display\:inline-block;}
-  .dot.alive{background\:var(--alive);}
-  .dot.dead{background\:var(--dead);}
-  .dot.unknown{background\:var(--unknown);}
-
-  .filters{display\:flex; gap:8px; flex-wrap\:wrap; margin:18px 0 26px;}
-  .filters button{
-    border:1px solid var(--line); background:#fffdf6; color\:var(--ink); padding:6px 13px;
-    border-radius:20px; font-size:.82rem; cursor\:pointer;
-  }
-  .filters button.active{background\:var(--pine); color:#fff; border-color\:var(--pine);}
+  .stat .l{font-size:.78rem; color:var(--muted);}
 
   section.gen{margin-bottom:30px;}
   .gen-title{
     font-family:"Iowan Old Style", Georgia, serif; font-size:1.15rem; font-weight:600;
-    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:4px; color\:var(--pine-dark);
+    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:4px; color:var(--pine-dark);
   }
   .gen-sub{font-size:.8rem; color:var(--muted); margin-bottom:14px;}
 
   .card{
-    display:grid; grid-template-columns: 170px 1fr 130px; gap:14px; align-items\:start;
+    display:grid; grid-template-columns: 170px 1fr 130px; gap:14px; align-items:start;
     padding:13px 4px; border-bottom:1px solid var(--line);
   }
   @media (max-width:700px){ .card{grid-template-columns:1fr; gap:4px;} }
   .card .name{font-weight:600;}
-  .card .name .prenom{font-weight:400; color\:var(--muted);}
-  .card .meta{font-size:.86rem; color\:var(--muted);}
-  .card .period{font-size:.86rem; color\:var(--ink);}
-  .badge{
-    display:inline-block; font-size:.74rem; padding:2px 9px; border-radius:20px; white-space:nowrap;
-  }
-  .badge.alive{background\:var(--alive-bg); color\:var(--alive);}
-  .badge.dead{background\:var(--dead-bg); color\:var(--dead);}
-  .badge.unknown{background\:var(--unknown-bg); color:var(--unknown);}
-  .source-tag{font-size:.72rem; color\:var(--muted); margin-top:3px;}
+  .card .name .prenom{font-weight:400; color:var(--muted);}
+  .card .meta{font-size:.86rem; color:var(--muted);}
+  .card .period{font-size:.86rem; color:var(--ink);}
+  .source-tag{font-size:.72rem; color:var(--muted); margin-top:3px;}
 
   .report-section{
     margin-top:56px; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
@@ -114,59 +86,54 @@
   }
   .report-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
   .report-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:60ch;}
-  form#reportForm{display\:grid; gap:14px; max-width:640px;}
-  .field label{display\:block; font-size:.8rem; color\:var(--muted); margin-bottom:4px;}
+  form#reportForm{display:grid; gap:14px; max-width:640px;}
+  .field label{display:block; font-size:.8rem; color:var(--muted); margin-bottom:4px;}
   .field select, .field input, .field textarea{
     width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
-    font-family\:inherit; font-size:.94rem; background:#fff; color\:var(--ink);
+    font-family:inherit; font-size:.94rem; background:#fff; color:var(--ink);
   }
-  .field textarea{min-height:100px; resize\:vertical;}
-  .row2{display\:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .field textarea{min-height:100px; resize:vertical;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   @media (max-width:600px){ .row2{grid-template-columns:1fr;} }
-  .actions{display\:flex; gap:10px; flex-wrap:wrap; align-items\:center; margin-top:4px;}
-  button.primary{
-    background:var(--pine); color:#fff; border\:none; padding:10px 20px; border-radius:4px;
-    font-size:.95rem; cursor:pointer;
+  .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+  button.primary, #gateScreen .primary, #requestBlock .primary{
+    background:var(--pine); color:#fff; border:1px solid var(--pine);
+    padding:10px 20px; border-radius:4px; font-size:.95rem; cursor:pointer;
   }
-  button.primary\:hover{background\:var(--pine-dark);}
+  button.primary:hover{background:var(--pine-dark);}
   button.secondary{
-    background:#fff; color\:var(--ink); border:1px solid var(--line); padding:10px 18px; border-radius:4px;
+    background:#fff; color:var(--ink); border:1px solid var(--line); padding:10px 18px; border-radius:4px;
     font-size:.9rem; cursor:pointer;
   }
-  .copied-msg{font-size:.85rem; color:var(--alive); display\:none;}
+  .copied-msg{font-size:.85rem; color:#2f7a45; display:none;}
 
-  footer{max-width:980px; margin:0 auto; padding:0 24px 50px; color\:var(--muted); font-size:.8rem;}
-  .mentions{border-top:1px solid var(--line); padding-top:16px; max-width:70ch;}
-  .mentions strong{color\:var(--ink); font-size:.85rem;}
+  .mentions{max-width:70ch; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
+    padding:16px 20px; margin-bottom:34px; font-size:.8rem; color:var(--ink);}
+  .mentions strong{font-size:.85rem;}
 
   /* Access gate */
   #gateScreen{
-    max-width:520px; margin:60px auto; padding:30px 28px; background:#fffdf6;
+    max-width:520px; margin:0 auto 60px; padding:30px 28px; background:#fffdf6;
     border:1px solid var(--line); border-radius:8px;
   }
-  #gateScreen h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.2rem; margin:0 0 10px;}
-  #gateScreen p{font-size:.9rem; color\:var(--muted); margin-bottom:18px;}
+  #gateScreen h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.2rem; margin:0 0 10px; color:var(--pine-dark);}
+  #gateScreen p{font-size:.9rem; color:var(--muted); margin-bottom:18px;}
   #gateScreen input{
     width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
-    font-family\:inherit; font-size:.95rem; margin-bottom:10px;
+    font-family:inherit; font-size:.95rem; margin-bottom:10px; background:#fff; color:var(--ink);
   }
-  #gateScreen .gate-actions{display\:flex; gap:10px; flex-wrap\:wrap;}
-  #gateScreen .toggle-link{
-    background\:none; border\:none; color:var(--pine); text-decoration\:underline; cursor\:pointer;
+  .gate-actions{display:flex; gap:10px; flex-wrap:wrap;}
+  .toggle-link{
+    background:none; border:none; color:var(--pine); text-decoration:underline; cursor:pointer;
     font-size:.85rem; padding:0; margin-top:14px;
   }
-  #gateError{color\:var(--rust); font-size:.85rem; margin-top:6px; min-height:1.2em;}
-  #requestBlock{display\:none; margin-top:18px; border-top:1px solid var(--line); padding-top:16px;}
-  #siteContent{display\:none;}
-
-  /* Leaflet Map Styles */
-  .leaflet-container { background: #1c2e26; }
-  .leaflet-control-attribution { background: rgba(255, 255, 255, 0.7); color: #333; }
-  .leaflet-popup-content-wrapper { border-radius: 4px; }
-  .leaflet-popup-content { font-family: inherit; font-size: .9rem; color: #333; }
+  #gateError{color:var(--rust); font-size:.85rem; margin-top:6px; min-height:1.2em;}
+  #requestBlock{display:none; margin-top:18px; border-top:1px solid var(--line); padding-top:16px;}
+  #requestBlock .field{margin-top:10px;}
+  /* Contenu protégé : caché par défaut */
+  #siteContent{display:none;}
+  .leaflet-container{background:#1c2e26;}
 </style>
-<!-- Leaflet CSS -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -201,102 +168,6 @@
     page permet de signaler une correction ou un complément.
   </div>
 
-<div id="gateScreen">
-  <h2 class="serif">Accès sur demande</h2>
-  <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1980. Pour
-  respecter leur vie privée, l'accès est réservé aux personnes concernées, à leurs proches, et aux
-  personnes impliquées dans ce travail de mémoire. Si vous avez reçu un code d'accès, saisissez-le
-  ci-dessous ; sinon, vous pouvez en faire la demande.</p>
-  <input type="password" id="gateCode" placeholder="Code d'accès">
-  <div class="gate-actions">
-    <button type="button" class="primary" id="gateSubmit">Accéder</button>
-    <button type="button" class="toggle-link" id="showRequestBtn">Je n'ai pas de code — demander l'accès</button>
-  </div>
-  <div id="gateError"></div>
-
-  <div id="requestBlock">
-    <div class="field">
-      <label for="reqName">Votre nom</label>
-      <input id="reqName" placeholder="Nom et prénom">
-    </div>
-    <div class="field" style="margin-top:10px;">
-      <label for="reqRelation">Votre lien avec le projet</label>
-      <input id="reqRelation" placeholder="Ex. : ancien coopérant, famille de..., témoin...">
-    </div>
-    <div class="field" style="margin-top:10px;">
-      <label for="reqEmail">Votre e-mail</label>
-      <input id="reqEmail" type="email" placeholder="vous@exemple.fr">
-    </div>
-    <button type="button" class="primary" id="sendRequestBtn" style="margin-top:6px;">Envoyer la demande par e-mail</button>
-    <p style="font-size:.82rem; color\:var(--muted); margin-top:8px;">
-      Si rien ne s'ouvre après ce clic, écrivez-nous simplement à
-      <strong>vogtphil@yahoo.fr</strong> en indiquant votre nom et votre lien avec le projet.
-    </p>
-  </div>
-</div>
-
-<div id="siteContent">
-  <div class="stats" id="stats"></div>
-
-  <div id="listing"></div>
-
-  <div class="intro-note" style="border-left-color: var(--gold);">
-    <strong>Note complémentaire :</strong> un coopérant plus tardif, Patrice Gry (VSNA, 1981-1982),
-    a également été identifié. Il se situe après la période couverte par ce recensement (1973-1980)
-    et n'est donc pas inclus dans la liste ci-dessus, mais mérite d'être mentionné si le projet
-    s'élargit un jour à ces années suivantes.
-  </div>
-
-  <section class="report-section">
-    <h2 class="serif">Signaler une correction ou un complément</h2>
-    <p class="lead">Un nom qui vous revient, une date à corriger, un souvenir à ajouter — tout est
-    utile. Le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou
-    copier pour le transmettre autrement.</p>
-    <form id="reportForm">
-      <div class="row2">
-        <div class="field">
-          <label for="personne">Personne concernée</label>
-          <select id="personne"></select>
-        </div>
-        <div class="field">
-          <label for="type">Type de signalement</label>
-          <select id="type">
-            <option>Correction d'une information existante</option>
-            <option>Complément d'information</option>
-            <option>Nouveau nom à ajouter</option>
-            <option>Confirmation vivant / décédé</option>
-            <option>Autre</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="detail">Détail</label>
-        <textarea id="detail" placeholder="Ex. : Il s'appelait en réalité..., la discipline exacte était..., je confirme qu'il est décédé en [année] à [lieu]..."></textarea>
-      </div>
-      <div class="row2">
-        <div class="field">
-          <label for="contact">Votre nom (optionnel)</label>
-          <input id="contact" placeholder="Pour qu'on sache d'où vient l'info">
-        </div>
-        <div class="field">
-          <label for="email">Votre e-mail (optionnel, pour vous recontacter)</label>
-          <input id="email" type="email" placeholder="vous@exemple.fr">
-        </div>
-      </div>
-      <div class="actions">
-        <button type="button" class="primary" id="sendBtn">Envoyer par e-mail</button>
-        <button type="button" class="secondary" id="copyBtn">Copier le message</button>
-        <span class="copied-msg" id="copiedMsg">Message copié ✓</span>
-      </div>
-      <p style="font-size:.82rem; color\:var(--muted); margin-top:4px;">
-        Si le bouton "Envoyer par e-mail" n'ouvre rien chez vous, utilisez "Copier le message"
-        et collez-le dans un e-mail à <strong>vogtphil@yahoo.fr</strong>.
-      </p>
-    </form>
-  </section>
-</main>
-
-<footer>
   <div class="mentions">
     <strong>Mentions</strong><br>
     Page compilée à titre personnel et non commercial, à partir de témoignages directs d'anciens
@@ -310,42 +181,129 @@
     de sa fiche via le formulaire ci-dessus ou l'adresse de contact du porteur du projet.
     Dernière mise à jour : septembre 2026.
   </div>
-</footer>
 
-<!-- Leaflet JS -->
+  <div id="gateScreen">
+    <h2 class="serif">Accès sur demande</h2>
+    <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1980. Pour
+    respecter leur vie privée, l'accès à la liste est réservé aux personnes concernées, à leurs
+    proches, et aux personnes impliquées dans ce travail de mémoire. Si vous avez reçu un code
+    d'accès, saisissez-le ci-dessous ; sinon, vous pouvez en faire la demande.</p>
+    <input type="password" id="gateCode" placeholder="Code d'accès">
+    <div class="gate-actions">
+      <button type="button" class="primary" id="gateSubmit">Accéder</button>
+      <button type="button" class="toggle-link" id="showRequestBtn">Je n'ai pas de code — demander l'accès</button>
+    </div>
+    <div id="gateError"></div>
+
+    <div id="requestBlock">
+      <div class="field">
+        <label for="reqName">Votre nom</label>
+        <input id="reqName" placeholder="Nom et prénom">
+      </div>
+      <div class="field">
+        <label for="reqRelation">Votre lien avec le projet</label>
+        <input id="reqRelation" placeholder="Ex. : ancien coopérant, famille de..., témoin...">
+      </div>
+      <div class="field">
+        <label for="reqEmail">Votre e-mail</label>
+        <input id="reqEmail" type="email" placeholder="vous@exemple.fr">
+      </div>
+      <button type="button" class="primary" id="sendRequestBtn" style="margin-top:6px;">Envoyer la demande par e-mail</button>
+      <p style="font-size:.82rem; color:var(--muted); margin-top:8px;">
+        Si rien ne s'ouvre après ce clic, écrivez-nous simplement à
+        <strong>vogtphil@yahoo.fr</strong> en indiquant votre nom et votre lien avec le projet.
+      </p>
+    </div>
+  </div>
+
+  <div id="siteContent">
+    <div class="stats" id="stats"></div>
+
+    <div id="listing"></div>
+
+    <div class="intro-note" style="border-left-color: var(--gold);">
+      <strong>Note complémentaire :</strong> un coopérant plus tardif, Patrice Gry (VSNA, 1981-1982),
+      a également été identifié. Il se situe après la période couverte par ce recensement (1973-1980)
+      et n'est donc pas inclus dans la liste ci-dessus, mais mérite d'être mentionné si le projet
+      s'élargit un jour à ces années suivantes.
+    </div>
+
+    <section class="report-section">
+      <h2 class="serif">Signaler une correction ou un complément</h2>
+      <p class="lead">Un nom qui vous revient, une date à corriger, un souvenir à ajouter — tout est
+      utile. Le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou
+      copier pour le transmettre autrement.</p>
+      <form id="reportForm">
+        <div class="row2">
+          <div class="field">
+            <label for="personne">Personne concernée</label>
+            <select id="personne"></select>
+          </div>
+          <div class="field">
+            <label for="type">Type de signalement</label>
+            <select id="type">
+              <option>Correction d'une information existante</option>
+              <option>Complément d'information</option>
+              <option>Nouveau nom à ajouter</option>
+              <option>Confirmation vivant / décédé</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="detail">Détail</label>
+          <textarea id="detail" placeholder="Ex. : Il s'appelait en réalité..., la discipline exacte était..., je confirme qu'il est décédé en [année] à [lieu]..."></textarea>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="contact">Votre nom (optionnel)</label>
+            <input id="contact" placeholder="Pour qu'on sache d'où vient l'info">
+          </div>
+          <div class="field">
+            <label for="email">Votre e-mail (optionnel, pour vous recontacter)</label>
+            <input id="email" type="email" placeholder="vous@exemple.fr">
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" class="primary" id="sendBtn">Envoyer par e-mail</button>
+          <button type="button" class="secondary" id="copyBtn">Copier le message</button>
+          <span class="copied-msg" id="copiedMsg">Message copié ✓</span>
+        </div>
+        <p style="font-size:.82rem; color:var(--muted); margin-top:4px;">
+          Si le bouton "Envoyer par e-mail" n'ouvre rien chez vous, utilisez "Copier le message"
+          et collez-le dans un e-mail à <strong>vogtphil@yahoo.fr</strong>.
+        </p>
+      </form>
+    </section>
+  </div>
+</main>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
 const ACCESS_CODE = "cumana1973";
-const REPORT_EMAIL_GATE = "vogtphil@yahoo.fr";
+const REPORT_EMAIL = "vogtphil@yahoo.fr";
 
-// Initialize the map after the gate is opened
-function initMap() {
-  if (document.getElementById('map')) {
-    const map = L.map('map').setView([10.4606, -64.1786], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      maxZoom: 18,
-    }).addTo(map);
-
-    L.marker([10.4606, -64.1786])
-      .addTo(map)
-      .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
-
-    L.marker([10.5, -66.8667])
-      .addTo(map)
-      .bindPopup("<b>Caracas</b><br>Capitale du Venezuela, siège de l'IUT initial");
-  }
+// --- Carte Leaflet : initialisée immédiatement au chargement ---
+function initMap(){
+  const map = L.map('map').setView([10.4606, -64.1786], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+  }).addTo(map);
+  L.marker([10.4606, -64.1786]).addTo(map)
+    .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
 }
+initMap();
 
+// --- Portail d'accès ---
 document.getElementById('gateSubmit').addEventListener('click', () => {
   const val = document.getElementById('gateCode').value.trim().toLowerCase();
   if (val && val === ACCESS_CODE.toLowerCase()) {
     document.getElementById('gateScreen').style.display = 'none';
     document.getElementById('siteContent').style.display = 'block';
   } else {
-    document.getElementById('gateError').textContent = "Code incorrect. Vérifiez auprès de la personne qui vous l'a transmis, ou demandez l'accès ci-dessous.";
+    document.getElementById('gateError').textContent =
+      "Code incorrect. Vérifiez auprès de la personne qui vous l'a transmis, ou demandez l'accès ci-dessous.";
   }
 });
 document.getElementById('gateCode').addEventListener('keydown', (e) => {
@@ -361,9 +319,10 @@ document.getElementById('sendRequestBtn').addEventListener('click', () => {
   const email = document.getElementById('reqEmail').value || '(non précisé)';
   const subject = encodeURIComponent("Demande d'accès — liste coopérants IUT Cumaná");
   const body = encodeURIComponent(`Demande d'accès à la page des coopérants IUT Cumaná\n\nNom : ${name}\nLien avec le projet : ${relation}\nE-mail : ${email}`);
-  window.location.href = `mailto:${REPORT_EMAIL_GATE}?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
 });
 
+// --- Données (synchronisées avec Coopérants_IUT_Cumana.xlsx) ---
 const ROWS = [
   {"gen": 0, "nom": "Bérard", "prenom": "Alain", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA"},
   {"gen": 1, "nom": "??", "prenom": "Gabriel", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
@@ -509,8 +468,6 @@ function buildMessage(){
   return `Signalement — liste des coopérants IUT Cumaná\n\nPersonne concernée : ${personne}\nType : ${type}\n\nDétail :\n${detail}\n\n${contact ? "De la part de : " + contact + "\n" : ""}${email ? "Contact : " + email + "\n" : ""}`;
 }
 
-const REPORT_EMAIL = "vogtphil@yahoo.fr";
-
 document.getElementById('sendBtn').addEventListener('click', () => {
   const subject = encodeURIComponent("Correction / complément — liste coopérants IUT Cumaná");
   const body = encodeURIComponent(buildMessage());
@@ -534,7 +491,6 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
 renderStats();
 render();
 populatePersonSelect();
-initMap();
 </script>
 </body>
 </html>
