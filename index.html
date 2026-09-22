@@ -407,7 +407,7 @@ function render(){
   listing.innerHTML = "";
   const groups = {};
   ROWS.forEach(r => {
-    const key = r.gen || "none";
+    const key = (r.gen === 0 || r.gen) ? r.gen : "none";
     (groups[key] = groups[key] || []).push(r);
   });
   const order = [0,1,2,3,4,5,6,7,9,"?","none"];
@@ -434,7 +434,7 @@ function render(){
 }
 
 function renderStats(){
-  const nbGen = new Set(ROWS.map(r => r.gen).filter(g => g)).size;
+  const nbGen = new Set(ROWS.map(r => r.gen).filter(g => g === 0 || g)).size;
   const complets = ROWS.filter(r => r.nom && !r.nom.includes('??') && r.discipline && r.discipline !== 'À confirmer').length;
   document.getElementById('stats').innerHTML = `
     <div class="stat"><div class="n">${ROWS.length}</div><div class="l">personnes recensées</div></div>
