@@ -344,8 +344,6 @@ document.getElementById('gateSubmit').addEventListener('click', () => {
   if (val && val === ACCESS_CODE.toLowerCase()) {
     document.getElementById('gateScreen').style.display = 'none';
     document.getElementById('siteContent').style.display = 'block';
-    // Initialize map after site content is displayed
-    setTimeout(initMap, 200);
   } else {
     document.getElementById('gateError').textContent = "Code incorrect. Vérifiez auprès de la personne qui vous l'a transmis, ou demandez l'accès ci-dessous.";
   }
