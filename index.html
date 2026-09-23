@@ -285,12 +285,12 @@ const REPORT_EMAIL = "vogtphil@yahoo.fr";
 
 // --- Carte Leaflet : initialisée immédiatement au chargement ---
 function initMap(){
-  const map = L.map('map').setView([10.438, -64.18], 13);
+  const map = L.map('map').setView([10.43823, -64.1406], 13);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 18,
   }).addTo(map);
-  L.marker([10.438, -64.18]).addTo(map)
+  L.marker([10.43823, -64.1406]).addTo(map)
     .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
 }
 initMap();
