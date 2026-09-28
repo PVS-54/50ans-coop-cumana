@@ -279,9 +279,13 @@
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
 const ACCESS_CODE = "cumana1973";
 const REPORT_EMAIL = "vogtphil@yahoo.fr";
+  
+const forminit = new Forminit();
+const FORMINIT_FORM_ID = "x5pnzhogj2t";
 
 // --- Carte Leaflet : initialisée immédiatement au chargement ---
 function initMap(){
@@ -473,10 +477,55 @@ function buildMessage(){
   return `Signalement — liste des coopérants IUT Cumaná\n\nPersonne concernée : ${personne}\nType : ${type}\n\nDétail :\n${detail}\n\n${contact ? "De la part de : " + contact + "\n" : ""}${email ? "Contact : " + email + "\n" : ""}`;
 }
 
-document.getElementById('sendBtn').addEventListener('click', () => {
-  const subject = encodeURIComponent("Correction / complément — liste coopérants IUT Cumaná");
-  const body = encodeURIComponent(buildMessage());
-  window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+document.getElementById('sendBtn').addEventListener('click', async () => {
+  const button = document.getElementById('sendBtn');
+  const originalText = button.textContent;
+
+  button.disabled = true;
+  button.textContent = "Envoi en cours…";
+
+  const formData = new FormData();
+
+  formData.append(
+    "fi-select-personne",
+    document.getElementById('personne').value || "(non précisé)"
+  );
+
+  formData.append(
+    "fi-select-type",
+    document.getElementById('type').value
+  );
+
+  formData.append(
+    "fi-text-detail",
+    document.getElementById('detail').value || "(aucun détail saisi)"
+  );
+
+  formData.append(
+    "fi-sender-fullName",
+    document.getElementById('contact').value || ""
+  );
+
+  formData.append(
+    "fi-sender-email",
+    document.getElementById('email').value || ""
+  );
+
+  const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
+
+  button.disabled = false;
+  button.textContent = originalText;
+
+  if (error) {
+    alert("L'envoi n'a pas pu être effectué.\n\n" + error.message);
+    return;
+  }
+
+  alert("Votre contribution a bien été envoyée. Merci.");
+
+  document.getElementById('detail').value = "";
+  document.getElementById('contact').value = "";
+  document.getElementById('email').value = "";
 });
 
 document.getElementById('copyBtn').addEventListener('click', async () => {
