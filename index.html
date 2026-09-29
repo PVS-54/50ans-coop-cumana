@@ -86,6 +86,19 @@
   }
   .report-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
   .report-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:60ch;}
+  .shared-contact{margin:0 0 20px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-radius:4px;}
+  .shared-contact-title{font-size:.88rem; font-weight:600; margin:0 0 10px; color:var(--ink);}
+  .shared-contact-note{font-size:.8rem; color:var(--muted); margin:0 0 12px;}
+  .testimony-section{
+    margin-top:34px; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
+    padding:26px 26px 30px;
+  }
+  .testimony-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
+  .testimony-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:60ch;}
+  form#testimonyForm{display:grid; gap:14px; max-width:640px;}
+  .testimony-status{font-size:.85rem; color:var(--muted); margin:4px 0 0; min-height:1.2em;}
+  .testimony-status.success{color:#2f7a45;}
+  .testimony-status.error{color:var(--rust);}
   form#reportForm{display:grid; gap:14px; max-width:640px;}
   .field label{display:block; font-size:.8rem; color:var(--muted); margin-bottom:4px;}
   .field select, .field input, .field textarea{
@@ -228,11 +241,27 @@
       s'élargit un jour à ces années suivantes.
     </div>
 
+    <section class="shared-contact">
+      <h2 class="serif">Vos coordonnées</h2>
+      <p class="shared-contact-note">Votre nom et votre e-mail sont facultatifs. Ces informations sont communes aux différents formulaires de contribution ci-dessous.</p>
+      <div class="row2">
+        <div class="field">
+          <label for="contact">Votre nom (optionnel)</label>
+          <input id="contact" placeholder="Pour qu'on sache d'où vient l'information">
+        </div>
+        <div class="field">
+          <label for="email">Votre e-mail (optionnel, pour vous recontacter)</label>
+          <input id="email" type="email" placeholder="vous@exemple.fr">
+        </div>
+      </div>
+    </section>
+
     <section class="report-section">
       <h2 class="serif">Signaler une correction ou un complément</h2>
       <p class="lead">Un nom qui vous revient, une date à corriger, un souvenir à ajouter — tout est
       utile. Le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou
       copier pour le transmettre autrement.</p>
+
       <form id="reportForm">
         <div class="row2">
           <div class="field">
@@ -254,16 +283,6 @@
           <label for="detail">Détail</label>
           <textarea id="detail" placeholder="Ex. : Il s'appelait en réalité..., la discipline exacte était..., je confirme qu'il est décédé en [année] à [lieu]..."></textarea>
         </div>
-        <div class="row2">
-          <div class="field">
-            <label for="contact">Votre nom (optionnel)</label>
-            <input id="contact" placeholder="Pour qu'on sache d'où vient l'info">
-          </div>
-          <div class="field">
-            <label for="email">Votre e-mail (optionnel, pour vous recontacter)</label>
-            <input id="email" type="email" placeholder="vous@exemple.fr">
-          </div>
-        </div>
         <div class="actions">
           <button type="button" class="primary" id="sendBtn">Envoyer par e-mail</button>
           <button type="button" class="secondary" id="copyBtn">Copier le message</button>
@@ -273,6 +292,29 @@
           Si le bouton "Envoyer par e-mail" n'ouvre rien chez vous, utilisez "Copier le message"
           et collez-le dans un e-mail à <strong>vogtphil@yahoo.fr</strong>.
         </p>
+      </form>
+    </section>
+
+    <section class="testimony-section">
+      <h2 class="serif">Souvenirs et témoignages</h2>
+      <p class="lead">
+        Vous pouvez partager ici un souvenir, une anecdote ou un témoignage lié à votre passage à l'IUT de Cumaná.
+        Les contributions sont relues avant toute éventuelle publication sur le site.
+        Les nom et e-mail renseignés dans le bloc commun ci-dessus sont également transmis avec votre témoignage.
+      </p>
+      <form id="testimonyForm">
+        <div class="field">
+          <label for="testimonyPerson">Personne(s) concernée(s), si applicable</label>
+          <input id="testimonyPerson" placeholder="Ex. : Philippe Vogt-Schilb, Jean-Pierre Navarro...">
+        </div>
+        <div class="field">
+          <label for="testimonyDetail">Votre souvenir ou témoignage</label>
+          <textarea id="testimonyDetail" placeholder="Racontez votre souvenir, anecdote ou témoignage..." required></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="primary" id="testimonyBtn">Envoyer le témoignage</button>
+        </div>
+        <p class="testimony-status" id="testimonyStatus"></p>
       </form>
     </section>
   </div>
@@ -477,38 +519,69 @@ function buildMessage(){
   return `Signalement — liste des coopérants IUT Cumaná\n\nPersonne concernée : ${personne}\nType : ${type}\n\nDétail :\n${detail}\n\n${contact ? "De la part de : " + contact + "\n" : ""}${email ? "Contact : " + email + "\n" : ""}`;
 }
 
-document.getElementById('sendBtn').addEventListener('click', async () => {
-  const button = document.getElementById('sendBtn');
+document.getElementById('sendBtn').addEventListener('click', () => {
+  const personne = document.getElementById('personne').value || "(non précisé)";
+  const type = document.getElementById('type').value;
+  const detail = document.getElementById('detail').value || "(aucun détail saisi)";
+  const contact = document.getElementById('contact').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  const subject = encodeURIComponent("Signalement — liste des coopérants IUT Cumaná");
+  const body = encodeURIComponent(
+    `Signalement — liste des coopérants IUT Cumaná\n\n` +
+    `Personne concernée : ${personne}\n` +
+    `Type : ${type}\n\n` +
+    `Détail :\n${detail}\n\n` +
+    `${contact ? "De la part de : " + contact + "\n" : ""}` +
+    `${email ? "Contact : " + email + "\n" : ""}`
+  );
+
+  window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+});
+
+document.getElementById('testimonyForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const button = document.getElementById('testimonyBtn');
+  const status = document.getElementById('testimonyStatus');
   const originalText = button.textContent;
+
+  const person = document.getElementById('testimonyPerson').value.trim();
+  const detail = document.getElementById('testimonyDetail').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (!detail) {
+    status.className = 'testimony-status error';
+    status.textContent = "Merci de saisir votre souvenir ou témoignage.";
+    return;
+  }
 
   button.disabled = true;
   button.textContent = "Envoi en cours…";
+  status.className = 'testimony-status';
+  status.textContent = "";
 
   const formData = new FormData();
 
   formData.append(
-    "fi-select-personne",
-    document.getElementById('personne').value || "(non précisé)"
+    "fi-text-personnes_concernees",
+    person || "(non précisé)"
   );
 
   formData.append(
-    "fi-select-type",
-    document.getElementById('type').value
-  );
-
-  formData.append(
-    "fi-text-detail",
-    document.getElementById('detail').value || "(aucun détail saisi)"
+    "fi-text-souvenir_temoignage",
+    detail
   );
 
   formData.append(
     "fi-sender-fullName",
-    document.getElementById('contact').value || ""
+    contact || ""
   );
 
   formData.append(
     "fi-sender-email",
-    document.getElementById('email').value || ""
+    email || ""
   );
 
   const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
@@ -517,15 +590,15 @@ document.getElementById('sendBtn').addEventListener('click', async () => {
   button.textContent = originalText;
 
   if (error) {
-    alert("L'envoi n'a pas pu être effectué.\n\n" + error.message);
+    status.className = 'testimony-status error';
+    status.textContent = "L'envoi n'a pas pu être effectué. " + error.message;
     return;
   }
 
-  alert("Votre contribution a bien été envoyée. Merci.");
-
-  document.getElementById('detail').value = "";
-  document.getElementById('contact').value = "";
-  document.getElementById('email').value = "";
+  status.className = 'testimony-status success';
+  status.textContent = "Votre témoignage a bien été envoyé. Merci.";
+  document.getElementById('testimonyPerson').value = "";
+  document.getElementById('testimonyDetail').value = "";
 });
 
 document.getElementById('copyBtn').addEventListener('click', async () => {
