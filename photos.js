@@ -6,7 +6,7 @@ window.PHOTOS = [
   { fichier:"photos/Aves.JPG", legende:"Aves", fournisseur:"PVS" },
   { fichier:"photos/Cachapas.JPG", legende:"Cachapas", fournisseur:"PVS" },
   { fichier:"photos/Calle.JPG", legende:"Calle", fournisseur:"PVS" },
-  { fichier:"photos/Caastillo.JPG", legende:"Castillo", fournisseur:"PVS" },
+  { fichier:"photos/Castillo.JPG", legende:"Castillo", fournisseur:"PVS" },
   { fichier:"photos/Catedral.JPG", legende:"Catedral", fournisseur:"PVS" },
   { fichier:"photos/Cementerio.JPG", legende:"Cementerio", fournisseur:"PVS" },
   { fichier:"photos/El Indio.JPG", legende:"El Indio", fournisseur:"PVS" },
