@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pvs-54.github.io/50ans-coop-cumana/sitemap.xml
