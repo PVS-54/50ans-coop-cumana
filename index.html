@@ -200,6 +200,15 @@
   @media (max-width:760px){.gallery-grid{grid-template-columns:1fr;}}
 
 .photo-provider{font-size:.76rem;color:var(--muted);margin-top:3px;font-style:italic;}
+
+.photo-submit{
+  display:block;
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.photo-submit h3{margin-top:0;}
+.photo-submit small{display:block;margin-top:5px;color:var(--muted);}
 </style>
 </head>
 <body>
@@ -413,6 +422,38 @@
         <img id="photoDialogImage" alt="">
         <div class="photo-dialog-caption" id="photoDialogCaption"></div>
       </dialog>
+
+      <div class="photo-submit" id="photoSubmitBlock">
+        <h3>Proposer des photos</h3>
+        <p>Vous pouvez proposer ici une ou plusieurs photos. Elles seront examinées avant toute publication sur le site.</p>
+        <form id="photoForm" enctype="multipart/form-data">
+          <div class="field">
+            <label for="photoFiles">Photo(s)</label>
+            <input type="file" id="photoFiles" name="fi-file-photos[]" accept=".jpg,.jpeg,.png" multiple required>
+            <small>JPG, JPEG ou PNG — 25 Mo maximum par envoi.</small>
+          </div>
+          <div class="field">
+            <label for="photoCaption">Légende</label>
+            <input id="photoCaption" name="fi-text-legende" placeholder="Ex. : Visite de la promotion 1976" required>
+          </div>
+          <div class="field">
+            <label for="photoPeriod">Date ou période (facultatif)</label>
+            <input id="photoPeriod" name="fi-text-date_periode" placeholder="Ex. : 1976 ou avril 1978">
+          </div>
+          <div class="field">
+            <label for="photoPeople">Personnes identifiées (facultatif)</label>
+            <input id="photoPeople" name="fi-text-personnes_identifiees" placeholder="Noms des personnes reconnues">
+          </div>
+          <div class="field">
+            <label for="photoInfo">Informations complémentaires (facultatif)</label>
+            <textarea id="photoInfo" name="fi-text-informations_complementaires" placeholder="Lieu, circonstances, photographe, etc."></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary" id="photoSubmitBtn">Envoyer les photos</button>
+          </div>
+          <p class="testimony-status" id="photoStatus"></p>
+        </form>
+      </div>
     </section>
   </div>
 </main>
@@ -711,6 +752,7 @@ document.getElementById('testimonyForm').addEventListener('submit', async (event
   document.getElementById('testimonyDetail').value = "";
 });
 
+
 document.getElementById('copyBtn').addEventListener('click', async () => {
   const msg = buildMessage();
   try{
@@ -786,5 +828,76 @@ if(photoGallery){
 if(photoDialogClose) photoDialogClose.addEventListener('click',()=>photoDialog.close());
 if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDialog)photoDialog.close();});
 </script>
+
+<script>
+(function initPhotoSubmission(){
+  const form = document.getElementById('photoForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    const status = document.getElementById('photoStatus');
+    const button = document.getElementById('photoSubmitBtn');
+    const input = document.getElementById('photoFiles');
+    const files = input ? input.files : [];
+
+    status.className = 'testimony-status';
+    status.textContent = "Préparation de l'envoi…";
+
+    if (!files || files.length === 0) {
+      status.className = 'testimony-status error';
+      status.textContent = "Sélectionnez au moins une photo.";
+      return;
+    }
+
+    const total = Array.from(files).reduce((sum,file)=>sum+file.size,0);
+    if (total > 25 * 1024 * 1024) {
+      status.className = 'testimony-status error';
+      status.textContent = "La taille totale des photos dépasse 25 Mo.";
+      return;
+    }
+
+    if (typeof Forminit === "undefined") {
+      status.className = 'testimony-status error';
+      status.textContent = "Forminit n'est pas chargé. Vérifiez la connexion Internet puis rechargez la page.";
+      return;
+    }
+
+    button.disabled = true;
+    const original = button.textContent;
+    button.textContent = "Envoi en cours…";
+
+    try {
+      const client = new Forminit();
+      const data = new FormData(form);
+
+      data.append("fi-text-type_contribution", "Photo");
+
+      const nameField = document.getElementById('contact');
+      const emailField = document.getElementById('email');
+      data.append("fi-sender-fullName", nameField ? nameField.value.trim() : "");
+      data.append("fi-sender-email", emailField ? emailField.value.trim() : "");
+
+      const result = await client.submit("x5pnzhogj2t", data);
+
+      if (result && result.error) {
+        throw new Error(result.error.message || "Erreur Forminit");
+      }
+
+      status.className = 'testimony-status success';
+      status.textContent = "Vos photos ont bien été envoyées. Merci.";
+      form.reset();
+    } catch(err) {
+      status.className = 'testimony-status error';
+      status.textContent = "Échec de l'envoi : " + (err && err.message ? err.message : String(err));
+    } finally {
+      button.disabled = false;
+      button.textContent = original;
+    }
+  });
+})();
+</script>
+
 </body>
 </html>
