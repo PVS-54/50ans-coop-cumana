@@ -2,7 +2,7 @@
 // Fichier séparé de index.html pour faciliter la maintenance et les mises à jour.
 // Attention : ce fichier reste publiquement accessible sur GitHub Pages.
 window.COOPERANTS = [
-{"gen": 0, "nom": "Bérard", "prenom": "Alain", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA"},
+{"gen": 0, "nom": "Bérard", "prenom": "Alain ou Michel", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA, EMR"},
 {"gen": 1, "nom": "??", "prenom": "Gabriel", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
 {"gen": 1, "nom": "Boussac", "prenom": "Jean-Paul", "periode": "1973 - 1976", "discipline": "Electrónica", "dept": "Electricidad", "source": " JMA, Copains d'avant, Gaceta Oficial 29.985 (18/12/1972)"},
 {"gen": 1, "nom": "Dordor", "prenom": "Patrice", "periode": "1973-1975", "discipline": "Mathématiques", "dept": "Electricidad", "source": "JMA, Linkedin"},
