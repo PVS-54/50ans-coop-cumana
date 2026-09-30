@@ -146,6 +146,60 @@
   /* Contenu protégé : caché par défaut */
   #siteContent{display:none;}
   .leaflet-container{background:#1c2e26;}
+
+  /* Contribution hub */
+  .contribute-hub{margin-top:42px;}
+  .contribute-hub h2{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); margin:0 0 8px;}
+  .contribute-hub > p{color:var(--muted); font-size:.92rem; margin:0 0 18px; max-width:70ch;}
+  .contribute-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px;}
+  .contribute-card{
+    display:flex; flex-direction:column; min-height:150px; padding:18px;
+    border:1px solid var(--line); border-radius:6px; background:#fffdf6;
+    color:var(--ink); text-decoration:none;
+  }
+  .contribute-card:hover{border-color:var(--gold);}
+  .contribute-card strong{font-family:"Iowan Old Style",Georgia,serif; font-size:1.08rem; color:var(--pine-dark); margin-bottom:8px;}
+  .contribute-card span{font-size:.86rem; color:var(--muted); line-height:1.45;}
+  .contribute-card em{font-style:normal; font-size:.84rem; color:var(--pine); margin-top:auto; padding-top:14px; font-weight:600;}
+  @media (max-width:760px){.contribute-grid{grid-template-columns:1fr;}}
+
+  .section-anchor{scroll-margin-top:20px;}
+  .published-testimonies{margin-top:34px;}
+  .published-testimonies > h2{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); margin-bottom:6px;}
+  .published-testimonies > p{color:var(--muted); font-size:.9rem; margin:0 0 16px;}
+  .testimony-card{border:1px solid var(--line); border-radius:6px; background:#fff; padding:20px 22px; margin-bottom:16px;}
+  .testimony-card h3{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); font-size:1.18rem; margin:0 0 4px;}
+  .testimony-meta{font-size:.8rem; color:var(--muted); margin-bottom:12px;}
+  .testimony-preview{font-size:.94rem; line-height:1.6; margin:0 0 10px;}
+  .testimony-card details summary{cursor:pointer; color:var(--pine); font-weight:600; font-size:.9rem; margin:6px 0 14px;}
+  .testimony-full{font-size:.94rem; line-height:1.65; max-width:74ch;}
+  .testimony-full h4{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); font-size:1.02rem; margin:22px 0 7px;}
+  .testimony-full ul{padding-left:22px;}
+  .testimony-signature{margin-top:20px; font-style:italic; color:var(--muted);}
+
+  .photos-section{margin-top:34px; background:#fffdf6; border:1px solid var(--line); border-radius:6px; padding:26px;}
+  .photos-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
+  .photos-section p{color:var(--muted); font-size:.92rem; max-width:66ch;}
+  .photo-placeholder{margin-top:16px; padding:20px; border:1px dashed var(--line); border-radius:5px; background:#fff; text-align:center; color:var(--muted); font-size:.88rem;}
+
+
+  .contribution-panel[hidden]{display:none !important;}
+  .contribute-card{cursor:pointer; text-align:left; font:inherit;}
+  .contribute-card.active{border-color:var(--gold); background:#fffaf0;}
+  .contribute-card.active em{font-weight:700;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:18px;}
+  .gallery-item{margin:0; min-width:0;}
+  .gallery-button{display:block; width:100%; padding:0; border:0; background:transparent; cursor:pointer;}
+  .gallery-button img{display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:5px; border:1px solid var(--line);}
+  .gallery-item figcaption{font-size:.84rem; color:var(--muted); margin-top:7px; text-align:center;}
+  .photo-dialog{border:0; border-radius:7px; padding:12px; max-width:min(1000px,92vw); background:#fff;}
+  .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
+  .photo-dialog img{display:block; max-width:100%; max-height:78vh; height:auto; margin:auto;}
+  .photo-dialog-caption{text-align:center; margin:8px 38px 2px; color:var(--ink);}
+  .photo-dialog-close{position:absolute; top:8px; right:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:1.15rem;}
+  @media (max-width:760px){.gallery-grid{grid-template-columns:1fr;}}
+
+.photo-provider{font-size:.76rem;color:var(--muted);margin-top:3px;font-style:italic;}
 </style>
 </head>
 <body>
@@ -243,7 +297,7 @@
 
     <section class="shared-contact">
       <h2 class="serif">Vos coordonnées</h2>
-      <p class="shared-contact-note">Votre nom et votre e-mail sont facultatifs. Ces informations sont communes aux différents formulaires de contribution ci-dessous.</p>
+      <p class="shared-contact-note">Votre nom et votre e-mail sont facultatifs. Ces informations sont communes aux formulaires de contribution.</p>
       <div class="row2">
         <div class="field">
           <label for="contact">Votre nom (optionnel)</label>
@@ -256,12 +310,33 @@
       </div>
     </section>
 
-    <section class="report-section">
-      <h2 class="serif">Signaler une correction ou un complément</h2>
-      <p class="lead">Un nom qui vous revient, une date à corriger, un souvenir à ajouter — tout est
-      utile. Le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou
-      copier pour le transmettre autrement.</p>
+    <section class="contribute-hub">
+      <h2>Contribuer au site</h2>
+      <p>Que souhaitez-vous faire ? Une seule rubrique s'affiche à la fois.</p>
+      <div class="contribute-grid">
+        <button type="button" class="contribute-card" data-panel="annuaire" aria-controls="annuaire" aria-expanded="false">
+          <strong>Mise à jour de l'annuaire</strong>
+          <span>Corriger une information, compléter une fiche ou signaler un nouveau coopérant.</span>
+          <em>Accéder à la rubrique →</em>
+        </button>
+        <button type="button" class="contribute-card" data-panel="temoignages" aria-controls="temoignages" aria-expanded="false">
+          <strong>Témoignages</strong>
+          <span>Lire les souvenirs déjà publiés ou partager votre propre témoignage.</span>
+          <em>Voir les témoignages →</em>
+        </button>
+        <button type="button" class="contribute-card" data-panel="photos" aria-controls="photos" aria-expanded="false">
+          <strong>Photos</strong>
+          <span>Retrouver les photos publiées et, prochainement, proposer vos propres images.</span>
+          <em>Voir la rubrique →</em>
+        </button>
+      </div>
+    </section>
 
+
+
+    <section class="report-section section-anchor contribution-panel" id="annuaire" hidden>
+      <h2 class="serif">Mise à jour de l'annuaire</h2>
+      <p class="lead">Un nom qui vous revient, une date à corriger ou une information à compléter : le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou copier pour le transmettre autrement.</p>
       <form id="reportForm">
         <div class="row2">
           <div class="field">
@@ -295,12 +370,20 @@
       </form>
     </section>
 
+    <section class="contribution-panel section-anchor" id="temoignages" hidden>
+    <div class="published-testimonies">
+      <h2>Témoignages</h2>
+      <p>Les témoignages publiés sont présentés du plus récent au plus ancien.</p>
+
+      <div id="testimonyList"></div>
+    </div>
+
     <section class="testimony-section">
-      <h2 class="serif">Souvenirs et témoignages</h2>
+      <h2 class="serif">Partager un souvenir ou un témoignage</h2>
       <p class="lead">
         Vous pouvez partager ici un souvenir, une anecdote ou un témoignage lié à votre passage à l'IUT de Cumaná.
         Les contributions sont relues avant toute éventuelle publication sur le site.
-        Les nom et e-mail renseignés dans le bloc commun ci-dessus sont également transmis avec votre témoignage.
+        Les nom et e-mail renseignés dans le bloc « Vos coordonnées » sont également transmis avec votre témoignage.
       </p>
       <form id="testimonyForm">
         <div class="field">
@@ -316,18 +399,35 @@
         </div>
         <p class="testimony-status" id="testimonyStatus"></p>
       </form>
+
+    </section>
+
+    </section>
+
+    <section class="photos-section section-anchor contribution-panel" id="photos" hidden>
+      <h2>Photos</h2>
+      <p>Cette rubrique accueillera les photos validées : images d'époque, vie à Cumaná, voyages et retrouvailles. Chaque photo pourra être accompagnée d'une date, d'une légende, des personnes identifiées et du nom du photographe lorsqu'il est connu.</p>
+      <div class="gallery-grid" id="photoGallery"></div>
+      <dialog class="photo-dialog" id="photoDialog">
+        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer">×</button>
+        <img id="photoDialogImage" alt="">
+        <div class="photo-dialog-caption" id="photoDialogCaption"></div>
+      </dialog>
     </section>
   </div>
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://forminit.com/sdk/v1/forminit.js"></script>
+<script src="temoignages.js"></script>
+<script src="photos.js"></script>
 <script>
 const ACCESS_CODE = "cumana1973";
 const REPORT_EMAIL = "vogtphil@yahoo.fr";
   
-const forminit = new Forminit();
 const FORMINIT_FORM_ID = "x5pnzhogj2t";
+// Ne bloque jamais le portail d'accès si le SDK externe n'est pas chargé.
+const forminit = (typeof Forminit !== "undefined") ? new Forminit() : null;
 
 // --- Carte Leaflet : initialisée immédiatement au chargement ---
 function initMap(){
@@ -339,7 +439,6 @@ function initMap(){
   L.marker([10.43823, -64.1406]).addTo(map)
     .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
 }
-initMap();
 
 // --- Portail d'accès ---
 document.getElementById('gateSubmit').addEventListener('click', () => {
@@ -368,9 +467,17 @@ document.getElementById('sendRequestBtn').addEventListener('click', () => {
   window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
 });
 
+// La carte est initialisée après le portail d'accès afin qu'un problème
+// de chargement de Leaflet ne puisse pas désactiver les boutons d'accès.
+try {
+  initMap();
+} catch (err) {
+  console.warn("Carte non chargée :", err);
+}
+
 // --- Données (synchronisées avec Coopérants_IUT_Cumana.xlsx) ---
 const ROWS = [
-{"gen": 0, "nom": "Bérard", "prenom": "Alain ou Michel ?", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA, EMR"},
+{"gen": 0, "nom": "Bérard", "prenom": "Alain", "periode": "1972 - 1975", "discipline": "Matematicas", "dept": "Directeur", "source": "JMA"},
 {"gen": 1, "nom": "??", "prenom": "Gabriel", "periode": "1973-1975", "discipline": "Electricidad", "dept": "Electricidad", "source": "JMA"},
 {"gen": 1, "nom": "Boussac", "prenom": "Jean-Paul", "periode": "1973 - 1976", "discipline": "Electrónica", "dept": "Electricidad", "source": " JMA, Copains d'avant, Gaceta Oficial 29.985 (18/12/1972)"},
 {"gen": 1, "nom": "Dordor", "prenom": "Patrice", "periode": "1973-1975", "discipline": "Mathématiques", "dept": "Electricidad", "source": "JMA, Linkedin"},
@@ -584,6 +691,9 @@ document.getElementById('testimonyForm').addEventListener('submit', async (event
     email || ""
   );
 
+  if (!forminit) {
+    throw new Error("Le service Forminit n'est pas disponible. Rechargez la page avec une connexion Internet.");
+  }
   const { error } = await forminit.submit(FORMINIT_FORM_ID, formData);
 
   button.disabled = false;
@@ -618,6 +728,63 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
 renderStats();
 render();
 populatePersonSelect();
+
+
+// Navigation des contributions : une seule rubrique visible à la fois.
+const contributionButtons = [...document.querySelectorAll('.contribute-card[data-panel]')];
+const contributionPanels = [...document.querySelectorAll('.contribution-panel')];
+
+function showContributionPanel(panelId) {
+  contributionPanels.forEach(panel => {
+    panel.hidden = panel.id !== panelId;
+  });
+  contributionButtons.forEach(button => {
+    const active = button.dataset.panel === panelId;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-expanded', active ? 'true' : 'false');
+  });
+  const panel = document.getElementById(panelId);
+  if (panel) panel.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+contributionButtons.forEach(button => {
+  button.addEventListener('click', () => showContributionPanel(button.dataset.panel));
+});
+
+// Contenus validés, chargés depuis temoignages.js et photos.js.
+function formatFrenchDate(iso){
+  const p=String(iso||'').split('-').map(Number);
+  if(p.length!==3||p.some(Number.isNaN)) return iso||'';
+  return new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(p[0],p[1]-1,p[2])));
+}
+const testimonyList=document.getElementById('testimonyList');
+if(testimonyList){
+  [...(window.TEMOIGNAGES||[])].sort((a,b)=>String(b.datePublication||'').localeCompare(String(a.datePublication||''))).forEach(item=>{
+    const article=document.createElement('article'); article.className='testimony-card';
+    const h=document.createElement('h3'); h.textContent=item.titre||'Témoignage';
+    const meta=document.createElement('div'); meta.className='testimony-meta'; meta.textContent=`${item.auteur||'Témoignage anonyme'} · Publié le ${formatFrenchDate(item.datePublication)}`;
+    const prev=document.createElement('p'); prev.className='testimony-preview'; prev.textContent=item.apercu||'';
+    const details=document.createElement('details'), summary=document.createElement('summary'), full=document.createElement('div');
+    summary.textContent='Lire le témoignage'; full.className='testimony-full'; full.innerHTML=item.contenu||'';
+    details.append(summary,full); article.append(h,meta,prev,details); testimonyList.appendChild(article);
+  });
+}
+const photoGallery=document.getElementById('photoGallery'), photoDialog=document.getElementById('photoDialog'),
+photoDialogImage=document.getElementById('photoDialogImage'), photoDialogCaption=document.getElementById('photoDialogCaption'),
+photoDialogClose=document.getElementById('photoDialogClose');
+if(photoGallery){
+  (window.PHOTOS||[]).forEach(item=>{
+    const fig=document.createElement('figure'); fig.className='gallery-item';
+    const btn=document.createElement('button'); btn.type='button'; btn.className='gallery-button';
+    const img=document.createElement('img'); img.src=item.fichier; img.alt=item.legende||'Photo'; img.loading='lazy';
+    const cap=document.createElement('figcaption'), title=document.createElement('div'); title.textContent=item.legende||''; cap.appendChild(title);
+    if(item.fournisseur){const f=document.createElement('div'); f.className='photo-provider'; f.textContent=`Cliché fourni par ${item.fournisseur}`; cap.appendChild(f);}
+    btn.appendChild(img); btn.addEventListener('click',()=>{photoDialogImage.src=item.fichier;photoDialogImage.alt=item.legende||'';photoDialogCaption.textContent=item.fournisseur?`${item.legende} — Cliché fourni par ${item.fournisseur}`:(item.legende||'');if(photoDialog.showModal)photoDialog.showModal();});
+    fig.append(btn,cap); photoGallery.appendChild(fig);
+  });
+}
+if(photoDialogClose) photoDialogClose.addEventListener('click',()=>photoDialog.close());
+if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDialog)photoDialog.close();});
 </script>
 </body>
 </html>
