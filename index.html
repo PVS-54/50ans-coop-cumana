@@ -34,9 +34,14 @@
   .serif{font-family: "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;}
 
   header.hero{
-    background: linear-gradient(180deg, var(--pine) 0%, var(--pine-dark) 100%);
-    color:#f2ede1; padding:54px 24px 40px;
-  }
+  position:relative;
+  background:
+    linear-gradient(rgba(47,75,60,.86), rgba(30,51,42,.90)),
+    url("photos/Logo-IUT-Cumana-transparent.png") no-repeat 8% center;
+  background-size:auto 82%;
+  color:#f2ede1;
+  padding:54px 24px 40px;
+}
   .hero-inner{max-width:980px; margin:0 auto; display:grid; grid-template-columns: 1.3fr 1fr; gap:36px; align-items:center;}
   @media (max-width:780px){ .hero-inner{grid-template-columns:1fr;} }
   .eyebrow{font-size:.82rem; letter-spacing:.03em; color:#c9d8c9; margin:0 0 10px;}
