@@ -13,7 +13,7 @@ window.PHOTOS = [
   { fichier:"photos/Lancha.JPG", legende:"Lancha", fournisseur:"PVS" },
   { fichier:"photos/Lluvia.JPG", legende:"Lluvia", fournisseur:"PVS" },
   { fichier:"photos/Monumento.JPG", legende:"Monumento", fournisseur:"PVS" },
-  { fichier:"photos/Paria.JPG", legende:"Paria", fournisseur:"PVS" },
+  { fichier:"photos/Golfo.JPG", legende:"Paria", fournisseur:"PVS" },
   { fichier:"photos/Pelicano.JPG", legende:"Pelicano", fournisseur:"PVS" },
   { fichier:"photos/Pesca.JPG", legende:"Pesca", fournisseur:"PVS" },
   { fichier:"photos/Politica.JPG", legende:"Politica", fournisseur:"PVS" },
