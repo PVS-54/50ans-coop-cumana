@@ -783,7 +783,30 @@ if(photoGallery){
     const img=document.createElement('img'); img.src=item.fichier; img.alt=item.legende||'Photo'; img.loading='lazy';
     const cap=document.createElement('figcaption'), title=document.createElement('div'); title.textContent=item.legende||''; cap.appendChild(title);
     if(item.fournisseur){const f=document.createElement('div'); f.className='photo-provider'; f.textContent=`Cliché fourni par ${item.fournisseur}`; cap.appendChild(f);}
-    btn.appendChild(img); btn.addEventListener('click',()=>{photoDialogImage.src=item.fichier;photoDialogImage.alt=item.legende||'';photoDialogCaption.textContent=item.fournisseur?`${item.legende} — Cliché fourni par ${item.fournisseur}`:(item.legende||'');if(photoDialog.showModal)photoDialog.showModal();});
+btn.appendChild(img);
+btn.addEventListener('click',()=>{
+  photoDialogImage.src=item.fichier;
+  photoDialogImage.alt=item.legende||'';
+
+  let infos = `<strong>${item.legende||''}</strong>`;
+
+  if(item.periode)
+    infos += `<br>Date / période : ${item.periode}`;
+
+  if(item.personnes)
+    infos += `<br>Personnes identifiées : ${item.personnes}`;
+
+  if(item.commentaires)
+    infos += `<br>Commentaires : ${item.commentaires}`;
+
+  if(item.fournisseur)
+    infos += `<br>Photo fournie par : ${item.fournisseur}`;
+
+  photoDialogCaption.innerHTML=infos;
+
+  if(photoDialog.showModal)
+    photoDialog.showModal();
+});
     fig.append(btn,cap); photoGallery.appendChild(fig);
   });
 }
