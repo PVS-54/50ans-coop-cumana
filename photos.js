@@ -3,6 +3,8 @@ window.PHOTOS = [
   { fichier:"photos/ofrenda-1979.jpg", legende:"Ofrenda 1979", fournisseur:"Ernesto Madrid Rivas" },
   { fichier:"photos/visitas-1976.jpg", legende:"Visitas 1976", fournisseur:"Ernesto Madrid Rivas" },
   { fichier:"photos/visitas-1980.jpg", legende:"Visitas 1980", fournisseur:"Ernesto Madrid Rivas" },
+  { fichier:"photos/UPTOS_1.jpg", legende:"UPTOS_1", fournisseur:"UPTOS" },
+  { fichier:"photos/UPTOS_2.JPG", legende:"UPTOS_2", fournisseur:"UPTOS" },
   { fichier:"photos/Aves.JPG", legende:"Aves", fournisseur:"PVS" },
   { fichier:"photos/Cachapas.JPG", legende:"Cachapas", fournisseur:"PVS" },
   { fichier:"photos/Calle.JPG", legende:"Calle", fournisseur:"PVS" },
