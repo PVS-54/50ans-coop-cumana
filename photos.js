@@ -132,4 +132,5 @@ window.PHOTOS = [
   personnes:"",
   commentaires:"",
   fournisseur:""
+  }
 ];
