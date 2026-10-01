@@ -15,7 +15,7 @@ window.PHOTOS = [
   { fichier:"photos/Lancha.JPG", legende:"Una lancha en Manicuare", fournisseur:"PVS" },
   { fichier:"photos/Lluvia.JPG", legende:"Lluvia", fournisseur:"PVS" },
   { fichier:"photos/Monumento.JPG", legende:"El Monumento", fournisseur:"PVS" },
-  { fichier:"photos/Golfo.JPG", legende:"El Golfo de Cariaco y la isla de Margarita", fournisseur:"PVS" },
+  { fichier:"photos/Golfo.jpg", legende:"El Golfo de Cariaco y la isla de Margarita", fournisseur:"PVS" },
   { fichier:"photos/Pelicano.JPG", legende:"Los pelicanos", fournisseur:"PVS" },
   { fichier:"photos/Pesca.JPG", legende:"Lancha de pescadores", fournisseur:"PVS" },
   { fichier:"photos/Politica.JPG", legende:"Politica en la calle", fournisseur:"PVS" },
