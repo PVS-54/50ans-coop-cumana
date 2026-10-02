@@ -249,7 +249,7 @@ header.hero::before{
     <div class="hero-illus">
       <div class="map-frame">
         <div id="map"></div>
-        <div class="map-caption">Cumaná, État de Sucre — Venezuela</div>
+        <div class="map-caption">Cumaná et Cariaco, Estado Sucre — Venezuela</div>
       </div>
     </div>
   </div>
@@ -504,13 +504,33 @@ const forminit = (typeof Forminit !== "undefined") ? new Forminit() : null;
 
 // --- Carte Leaflet : initialisée immédiatement au chargement ---
 function initMap(){
-  const map = L.map('map').setView([10.43823, -64.1406], 13);
+  const map = L.map('map');
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 18,
   }).addTo(map);
-  L.marker([10.43823, -64.1406]).addTo(map)
+
+  // Site principal de Cumaná
+  const cumana = L.marker([10.43823, -64.1406]).addTo(map)
     .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
+
+  // Annexe de Cariaco
+  const cariacoIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:18px;height:18px;background:#a4552c;border:3px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.5);"></div>',
+    iconSize: [15, 15],
+    iconAnchor: [9, 9]
+  });
+
+  const cariaco = L.marker([10.4812, -63.5521], {icon: cariacoIcon}).addTo(map)
+    .bindPopup("<b>Annexe de l’IUT de Cumaná</b><br>Cariaco");
+
+  // Cadrage automatique pour afficher les deux sites
+  map.fitBounds([
+    [10.43823, -64.1406],
+    [10.4812, -63.5521]
+  ], {padding: [30, 30]});
 }
 
 // --- Portail d'accès ---
