@@ -513,7 +513,7 @@ function initMap(){
 
   // Site principal de Cumaná
   const cumana = L.marker([10.43823, -64.1406]).addTo(map)
-    .bindPopup("<b>IUT de Cumaná</b><br>Centre de formation technologique de Corporiente");
+    .bindPopup("<b>IUT de Cumaná</b><br>Sede principal");
 
   // Annexe de Cariaco
   const cariacoIcon = L.divIcon({
@@ -524,7 +524,7 @@ function initMap(){
   });
 
   const cariaco = L.marker([10.4812, -63.5521], {icon: cariacoIcon}).addTo(map)
-    .bindPopup("<b>Annexe de l’IUT de Cumaná</b><br>Cariaco");
+    .bindPopup("<b>Anexo del IUT de Cumaná</b><br>Cariaco");
 
   // Cadrage automatique pour afficher les deux sites
   map.fitBounds([
