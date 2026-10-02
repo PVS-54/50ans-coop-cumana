@@ -2,6 +2,46 @@
 
 window.TEMOIGNAGES = [
     {
+  datePublication: "2026-10-02",
+  titre: "Aux origines des IUT vénézuéliens et de la coopération française",
+  auteur: "IUT Dr. Federico Rivero Palacio",
+
+  apercu: "Une histoire de la création des IUT au Venezuela qui retrace le choix du modèle français, le rôle de l'IUT de Cachan et l'arrivée des premiers coopérants français en 1970.",
+
+  contenu: `
+    <p>
+      Cette page historique de l'Instituto Universitario de Tecnología
+      Dr. Federico Rivero Palacio retrace les origines des IUT
+      vénézuéliens et le rôle joué par la coopération française
+      dans leur création.
+    </p>
+
+    <p>
+      Elle évoque notamment Charles Dufour, directeur de l'IUT de Cachan,
+      les missions franco-vénézuéliennes de 1969, la formation en France
+      d'enseignants vénézuéliens et l'envoi de professeurs français
+      dans les nouveaux IUT.
+    </p>
+
+    <p>
+      Le document indique également que quatorze coopérants français
+      arrivèrent au Venezuela à la fin du mois de novembre 1970.
+    </p>
+
+    <p>
+      <a href="https://iutrcdrfrp.wixsite.com/iutrc/antecedentes"
+         target="_blank"
+         rel="noopener noreferrer">
+        Consulter la page originale (en espagnol)
+      </a>
+    </p>
+
+    <p class="testimony-signature">
+      Instituto Universitario de Tecnología Dr. Federico Rivero Palacio
+    </p>
+  `
+},
+    {
     datePublication: "2026-10-02",
     titre: "Les Instituts Universitaires de Technologie au Venezuela",
     auteur: "María Egilda Castellano de Sjöstrand",
