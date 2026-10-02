@@ -1,11 +1,4 @@
 // Témoignages validés. Le site les trie automatiquement du plus récent au plus ancien.
-window.TEMOIGNAGES = [
-  {
-    datePublication: "2026-09-29",
-    titre: "Mes années à Cumaná",
-    auteur: "Philippe Vogt-Schilb",
-    apercu: "C'était mon premier voyage en avion. Entre Noël et le Nouvel An, j'ai quitté la France, un roman de Raphaëlle Billetdoux à la main, pour poser mes valises à Cumaná, de l'autre côté de l'Atlantique…",
-    // Témoignages validés. Le site les trie automatiquement du plus récent au plus ancien.
 
 window.TEMOIGNAGES = [
   {
