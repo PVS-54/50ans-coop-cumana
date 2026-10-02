@@ -4,7 +4,7 @@ window.TEMOIGNAGES = [
     {
   datePublication: "2026-10-02",
   titre: "Aux origines des IUT vénézuéliens et de la coopération française",
-  auteur: "Rafael Pico, Noel Jaen y Javier Gómez",
+  auteur: "Rafael Pico, Noel Jaen y Javier Gómez, Prof. Rodolfo Bazó.",
 
   apercu: "Une histoire de la création des IUT au Venezuela qui retrace le choix du modèle français, le rôle de l'IUT de Cachan et l'arrivée des premiers coopérants français en 1970.",
 
