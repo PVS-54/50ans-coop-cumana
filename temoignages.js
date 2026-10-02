@@ -1,6 +1,41 @@
 // Témoignages validés. Le site les trie automatiquement du plus récent au plus ancien.
 
 window.TEMOIGNAGES = [
+    {
+    datePublication: "2026-10-02",
+    titre: "Les Instituts Universitaires de Technologie au Venezuela",
+    auteur: "María Egilda Castellano de Sjöstrand",
+
+    apercu: "Un document de référence sur l'origine et le développement des Instituts Universitaires de Technologie au Venezuela, créés dans les années 1970 en s'inspirant notamment du modèle français.",
+
+    contenu: `
+      <p>
+        Cette communication de María Egilda Castellano de Sjöstrand,
+        alors vice-ministre des Politiques académiques du ministère
+        vénézuélien de l'Enseignement supérieur, a été présentée à
+        La Havane en novembre 2002.
+      </p>
+
+      <p>
+        Elle retrace l'origine et le développement des Instituts
+        Universitaires de Technologie au Venezuela et rappelle notamment
+        l'influence du modèle français lors de leur création dans les
+        années 1970.
+      </p>
+
+      <p>
+        <a href="https://pr1enahp.wordpress.com/wp-content/uploads/2011/11/iut-venezuela-maria-e-castellano.pdf"
+           target="_blank"
+           rel="noopener noreferrer">
+          Consulter le document original (PDF, en espagnol)
+        </a>
+      </p>
+
+      <p class="testimony-signature">
+        María Egilda Castellano de Sjöstrand — 2002
+      </p>
+    `
+  },
   {
     datePublication: "2026-09-30",
     titre: "Mes années à Cumaná",
