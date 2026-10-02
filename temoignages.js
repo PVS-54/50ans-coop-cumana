@@ -52,7 +52,7 @@ window.TEMOIGNAGES = [
 
       <ul>
         <li>
-          El Oriente, en moto Yamaha 650 avec Jean-Pierre Frachet : des routes
+          El Oriente, en moto Yamaha 650 XS avec Jean-Pierre Frachet : des routes
           vers l'est du pays, découvertes à deux, dans une complicité qui ne
           s'oublie pas.
         </li>
