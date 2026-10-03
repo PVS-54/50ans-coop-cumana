@@ -54,6 +54,20 @@ header.hero::before{
   opacity:.14;
   pointer-events:none;
 }
+
+header.hero::after{
+  content:"";
+  position:absolute;
+  right:1.5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:360px;
+  height:85%;
+  background:url("photos/drapeaux.jpg") no-repeat right center;
+  background-size:contain;
+  opacity:.40;
+  pointer-events:none;
+}
   .hero-inner{
   position:relative;
   z-index:1;
