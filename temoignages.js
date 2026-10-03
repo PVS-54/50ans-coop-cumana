@@ -2,6 +2,91 @@
 
 window.TEMOIGNAGES = [
     {
+  datePublication: "2026-10-03",
+  titre: "Qui étaient les VSNA ?",
+  auteur: "Repères historiques (mis en forme par l'IA)",
+
+  apercu: "Qui étaient les VSNA ? Quelques repères pour comprendre le statut des jeunes Français qui effectuèrent leur service national en coopération au Venezuela et enseignèrent notamment à l'IUT de Cumaná.",
+
+  contenu: `
+    <p>
+      L'acronyme <strong>VSNA</strong> désignait les
+      <strong>Volontaires du Service National Actif</strong>.
+    </p>
+
+    <p>
+      Dans le cadre de la coopération, de jeunes Français pouvaient
+      accomplir leur service national à l'étranger. Il s'agissait d'une
+      <strong>forme civile du service national</strong>, distincte du
+      service militaire. Le Code du service national précisait que
+      « le service de la coopération fait participer les jeunes Français
+      au développement de pays étrangers ».
+    </p>
+
+    <p>
+      Ces coopérants étaient affectés à des missions très diverses :
+      enseignement, coopération technique, recherche, santé, action
+      culturelle ou scientifique. Selon les accords conclus avec le pays
+      d'accueil, ils pouvaient être mis à la disposition d'institutions
+      locales.
+    </p>
+
+    <h4>Les VSNA au Venezuela</h4>
+
+    <p>
+      Dans les années 1970, le Venezuela développait rapidement son
+      enseignement supérieur et ses formations technologiques. La
+      coopération franco-vénézuélienne accompagna notamment la création
+      et le développement des <strong>Instituts Universitaires de
+      Technologie (IUT)</strong>, inspirés du modèle français.
+    </p>
+
+    <p>
+      C'est dans ce cadre que de jeunes Français furent affectés comme
+      enseignants dans les IUT vénézuéliens, notamment à
+      <strong>Cumaná</strong>. Pour beaucoup d'entre eux, généralement
+      âgés d'une vingtaine d'années et récemment diplômés, ces deux années
+      constituaient à la fois leur service national, leur première
+      expérience professionnelle importante et une découverte du
+      Venezuela.
+    </p>
+
+    <p>
+      Ils n'étaient donc pas des expatriés recrutés dans les conditions
+      habituelles : leur présence au Venezuela relevait du dispositif
+      français du <strong>service national en coopération</strong>.
+    </p>
+
+    <h4>La fin du dispositif</h4>
+
+    <p>
+      La réforme du service national engagée en France dans les années
+      1990 entraîna progressivement la disparition de cette forme de
+      coopération. Les anciennes formes du service national actif furent
+      suspendues pour les jeunes Français nés après le 31 décembre 1978.
+    </p>
+
+    <p>
+      Le volontariat international a ensuite pris le relais sous d'autres
+      formes, notamment le <strong>V.I.E.</strong> (Volontariat
+      International en Entreprise) et le <strong>V.I.A.</strong>
+      (Volontariat International en Administration).
+    </p>
+
+    <p>
+      Ainsi, les coopérants français présents à l'IUT de Cumaná entre
+      1973 et 1980 appartiennent à une période particulière de l'histoire
+      de la coopération française : celle où de jeunes appelés pouvaient
+      effectuer leur service national en enseignant et en participant à
+      des projets de développement à l'étranger.
+    </p>
+
+    <p class="testimony-signature">
+      Repères historiques
+    </p>
+  `
+},
+    {
   datePublication: "2026-10-02",
   titre: "Aux origines des IUT vénézuéliens et de la coopération française",
   auteur: "Rafael Pico, Noel Jaen y Javier Gómez, Prof. Rodolfo Bazó.",
