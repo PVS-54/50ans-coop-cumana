@@ -1,5 +1,13 @@
 // Photos validées et publiées.
 window.PHOTOS = [
+{
+  fichier:"photos/visitas-1976.jpg",
+  legende:"Visitas 1976",
+  periode:"Debe ser del año 1976",
+  personnes:"",
+  commentaires:"Visita al IUT de Cumaná del otrora Director de Educación Superior del Ministerio de Educación, Dr. Luis Manuel Manzanilla.",
+  fournisseur:"Ernesto Madrid Rivas"
+}, 
   {
   fichier:"photos/ofrenda-1979.jpg",
   legende:"Ofrenda 1979",
@@ -8,14 +16,6 @@ window.PHOTOS = [
   commentaires:"Ofrenda floral en la plaza Bolívar de Cumaná con motivo del VI Aniversario del IUT Cumaná.",
   fournisseur:"Ernesto Madrid Rivas"
 },
-  {
-  fichier:"photos/visitas-1976.jpg",
-  legende:"Visitas 1976",
-  periode:"Debe ser del año 1976",
-  personnes:"",
-  commentaires:"Visita al IUT de Cumaná del otrora Director de Educación Superior del Ministerio de Educación, Dr. Luis Manuel Manzanilla.",
-  fournisseur:"Ernesto Madrid Rivas"
-}, 
   {
   fichier:"photos/visitas-1980.jpg",
   legende:"Visitas 1980",
