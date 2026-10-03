@@ -177,7 +177,9 @@ window.TEMOIGNAGES = [
       </p>
 
       <p>
-        <em>Et bien sûr : el Cafetín del Sr. Luis !</em>
+        Et bien sûr : les récits autour d'une réplique légendaire adressée au 
+        président Carlos Andres Perez, <em>jodidos pero contentos</em>, 
+        appuyés à la barre <em>del Cafetín del Sr. Luis !</em>
       </p>
 
       <p class="testimony-signature">
