@@ -177,9 +177,10 @@ window.TEMOIGNAGES = [
       </p>
 
       <p>
-        Et bien sûr : les récits autour d'une réplique légendaire adressée au 
-        président Carlos Andres Perez, <em>jodidos pero contentos</em>, 
-        appuyés à la barre <em>del Cafetín del Sr. Luis !</em>
+        Et bien sûr : appuyés à la barre <em>del Cafetín del Sr. Luis !</em>, 
+        écouter les récits autour d'une réplique légendaire adressée au 
+        président Carlos Andres Perez en visite à l'IUT, <em>jodidos pero contentos</em>. 
+        
       </p>
 
       <p class="testimony-signature">
