@@ -24,7 +24,7 @@ window.PHOTOS = [
   commentaires:"Otra foto de visitantes de aquellos tiempos. Entre los visitantes ministros y presidentes de Institutos Autónomos.",
   fournisseur:"Ernesto Madrid Rivas"
 },
-    { fichier:"photos/UPTOS_1.jpg", legende:"UPTOS_1", fournisseur:"UPTOS" },
+  { fichier:"photos/UPTOS_1.jpg", legende:"UPTOS_1", fournisseur:"UPTOS" },
   { fichier:"photos/UPTOS_2.jpg", legende:"UPTOS_2", fournisseur:"UPTOS" },
   {
   fichier:"photos/Aves.jpg",
