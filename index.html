@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<title>Coopérants français — IUT de Cumaná (1973-1980)</title>
+<meta name="description" content="Mémoire des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1980 : histoire, témoignages, photographies et travail collectif d’archives.">
+<link rel="canonical" href="https://iut-cumana.fr/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="Coopérants français — IUT de Cumaná (1973-1980)">
+<meta property="og:description" content="Mémoire collective des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1980.">
+<meta property="og:url" content="https://iut-cumana.fr/">
+<meta property="og:image" content="https://iut-cumana.fr/photos/drapeaux.jpg">
+<meta property="og:image:alt" content="Drapeaux français et vénézuélien">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+<style>
+  :root{
+    --paper:#ece4d3;
+    --paper-deep:#e2d8c2;
+    --ink:#242821;
+    --muted:#6b6555;
+    --line:#c9bd9f;
+    --pine:#2f4b3c;
+    --pine-dark:#1e332a;
+    --rust:#a4552c;
+    --gold:#b6863c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height:1.55;
+  }
+  .serif{font-family: "Iowan Old Style","Palatino Linotype", Palatino, Georgia, serif;}
+
+  header.hero{
+  position:relative;
+  background: linear-gradient(180deg, var(--pine) 0%, var(--pine-dark) 100%);
+  color:#f2ede1;
+  padding:54px 24px 40px;
+  overflow:hidden;
+}
+
+header.hero::before{
+  content:"";
+  position:absolute;
+  left:0.5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:430px;
+  height:85%;
+  background:url("photos/Logo-IUT-Cumana-transparent.jpg") no-repeat left center;
+  background-size:contain;
+  opacity:.14;
+  pointer-events:none;
+}
+
+header.hero::after{
+  content:"";
+  position:absolute;
+  right:1.5%;
+  top:50%;
+  transform:translateY(-50%);
+  width:360px;
+  height:85%;
+  background:url("photos/drapeaux.jpg") no-repeat right center;
+  background-size:contain;
+  opacity:.40;
+  pointer-events:none;
+}
+  .hero-inner{
+  position:relative;
+  z-index:1;
+  max-width:980px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.3fr 1fr;
+  gap:36px;
+  align-items:center;
+}
+  #map{width:100%; height:260px; border:0; display:block;}
+  .map-caption{
+    padding:8px 12px; font-family:"Iowan Old Style",Georgia,serif; font-size:.82rem;
+    color:#e7e2cf; background:#1c2e26; text-align:center; letter-spacing:.02em;
+  }
+
+  main{max-width:980px; margin:0 auto; padding:36px 24px 80px;}
+
+  .intro-note{
+    background:#fffdf6; border:1px solid var(--line); border-left:4px solid var(--rust);
+    padding:16px 20px; border-radius:3px; font-size:.93rem; color:var(--ink); margin-bottom:34px;
+  }
+  .intro-note strong{color:var(--rust);}
+
+  .stats{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:38px;}
+  .stat{
+    flex:1; min-width:130px; background:#fffdf6; border:1px solid var(--line); border-radius:4px;
+    padding:14px 16px;
+  }
+  .stat .n{font-size:1.5rem; font-weight:700; font-family: "Iowan Old Style", Georgia, serif;}
+  .stat .l{font-size:.78rem; color:var(--muted);}
+
+  section.gen{margin-bottom:30px;}
+  .gen-title{
+    font-family:"Iowan Old Style", Georgia, serif; font-size:1.15rem; font-weight:600;
+    border-bottom:1px solid var(--line); padding-bottom:6px; margin-bottom:4px; color:var(--pine-dark);
+  }
+  .gen-sub{font-size:.8rem; color:var(--muted); margin-bottom:14px;}
+
+  .card{
+    display:grid; grid-template-columns: 170px 1fr 130px; gap:14px; align-items:start;
+    padding:13px 4px; border-bottom:1px solid var(--line);
+  }
+  @media (max-width:700px){ .card{grid-template-columns:1fr; gap:4px;} }
+  .card .name{font-weight:600;}
+  .card .name .prenom{font-weight:400; color:var(--muted);}
+  .card .meta{font-size:.86rem; color:var(--muted);}
+  .card .period{font-size:.86rem; color:var(--ink);}
+  .source-tag{font-size:.72rem; color:var(--muted); margin-top:3px;}
+
+  .report-section{
+    margin-top:56px; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
+    padding:26px 26px 30px;
+  }
+  .report-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
+  .report-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:none;}
+  .shared-contact{margin:0 0 20px; padding:14px 16px; background:#fff; border:1px solid var(--line); border-radius:4px;}
+  .shared-contact-title{font-size:.88rem; font-weight:600; margin:0 0 10px; color:var(--ink);}
+  .shared-contact-note{font-size:.8rem; color:var(--muted); margin:0 0 12px;}
+  .testimony-section{
+    margin-top:34px; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
+    padding:26px 26px 30px;
+  }
+  .testimony-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
+  .testimony-section p.lead{color:var(--muted); font-size:.92rem; margin-bottom:20px; max-width:none;}
+   form#testimonyForm{display:grid; gap:14px; max-width:none;}
+  .testimony-status{font-size:.85rem; color:var(--muted); margin:4px 0 0; min-height:1.2em;}
+  .testimony-status.success{color:#2f7a45;}
+  .testimony-status.error{color:var(--rust);}
+  form#reportForm{display:grid; gap:14px; max-width:none;}
+  .field label{display:block; font-size:.8rem; color:var(--muted); margin-bottom:4px;}
+  .field select, .field input, .field textarea{
+    width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
+    font-family:inherit; font-size:.94rem; background:#fff; color:var(--ink);
+  }
+  .field textarea{min-height:100px; resize:vertical;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:600px){ .row2{grid-template-columns:1fr;} }
+  .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:4px;}
+  button.primary, #gateScreen .primary, #requestBlock .primary{
+    background:var(--pine); color:#fff; border:1px solid var(--pine);
+    padding:10px 20px; border-radius:4px; font-size:.95rem; cursor:pointer;
+  }
+  button.primary:hover{background:var(--pine-dark);}
+  button.secondary{
+    background:#fff; color:var(--ink); border:1px solid var(--line); padding:10px 18px; border-radius:4px;
+    font-size:.9rem; cursor:pointer;
+  }
+  .copied-msg{font-size:.85rem; color:#2f7a45; display:none;}
+
+  .mentions{width:100%; max-width:none; background:#fffdf6; border:1px solid var(--line); border-radius:6px;
+    padding:16px 20px; margin-bottom:34px; font-size:.8rem; color:var(--ink);}
+  .mentions strong{font-size:.85rem;}
+
+  /* Access gate */
+  #gateScreen{
+    max-width:520px; margin:0 auto 60px; padding:30px 28px; background:#fffdf6;
+    border:1px solid var(--line); border-radius:8px;
+  }
+  #gateScreen h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.2rem; margin:0 0 10px; color:var(--pine-dark);}
+  #gateScreen p{font-size:.9rem; color:var(--muted); margin-bottom:18px;}
+  #gateScreen input{
+    width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:4px;
+    font-family:inherit; font-size:.95rem; margin-bottom:10px; background:#fff; color:var(--ink);
+  }
+  .gate-actions{display:flex; gap:10px; flex-wrap:wrap;}
+  .toggle-link{
+    background:none; border:none; color:var(--pine); text-decoration:underline; cursor:pointer;
+    font-size:.85rem; padding:0; margin-top:14px;
+  }
+  #gateError{color:var(--rust); font-size:.85rem; margin-top:6px; min-height:1.2em;}
+  #requestBlock{display:none; margin-top:18px; border-top:1px solid var(--line); padding-top:16px;}
+  #requestBlock .field{margin-top:10px;}
+  /* Contenu protégé : caché par défaut */
+
+  .leaflet-container{background:#1c2e26;}
+
+  .section-anchor{scroll-margin-top:20px;}
+  .published-testimonies{margin-top:34px;}
+  .published-testimonies > h2{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); margin-bottom:6px;}
+  .published-testimonies > p{color:var(--muted); font-size:.9rem; margin:0 0 16px;}
+  .testimony-card{border:1px solid var(--line); border-radius:6px; background:#fff; padding:20px 22px; margin-bottom:16px;}
+  .testimony-card h3{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); font-size:1.18rem; margin:0 0 4px;}
+  .testimony-meta{font-size:.8rem; color:var(--muted); margin-bottom:12px;}
+  .testimony-preview{font-size:.94rem; line-height:1.6; margin:0 0 10px;}
+  .testimony-card details summary{cursor:pointer; color:var(--pine); font-weight:600; font-size:.9rem; margin:6px 0 14px;}
+  .testimony-full{font-size:.94rem; line-height:1.65; max-width:none;}
+  .testimony-full h4{font-family:"Iowan Old Style",Georgia,serif; color:var(--pine-dark); font-size:1.02rem; margin:22px 0 7px;}
+  .testimony-full ul{padding-left:22px;}
+  .testimony-signature{margin-top:20px; font-style:italic; color:var(--muted);}
+  .testimony-external{width:100%;border:0;display:block;background:transparent;min-height:180px;}
+
+  .photos-section{margin-top:34px; background:#fffdf6; border:1px solid var(--line); border-radius:6px; padding:26px;}
+  .photos-section h2{font-family:"Iowan Old Style",Georgia,serif; font-size:1.25rem; margin:0 0 8px;}
+  .photos-section p{color:var(--muted); font-size:.92rem; max-width:none;}
+  .photo-placeholder{margin-top:16px; padding:20px; border:1px dashed var(--line); border-radius:5px; background:#fff; text-align:center; color:var(--muted); font-size:.88rem;}
+
+
+  .contribution-panel[hidden]{display:none !important;}
+  .contribute-card{cursor:pointer; text-align:left; font:inherit;}
+  .contribute-card.active{border-color:var(--gold); background:#fffaf0;}
+  .contribute-card.active em{font-weight:700;}
+  .gallery-grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:18px;}
+  .gallery-item{margin:0; min-width:0;}
+  .gallery-button{display:block; width:100%; padding:0; border:0; background:transparent; cursor:pointer;}
+  .gallery-button img{display:block; width:100%; aspect-ratio:4/3; object-fit:contain; border-radius:5px; border:1px solid var(--line);}
+  .gallery-item figcaption{font-size:.84rem; color:var(--muted); margin-top:7px; text-align:center;}
+  .photo-dialog{border:0; border-radius:7px; padding:12px; max-width:min(1000px,92vw); background:#fff;}
+  .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
+  .photo-dialog img{display:block; max-width:100%; max-height:78vh; height:auto; margin:auto;}
+  .photo-dialog-caption{text-align:center; margin:8px 38px 2px; color:var(--ink);}
+  .photo-dialog-close{position:absolute; top:8px; right:8px; width:36px; height:36px; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:1.15rem;}
+  @media (max-width:760px){.gallery-grid{grid-template-columns:1fr;}}
+
+.photo-provider{font-size:.76rem;color:var(--muted);margin-top:3px;font-style:italic;}
+
+.photo-submit{
+  display:block;
+  margin-top:32px;
+  padding-top:24px;
+  border-top:1px solid var(--line);
+}
+.photo-submit h3{margin-top:0;}
+.photo-submit small{display:block;margin-top:5px;color:var(--muted);}
+
+
+  /* === NAVIGATION PUBLIQUE ET CONTRIBUTIONS === */
+  #gateScreen{display:none;}
+  #siteContent{display:block;}
+  #stats,#listing,#directoryNote{display:none;}
+  .home-choice-grid,.participate-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 34px;}
+  .home-choice,.participate-choice,.back-home{background:#fffdf6;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:20px;text-align:left;cursor:pointer;font:inherit;}
+  .home-choice:hover,.participate-choice:hover{border-color:var(--gold);}
+  button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--pine);outline-offset:3px;}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+  .home-choice strong,.participate-choice strong{display:block;font-family:"Iowan Old Style",Georgia,serif;font-size:1.12rem;color:var(--pine-dark);margin-bottom:7px;}
+  .home-choice span,.participate-choice span{font-size:.88rem;color:var(--muted);}
+  .architecture-screen[hidden]{display:none!important;}
+  .architecture-screen{margin-top:28px;}
+  .back-home{padding:9px 14px;margin:0 0 18px;color:var(--pine);font-size:.88rem;font-weight:700;}
+  .back-home[data-home]{display:none;}
+  .view-focus-target:focus{outline:none;}
+
+  #floatingHome{position:fixed;right:18px;top:18px;z-index:2000;background:#fffdf6;color:var(--pine-dark);border:2px solid var(--pine);border-radius:7px;padding:10px 15px;font:inherit;font-size:.9rem;font-weight:700;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.18);}
+  #floatingHome[hidden]{display:none!important;}
+  #participateNav{position:sticky;top:10px;z-index:1200;display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 20px;padding:10px;background:rgba(255,253,246,.96);border:1px solid var(--line);border-radius:7px;box-shadow:0 2px 8px rgba(0,0,0,.10);backdrop-filter:blur(4px);}
+  #participateNav[hidden]{display:none!important;}
+  #participateNav button{background:#fff;color:var(--pine-dark);border:1px solid var(--line);border-radius:5px;padding:8px 11px;font:inherit;font-size:.84rem;font-weight:600;cursor:pointer;}
+  #participateNav button:hover,#participateNav button.active{border-color:var(--pine);background:#f3efe4;}
+  #participateNav .participate-home{margin-left:auto;font-weight:700;border-color:var(--pine);}
+  #directoryArea[hidden]{display:none!important;}
+  #directoryArea.unlocked #stats,#directoryArea.unlocked #listing,#directoryArea.unlocked #directoryNote{display:flex;}
+  #directoryArea.unlocked #listing{display:block;}
+  #directoryArea.unlocked #directoryNote{display:block;}
+  #directoryArea.unlocked #gateScreen{display:none!important;}
+  #directoryArea:not(.unlocked) #gateScreen{display:block;}
+  #participateScreen .shared-contact{margin-top:22px;}
+  @media(max-width:760px){
+    /* Bandeau mobile : texte puis carte, avec filigranes répartis verticalement */
+    header.hero{padding:44px 18px 28px;}
+    header.hero::before{
+      left:50%; top:16px; transform:translateX(-50%);
+      width:240px; height:180px;
+      background-position:center top; opacity:.10;
+    }
+    header.hero::after{
+      left:50%; right:auto; top:245px; transform:translateX(-50%);
+      width:220px; height:135px;
+      background-position:center; opacity:.24;
+    }
+    .hero-inner{grid-template-columns:1fr;gap:24px;}
+    .hero-illus{width:100%;min-width:0;}
+    .map-frame{width:100%;max-width:100%;overflow:hidden;}
+    #map{height:220px;}
+
+    .home-choice-grid,.participate-choice-grid{grid-template-columns:1fr;}
+    #floatingHome{right:10px;top:10px;padding:8px 11px;font-size:.82rem;}
+    #participateNav{top:8px;}
+    #participateNav button{flex:1 1 45%;}
+    #participateNav .participate-home{margin-left:0;}
+  }
+
+  /* === REPÈRES ET COMPTEURS === */
+  .project-overview{margin:10px 0 38px;}
+  .project-counts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0 0 28px;}
+  .project-count{background:#fffdf6;border:1px solid var(--line);border-radius:6px;padding:15px 16px;text-align:center;font:inherit;color:var(--ink);cursor:pointer;}
+  .project-count:hover{border-color:var(--gold);}
+  .project-count:focus-visible{outline:2px solid var(--pine);outline-offset:3px;}
+  .project-count .count-number{display:block;font-family:"Iowan Old Style",Georgia,serif;font-size:1.65rem;font-weight:700;color:var(--pine-dark);line-height:1.1;}
+  .project-count .count-label{display:block;margin-top:5px;font-size:.82rem;color:var(--muted);}
+  .timeline-title{font-family:"Iowan Old Style",Georgia,serif;color:var(--pine-dark);margin:0 0 16px;}
+  .timeline{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative;padding-top:12px;}
+  .timeline::before{content:"";position:absolute;left:6%;right:6%;top:25px;height:2px;background:var(--line);}
+  .timeline-item{position:relative;text-align:center;padding:0 8px;}
+  .timeline-dot{position:relative;z-index:1;display:block;width:12px;height:12px;margin:8px auto 10px;border-radius:50%;background:var(--pine);border:3px solid #fffdf6;box-shadow:0 0 0 1px var(--pine);}
+  .timeline-year{display:block;font-family:"Iowan Old Style",Georgia,serif;font-weight:700;color:var(--rust);margin-bottom:5px;}
+  .timeline-text{display:block;font-size:.78rem;line-height:1.35;color:var(--muted);}
+  @media(max-width:760px){
+    .project-counts{grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    .project-count{padding:12px 7px;}
+    .project-count .count-number{font-size:1.4rem;}
+    .project-count .count-label{font-size:.72rem;}
+    .timeline{display:block;padding:0 0 0 24px;}
+    .timeline::before{left:5px;right:auto;top:8px;bottom:8px;width:2px;height:auto;}
+    .timeline-item{text-align:left;padding:0 0 18px 10px;}
+    .timeline-dot{position:absolute;left:-24px;top:2px;margin:0;}
+    .timeline-year{margin-bottom:2px;}
+    .timeline-text{font-size:.84rem;}
+  }
+
+</style>
+</head>
+<body>
+
+<button type="button" id="floatingHome" hidden>← Retour à l’accueil</button>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="eyebrow serif">RECHERCHE HISTORIQUE · COOPÉRATION FRANCE–VENEZUELA</p>
+      <h1 class="serif">Les coopérants français<br>de l'IUT de Cumaná<br>(1973–1980)</h1>
+      <p>Un travail de mémoire collective pour reconstituer, nom par nom, la liste des enseignants
+      et VSNA français qui ont exercé au sein de l'IUT créé avec deux centres d'enseignement, à 
+      Cumaná et Cariaco (Estado Sucre, Venezuela).</p>
+    </div>
+    <div class="hero-illus">
+      <div class="map-frame">
+        <div id="map"></div>
+        <div class="map-caption">Cumaná et Cariaco, Estado Sucre — Venezuela</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  
+<div class="intro-note">
+    Ce site retrace une partie de l’histoire de la <strong>coopération française au Venezuela</strong>
+    à travers les enseignants et <strong>VSNA français de l’IUT de Cumaná</strong>
+    (Instituto Universitario de Tecnología de Cumaná), dans l’État de Sucre,
+    principalement entre 1973 et 1980. Il rassemble progressivement archives,
+    témoignages, souvenirs et photographies liés à cette période.
+</div>
+  
+  <div class="intro-note">
+    <strong>Pourquoi maintenant :</strong> cinquante ans après les premières promotions de VSNA
+    envoyées à Cumaná, les témoins directs de cette aventure se font plus rares chaque année et
+    les souvenirs s'effacent. C'est une course contre le temps autant qu'un travail d'archives.<br><br>
+    <strong>Comment lire cette page :</strong> les informations viennent de témoignages directs
+    d'anciens coopérants et de souvenirs rapportés par d'anciens élèves ou des proches, recoupés quand c'est possible avec
+    des sources officielles (rapports du Sénat sur l'accord de coopération franco-vénézuélien par exemple) et les réseaux sociaux. La
+    liste des témoins s'agrandit au fil du projet. Beaucoup de disciplines et de dates restent
+    marquées « à confirmer » — c'est un chantier vivant, pas une liste figée. La rubrique « Participer » permet de signaler une correction ou un complément,
+    de proposer des photos et de partager des témoignages / souvenirs.
+  </div>
+
+  <div class="intro-note" style="border-left-color: var(--gold);">
+    <strong>L’IUT de Cumaná aujourd’hui :</strong> depuis avril 2012, l’Institut Universitaire de Technologie de Cumaná (IUT Cumaná) a laissé place à l’Université Polytechnique Territoriale de l’Ouest de l’État de Sucre « Clodosbaldo Russián » (UPTOS).<br><br>
+    Cette évolution s’inscrit dans une réforme engagée par l’État vénézuélien visant à transformer les anciens instituts universitaires de technologie en universités polytechniques territoriales.<br><br>
+    L’établissement poursuit aujourd’hui ses activités sous le nom d’<strong>UPTOS « Clodosbaldo Russián »</strong>, assurant des formations universitaires et participant au développement économique et social de la région.<br><br>
+    <strong>Site actuel :</strong> <a href="https://www.uptos.edu.ve/" target="_blank" rel="noopener noreferrer">UPTOS « Clodosbaldo Russián » ↗</a>
+  </div>
+
+  <div class="mentions">
+    <strong>Mentions</strong><br>
+    Page compilée à titre personnel et non commercial, à partir de témoignages directs d'anciens
+    coopérants et de sources publiques (rapports du Sénat français sur la coopération technique
+    France–Venezuela, 1975–1976 ; archives diplomatiques). Objectif : reconstituer, avec l'accord
+    des personnes concernées quand il a pu être recueilli, la mémoire collective d'un groupe de
+    coopérants français ayant exercé à l'IUT de Cumaná entre 1973 et 1980.<br><br>
+    Projet porté par Philippe Vogt-Schilb, lui-même ancien coopérant à l'IUT de Cumaná
+    (1977-1980), coaché par des IA (ChatGPT, Mistral AI & Claude).<br><br>
+    Toute personne citée ici, ou un proche, peut demander une correction ou le retrait complet
+    de sa fiche via la rubrique « Participer », puis « Annuaire / corrections » ou l'adresse de contact du porteur du projet.
+    Dernière mise à jour : Octobre 2026.
+  </div>
+
+
+  <section class="project-overview" aria-labelledby="timelineHeading">
+    <div class="project-counts" aria-label="État du projet">
+      <button type="button" class="project-count" data-view="annuaire" aria-label="Voir ou compléter l’annuaire"><span class="count-number" id="countCooperants">—</span><span class="count-label">coopérants recensés</span></button>
+      <button type="button" class="project-count" data-view="temoignages" aria-label="Voir les témoignages"><span class="count-number" id="countTestimonies">—</span><span class="count-label">témoignages / documents</span></button>
+      <button type="button" class="project-count" data-view="photos" aria-label="Voir les photos"><span class="count-number" id="countPhotos">—</span><span class="count-label">photos publiées</span></button>
+    </div>
+    <h2 class="timeline-title" id="timelineHeading">Quelques repères</h2>
+    <div class="timeline">
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1969</span><span class="timeline-text">Premières missions françaises préparant la création des IUT vénézuéliens.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text">Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text">Premier coopérant actuellement identifié à Cumaná.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1980</span><span class="timeline-text">Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">Après 1980</span><span class="timeline-text">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text">L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text">Collecte des souvenirs, photographies et identification des anciens coopérants.</span></div>
+    </div>
+  </section>
+
+  <section id="homeChoices" class="architecture-screen">
+    <h2 class="serif">Découvrir et participer</h2>
+    <p>Choisissez ce que vous souhaitez consulter ou faire.</p>
+    <div class="home-choice-grid">
+      <button type="button" class="home-choice" data-view="temoignages"><strong>Voir les témoignages</strong><span>Lire les souvenirs et documents déjà publiés.</span></button>
+      <button type="button" class="home-choice" data-view="photos"><strong>Voir les photos</strong><span>Parcourir les photographies déjà publiées.</span></button>
+      <button type="button" class="home-choice" data-view="participer"><strong>Participer</strong><span>Partager un témoignage, proposer des photos ou compléter l’annuaire.</span></button>
+    </div>
+  </section>
+
+  <div id="directoryArea" hidden>
+  <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+  <div id="gateScreen">
+    <h2 class="serif">Accès sur demande</h2>
+    <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1980. Pour
+    respecter leur vie privée, l'accès à la liste est réservé aux personnes concernées, à leurs
+    proches, et aux personnes impliquées dans ce travail de mémoire. Si vous avez reçu un code
+    d'accès, saisissez-le ci-dessous ; sinon, vous pouvez en faire la demande.</p>
+    <input type="password" id="gateCode" placeholder="Phrase d’accès" aria-label="Phrase d’accès à l’annuaire" autocomplete="off">
+    <div class="gate-actions">
+      <button type="button" class="primary" id="gateSubmit">Accéder</button>
+      <button type="button" class="toggle-link" id="showRequestBtn">Je n'ai pas de code — demander l'accès</button>
+    </div>
+    <div id="gateError" role="alert"></div>
+
+    <div id="requestBlock">
+      <div class="field">
+        <label for="reqName">Votre nom</label>
+        <input id="reqName" placeholder="Nom et prénom">
+      </div>
+      <div class="field">
+        <label for="reqRelation">Votre lien avec le projet</label>
+        <input id="reqRelation" placeholder="Ex. : ancien coopérant, famille de..., témoin...">
+      </div>
+      <div class="field">
+        <label for="reqEmail">Votre e-mail</label>
+        <input id="reqEmail" type="email" placeholder="vous@exemple.fr">
+      </div>
+      <button type="button" class="primary" id="sendRequestBtn" style="margin-top:6px;">Envoyer la demande par e-mail</button>
+      <p style="font-size:.82rem; color:var(--muted); margin-top:8px;">
+        Si rien ne s'ouvre après ce clic, écrivez-nous simplement à
+        <strong>vogtphil@yahoo.fr</strong> en indiquant votre nom et votre lien avec le projet.
+      </p>
+    </div>
+  </div>
+
+    <div class="stats" id="stats"></div>
+
+    <div id="listing"></div>
+
+    <div class="intro-note" id="directoryNote" style="border-left-color: var(--gold);">
+      <strong>Note complémentaire :</strong> un coopérant plus tardif (VSNA, 1981-1982)
+      a également été identifié. Il se situe après la période couverte par ce recensement (1973-1980)
+      et n'est donc pas inclus dans la liste ci-dessus, mais mérite d'être mentionné si le projet
+      s'élargit un jour à ces années suivantes.
+    </div>
+  </div>
+
+  <div id="siteContent" data-nosnippet>
+    <section class="shared-contact">
+      <h2 class="serif">Vos coordonnées</h2>
+      <p class="shared-contact-note">Votre nom et votre e-mail sont facultatifs. Ces informations sont communes aux formulaires de contribution.</p>
+      <p class="shared-contact-note">Vos coordonnées servent à échanger avec Philippe Vogt-Schilb au sujet de votre contribution. Les témoignages et photos sont transmis par Forminit pour examen avant publication. Pour demander une correction ou un retrait, écrivez à <a href="mailto:vogtphil@yahoo.fr">vogtphil@yahoo.fr</a>. Ne transmettez que les informations et documents que vous souhaitez proposer au projet.</p>
+      <div class="row2">
+        <div class="field">
+          <label for="contact">Votre nom (optionnel)</label>
+          <input id="contact" placeholder="Pour qu'on sache d'où vient l'information">
+        </div>
+        <div class="field">
+          <label for="email">Votre e-mail (optionnel, pour vous recontacter)</label>
+          <input id="email" type="email" placeholder="vous@exemple.fr">
+        </div>
+      </div>
+    </section>
+
+    <nav id="participateNav" hidden aria-label="Navigation des contributions">
+      <button type="button" data-participate-nav="temoignages">Ajouter un témoignage</button>
+      <button type="button" data-participate-nav="photos">Ajouter des photos</button>
+      <button type="button" data-participate-nav="annuaire">Annuaire / corrections</button>
+      <button type="button" data-home class="participate-home">← Retour à l’accueil</button>
+    </nav>
+
+    <section id="participateScreen" class="architecture-screen" hidden>
+      <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+      <h2 class="serif">Participer</h2>
+      <p>Comment souhaitez-vous contribuer au travail de mémoire ?</p>
+      <div class="participate-choice-grid">
+        <button type="button" class="participate-choice" data-participate="temoignages"><strong>Ajouter un témoignage</strong><span>Partager un souvenir, une anecdote ou un document.</span></button>
+        <button type="button" class="participate-choice" data-participate="photos"><strong>Ajouter des photos</strong><span>Transmettre une ou plusieurs photographies.</span></button>
+        <button type="button" class="participate-choice" data-participate="annuaire"><strong>Voir / compléter l’annuaire</strong><span>Consulter la liste des coopérants et proposer une correction ou un complément. Code demandé.</span></button>
+      </div>
+    </section>
+
+    <section class="report-section section-anchor contribution-panel" id="annuaire" hidden>
+      <h2 class="serif">Mise à jour de l'annuaire</h2>
+      <button type="button" class="secondary" id="forgetAnnuaire">Fermer l’accès à l’annuaire dans cet onglet</button>
+      <p class="lead">Un nom qui vous revient, une date à corriger ou une information à compléter : le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou copier pour le transmettre autrement.</p>
+      <form id="reportForm">
+        <div class="row2">
+          <div class="field">
+            <label for="personne">Personne concernée</label>
+            <select id="personne"></select>
+          </div>
+          <div class="field">
+            <label for="type">Type de signalement</label>
+            <select id="type">
+              <option>Correction d'une information existante</option>
+              <option>Complément d'information</option>
+              <option>Nouveau nom à ajouter</option>
+              <option>Confirmation vivant / décédé</option>
+              <option>Autre</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="detail">Détail</label>
+          <textarea id="detail" placeholder="Ex. : Il s'appelait en réalité..., la discipline exacte était..., je confirme qu'il est décédé en [année] à [lieu]..."></textarea>
+        </div>
+        <div class="actions">
+          <button type="button" class="primary" id="sendBtn">Envoyer par e-mail</button>
+          <button type="button" class="secondary" id="copyBtn">Copier le message</button>
+          <span class="copied-msg" id="copiedMsg">Message copié ✓</span>
+        </div>
+        <p style="font-size:.82rem; color:var(--muted); margin-top:4px;">
+          Si le bouton "Envoyer par e-mail" n'ouvre rien chez vous, utilisez "Copier le message"
+          et collez-le dans un e-mail à <strong>vogtphil@yahoo.fr</strong>.
+        </p>
+      </form>
+    </section>
+
+    <section class="contribution-panel section-anchor architecture-screen" id="temoignages" hidden>
+    <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+    <div class="published-testimonies">
+      <h2>Témoignages</h2>
+      <p>Les témoignages publiés sont présentés du plus récent au plus ancien.</p>
+
+      <div id="testimonyList"></div>
+    </div>
+
+    <section class="testimony-section">
+      <h2 class="serif">Partager un souvenir ou un témoignage</h2>
+      <p class="lead">
+        Vous pouvez partager ici un souvenir, une anecdote ou un témoignage lié à votre passage à l'IUT de Cumaná.
+        Les contributions sont relues avant toute éventuelle publication sur le site.
+        Les nom et e-mail renseignés dans le bloc « Vos coordonnées » sont également transmis avec votre témoignage.
+      </p>
+      <form id="testimonyForm">
+<input type="hidden" name="_gotcha" value="" style="display:none !important">
+        <div class="field">
+          <label for="testimonyPerson">Personne(s) concernée(s), si applicable</label>
+          <input id="testimonyPerson" placeholder="Nom de la personne concernée (facultatif)">
+        </div>
+        <div class="field">
+          <label for="testimonyDetail">Votre souvenir ou témoignage</label>
+          <textarea id="testimonyDetail" placeholder="Racontez votre souvenir, anecdote ou témoignage..." required></textarea>
+        </div>
+        <div class="actions">
+          <button type="submit" class="primary" id="testimonyBtn">Envoyer le témoignage</button>
+        </div>
+        <p class="testimony-status" id="testimonyStatus" role="status" aria-live="polite"></p>
+      </form>
+
+    </section>
+
+    </section>
+
+    <section class="photos-section section-anchor contribution-panel architecture-screen" id="photos" hidden>
+      <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+      <h2>Photos</h2>
+      <p>Cette rubrique accueille les photos validées : images d'époque, vie à Cumaná, voyages et retrouvailles. Chaque photo peut être accompagnée d'une date, d'une légende, des personnes identifiées et du nom du photographe lorsqu'il est connu.</p>
+      <div class="gallery-grid" id="photoGallery"></div>
+      <dialog class="photo-dialog" id="photoDialog">
+        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer">×</button>
+        <img id="photoDialogImage" alt="">
+        <div class="photo-dialog-caption" id="photoDialogCaption"></div>
+      </dialog>
+
+      <div class="photo-submit" id="photoSubmitBlock">
+        <h3>Proposer des photos</h3>
+        <p>
+          Vous pouvez proposer ici une ou plusieurs photos. Si vous sélectionnez plusieurs
+          photos dans un même envoi, la légende, la date ou période, les personnes identifiées
+          et les informations complémentaires saisies ci-dessous s'appliqueront à l'ensemble
+          des photos. Pour fournir des informations différentes pour chaque photo, effectuez
+          des envois séparés. Les photos seront examinées avant toute publication sur le site.
+        </p>
+        <form id="photoForm" enctype="multipart/form-data">
+<input type="hidden" name="_gotcha" value="" style="display:none !important">
+          <div class="field">
+            <label for="photoFiles">Photo(s)</label>
+            <input type="file" id="photoFiles" name="fi-file-photos[]" accept=".jpg,.jpeg,.png" multiple required>
+            <small>Vous pouvez sélectionner plusieurs photos — JPG, JPEG ou PNG — 25 Mo maximum par envoi.</small>
+          </div>
+          <div class="field">
+            <label for="photoCaption">Légende</label>
+            <input id="photoCaption" name="fi-text-legende" placeholder="Ex. : Visite de la promotion 1976" required>
+          </div>
+          <div class="field">
+            <label for="photoPeriod">Date ou période (facultatif)</label>
+            <input id="photoPeriod" name="fi-text-date_periode" placeholder="Ex. : 1976 ou avril 1978">
+          </div>
+          <div class="field">
+            <label for="photoPeople">Personnes identifiées (facultatif)</label>
+            <input id="photoPeople" name="fi-text-personnes_identifiees" placeholder="Noms des personnes reconnues">
+          </div>
+          <div class="field">
+            <label for="photoInfo">Informations complémentaires (facultatif)</label>
+            <textarea id="photoInfo" name="fi-text-informations_complementaires" placeholder="Lieu, circonstances, photographe, etc."></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="primary" id="photoSubmitBtn">Envoyer les photos</button>
+          </div>
+          <p class="testimony-status" id="photoStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </div>
+  <footer class="shared-contact-note">Projet animé par Philippe Vogt-Schilb. Contact : <a href="mailto:vogtphil@yahoo.fr">vogtphil@yahoo.fr</a>. Hébergement du site public : GitHub Pages (GitHub, Inc.).</footer>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
+<script src="vendor/forminit-sdk-v1.js" integrity="sha256-ScZ97sh1yqQbJ4PErIsPP3ySY9TQYRCMByVER6FnCXw="></script>
+<script src="cooperants.enc.js"></script>
+<script src="annuaire-crypto.js"></script>
+<script src="temoignages.js"></script>
+<script src="photos.js"></script>
+<script>
+
+
+// Le secret est fourni par le visiteur, jamais publie dans le code.
+let ROWS = [];
+let annuaireReady = false;
+let restoreAnnuaire = Promise.resolve();
+const REPORT_EMAIL = "vogtphil@yahoo.fr";
+  
+const FORMINIT_FORM_ID = "x5pnzhogj2t";
+// Ne bloque jamais le portail d'accès si le SDK externe n'est pas chargé.
+const forminit = (typeof Forminit !== "undefined") ? new Forminit() : null;
+
+// --- Carte Leaflet : initialisée immédiatement au chargement ---
+function initMap(){
+  const map = L.map('map');
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 18,
+  }).addTo(map);
+
+  // Site principal de Cumaná
+  const cumana = L.marker([10.43823, -64.1406]).addTo(map)
+    .bindPopup("<b>IUT de Cumaná</b><br>Sede principal");
+
+  // Annexe de Cariaco
+  const cariacoIcon = L.divIcon({
+    className: '',
+    html: '<div style="width:18px;height:18px;background:#a4552c;border:3px solid white;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.5);"></div>',
+    iconSize: [15, 15],
+    iconAnchor: [9, 9]
+  });
+
+  const cariaco = L.marker([10.4812, -63.5521], {icon: cariacoIcon}).addTo(map)
+    .bindPopup("<b>Anexo del IUT de Cumaná</b><br>Cariaco");
+
+  // Cadrage automatique pour afficher les deux sites
+  map.fitBounds([
+    [10.43823, -64.1406],
+    [10.4812, -63.5521]
+  ], {padding: [30, 30]});
+}
+
+// --- Portail d'accès ---
+function installerAnnuaire(rows){
+  ROWS = rows;
+  renderStats(); render(); populatePersonSelect();
+  annuaireReady = true;
+}
+document.getElementById('gateSubmit').addEventListener('click', async () => {
+  const button = document.getElementById('gateSubmit');
+  const input = document.getElementById('gateCode');
+  const error = document.getElementById('gateError');
+  const label = button.textContent;
+  button.disabled = true; button.textContent = 'Vérification…'; error.textContent = '';
+  try {
+    const rows = await window.IUTAnnuaire.unlock(input.value);
+    installerAnnuaire(rows);
+    input.value = '';
+    await showContributionPanel('annuaire');
+    focusView(document.getElementById('listing'));
+  } catch (err) {
+    error.textContent = err.name === 'OperationError'
+      ? "Phrase incorrecte ou fichier chiffré altéré. Vérifiez la phrase d’accès."
+      : "Accès impossible : " + err.message;
+  } finally { button.disabled = false; button.textContent = label; }
+});
+document.getElementById('gateCode').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('gateSubmit').click();
+});
+document.getElementById('showRequestBtn').addEventListener('click', () => {
+  const block = document.getElementById('requestBlock');
+  block.style.display = block.style.display === 'block' ? 'none' : 'block';
+});
+document.getElementById('sendRequestBtn').addEventListener('click', () => {
+  const name = document.getElementById('reqName').value || '(non précisé)';
+  const relation = document.getElementById('reqRelation').value || '(non précisé)';
+  const email = document.getElementById('reqEmail').value || '(non précisé)';
+  const subject = encodeURIComponent("Demande d'accès — liste coopérants IUT Cumaná");
+  const body = encodeURIComponent(`Demande d'accès à la page des coopérants IUT Cumaná\n\nNom : ${name}\nLien avec le projet : ${relation}\nE-mail : ${email}`);
+  window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+});
+
+// La carte est initialisée après le portail d'accès afin qu'un problème
+// de chargement de Leaflet ne puisse pas désactiver les boutons d'accès.
+try {
+  initMap();
+} catch (err) {
+  console.warn("Carte non chargée :", err);
+}
+
+// --- Données (chargées depuis cooperants.js) ---
+// ROWS est rempli uniquement apres dechiffrement authentifie.
+
+const genLabels = {
+  0: "Génération 0 — Premier arrivant (1972)",
+  1: "Génération 1 — Les pionniers (1973-1975)",
+  2: "Génération 2 — Promotion VSNA 1974",
+  3: "Génération 3 — Promotion VSNA 1975",
+  4: "Génération 4 — Promotion VSNA 1976",
+  5: "Génération 5 — Promotion VSNA 1977",
+  6: "Génération 6 — Promotion VSNA 1978",
+  7: "Génération 7 — Promotion VSNA 1979",
+  9: "Génération 9 — Promotion VSNA 1981",
+};
+
+function escapeAnnuaire(value){ return String(value ?? "").replace(/[&<>"\']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#39;"}[c])); }
+function render(){
+  const listing = document.getElementById('listing');
+  listing.innerHTML = "";
+  const groups = {};
+  ROWS.forEach(r => {
+    const key = (r.gen === 0 || r.gen) ? r.gen : "none";
+    (groups[key] = groups[key] || []).push(r);
+  });
+  const order = Object.keys(groups).sort((a,b) => {
+    const x=Number(a), y=Number(b);
+    if(Number.isFinite(x) && Number.isFinite(y)) return x-y;
+    if(Number.isFinite(x)) return -1;
+    if(Number.isFinite(y)) return 1;
+    return a.localeCompare(b);
+  });
+  order.forEach(key => {
+    const items = groups[key] || [];
+    if(items.length === 0) return;
+    const sec = document.createElement('section');
+    sec.className = 'gen';
+    const title = (key === "none" || key === "?") ? "Période et génération non déterminées" : genLabels[key] || ("Génération " + key);
+    sec.innerHTML = `<div class="gen-title">${title}</div><div class="gen-sub">${items.length} personne(s)</div>`;
+    items.forEach(r => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="name">${escapeAnnuaire(r.nom)}<br><span class="prenom">${escapeAnnuaire(r.prenom||'')}</span></div>
+        <div class="meta">${escapeAnnuaire(r.discipline || '—')}${r.dept && r.dept !== r.discipline ? ' · ' + escapeAnnuaire(r.dept) : ''}<br>
+          <span class="source-tag">Source : ${escapeAnnuaire(r.source || '—')}</span></div>
+        <div class="period">${escapeAnnuaire(r.periode || '—')}</div>
+      `;
+      sec.appendChild(card);
+    });
+    listing.appendChild(sec);
+  });
+}
+
+function renderStats(){
+  const nbGen = new Set(ROWS.map(r => r.gen).filter(g => g === 0 || g)).size;
+  const complets = ROWS.filter(r => r.nom && !r.nom.includes('??') && r.discipline && r.discipline !== 'À confirmer').length;
+  document.getElementById('stats').innerHTML = `
+    <div class="stat"><div class="n">${ROWS.length}</div><div class="l">personnes recensées</div></div>
+    <div class="stat"><div class="n">${nbGen}</div><div class="l">générations / promotions</div></div>
+    <div class="stat"><div class="n">${complets}</div><div class="l">fiches complètes</div></div>
+  `;
+}
+
+function populatePersonSelect(){
+  const sel = document.getElementById('personne');
+  sel.innerHTML = '<option value="">— Sélectionner —</option>';
+  ROWS.forEach(r => {
+    const label = `${r.nom} ${r.prenom || ''}`.trim();
+    const opt = document.createElement('option');
+    opt.value = label;
+    opt.textContent = label;
+    sel.appendChild(opt);
+  });
+  const other = document.createElement('option');
+  other.value = "Personne non listée / nouveau nom";
+  other.textContent = "Personne non listée / nouveau nom";
+  sel.appendChild(other);
+}
+
+function buildMessage(){
+  const personne = document.getElementById('personne').value || "(non précisé)";
+  const type = document.getElementById('type').value;
+  const detail = document.getElementById('detail').value || "(aucun détail saisi)";
+  const contact = document.getElementById('contact').value;
+  const email = document.getElementById('email').value;
+  return `Signalement — liste des coopérants IUT Cumaná\n\nPersonne concernée : ${personne}\nType : ${type}\n\nDétail :\n${detail}\n\n${contact ? "De la part de : " + contact + "\n" : ""}${email ? "Contact : " + email + "\n" : ""}`;
+}
+
+document.getElementById('sendBtn').addEventListener('click', () => {
+  const personne = document.getElementById('personne').value || "(non précisé)";
+  const type = document.getElementById('type').value;
+  const detail = document.getElementById('detail').value || "(aucun détail saisi)";
+  const contact = document.getElementById('contact').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  const subject = encodeURIComponent("Signalement — liste des coopérants IUT Cumaná");
+  const body = encodeURIComponent(
+    `Signalement — liste des coopérants IUT Cumaná\n\n` +
+    `Personne concernée : ${personne}\n` +
+    `Type : ${type}\n\n` +
+    `Détail :\n${detail}\n\n` +
+    `${contact ? "De la part de : " + contact + "\n" : ""}` +
+    `${email ? "Contact : " + email + "\n" : ""}`
+  );
+
+  window.location.href = `mailto:${REPORT_EMAIL}?subject=${subject}&body=${body}`;
+});
+
+document.getElementById('testimonyForm').addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const button = document.getElementById('testimonyBtn');
+  const status = document.getElementById('testimonyStatus');
+  const originalText = button.textContent;
+  if (button.disabled) return;
+
+  const person = document.getElementById('testimonyPerson').value.trim();
+  const detail = document.getElementById('testimonyDetail').value.trim();
+  const contact = document.getElementById('contact').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if (!detail) {
+    status.className = 'testimony-status error';
+    status.textContent = "Merci de saisir votre souvenir ou témoignage.";
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "Envoi en cours…";
+  status.className = 'testimony-status';
+  status.textContent = "";
+
+  try {
+  const formData = new FormData();
+
+  formData.append(
+    "fi-text-personnes_concernees",
+    person || "(non précisé)"
+  );
+
+  formData.append(
+    "fi-text-souvenir_temoignage",
+    detail
+  );
+
+  formData.append(
+    "fi-sender-fullName",
+    contact || ""
+  );
+
+  formData.append(
+    "fi-sender-email",
+    email || ""
+  );
+
+  if (!forminit) {
+    throw new Error("Le service Forminit n'est pas disponible. Rechargez la page avec une connexion Internet.");
+  }
+  formData.append("_gotcha", document.querySelector("#testimonyForm [name=_gotcha]").value);
+  const result = await attendreEnvoi(forminit.submit(FORMINIT_FORM_ID, formData));
+  const error = result && result.error;
+
+
+  if (error) throw new Error(error.message || "Erreur du service d’envoi");
+
+  status.className = 'testimony-status success';
+  status.textContent = "Votre témoignage a bien été envoyé. Merci.";
+  document.getElementById('testimonyPerson').value = "";
+  document.getElementById('testimonyDetail').value = "";
+  } catch (error) {
+    status.className = 'testimony-status error';
+    status.textContent = "L’envoi n’a pas pu être confirmé. " + error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = originalText;
+  }
+
+});
+
+
+document.getElementById('copyBtn').addEventListener('click', async () => {
+  const msg = buildMessage();
+  try{
+    await navigator.clipboard.writeText(msg);
+  }catch(e){
+    const ta = document.createElement('textarea');
+    ta.value = msg; document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+  }
+  const el = document.getElementById('copiedMsg');
+  el.style.display = 'inline';
+  setTimeout(() => el.style.display = 'none', 2500);
+});
+
+// Pas de rendu des fiches avant dechiffrement.
+
+
+
+// Compteurs de l'état actuel du projet.
+(function updateProjectCounts(){
+  const values = {
+    countCooperants: window.IUT_ENCRYPTED ? window.IUT_ENCRYPTED.count : "—",
+    countTestimonies: (window.TEMOIGNAGES || []).length,
+    countPhotos: (window.PHOTOS || []).length
+  };
+  Object.entries(values).forEach(([id,value]) => {
+    const el=document.getElementById(id);
+    if(el) el.textContent=value;
+  });
+})();
+
+document.getElementById('forgetAnnuaire').addEventListener('click', () => { window.IUTAnnuaire.forget(); location.reload(); });
+
+// Navigation : accueil public, consultation, participation et annuaire protégé.
+
+const contributionPanels = [...document.querySelectorAll('.contribution-panel')];
+const homeChoices = document.getElementById('homeChoices');
+const participateScreen = document.getElementById('participateScreen');
+const directoryArea = document.getElementById('directoryArea');
+const sharedContact = document.querySelector('.shared-contact');
+const testimonyFormSection = document.querySelector('#temoignages .testimony-section');
+const photoSubmitBlock = document.getElementById('photoSubmitBlock');
+const floatingHome = document.getElementById('floatingHome');
+const participateNav = document.getElementById('participateNav');
+
+function hideArchitectureScreens(){
+  [participateScreen, directoryArea, ...contributionPanels].forEach(el => { if(el) el.hidden = true; });
+}
+function setSecondaryNavigation(showHome, showParticipateNav=false, activePanel=''){
+  if(floatingHome) floatingHome.hidden=!showHome;
+  if(participateNav) participateNav.hidden=!showParticipateNav;
+  document.querySelectorAll('[data-participate-nav]').forEach(btn=>{ const active=btn.dataset.participateNav===activePanel; btn.classList.toggle('active',active); if(active) btn.setAttribute('aria-current','page'); else btn.removeAttribute('aria-current'); });
+}
+function goHome(){
+  hideArchitectureScreens();
+  if(sharedContact) sharedContact.style.display='none';
+  if(homeChoices) homeChoices.hidden=false;
+  setSecondaryNavigation(false,false);
+  window.scrollTo({top:document.querySelector('main').offsetTop,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+}
+function showPublicView(panelId){
+  if(!['annuaire','temoignages','photos'].includes(panelId)||!document.getElementById(panelId)) return;
+  hideArchitectureScreens();
+  homeChoices.hidden=true;
+  if(sharedContact) sharedContact.style.display='none';
+  setSecondaryNavigation(true,false);
+  const panel=document.getElementById(panelId);
+  if(panel) panel.hidden=false;
+  if(panelId==='temoignages' && testimonyFormSection) testimonyFormSection.style.display='none';
+  if(panelId==='photos' && photoSubmitBlock) photoSubmitBlock.style.display='none';
+  if(panel) panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+function showParticipate(){
+  hideArchitectureScreens();
+  homeChoices.hidden=true;
+  if(sharedContact) sharedContact.style.display='none';
+  setSecondaryNavigation(true,false);
+  participateScreen.hidden=false;
+  participateScreen.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+async function showContributionPanel(panelId) {
+  if(!['annuaire','temoignages','photos'].includes(panelId)||!document.getElementById(panelId)) return;
+  if(panelId==='annuaire') { const expectedHash=location.hash; await restoreAnnuaire; if(location.hash!==expectedHash) return; }
+  hideArchitectureScreens();
+  homeChoices.hidden=true;
+  setSecondaryNavigation(false,true,panelId);
+  if(sharedContact) sharedContact.style.display = 'block';
+  if(panelId==='annuaire'){
+    directoryArea.hidden=false;
+    if(sharedContact) sharedContact.style.display=annuaireReady?'block':'none';
+    if(annuaireReady) directoryArea.classList.add('unlocked');
+    else directoryArea.classList.remove('unlocked');
+    const panel=document.getElementById('annuaire');
+    panel.hidden = !directoryArea.classList.contains('unlocked');
+    directoryArea.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    return;
+  }
+  const panel=document.getElementById(panelId);
+  if(panel) panel.hidden=false;
+  if(panelId==='temoignages' && testimonyFormSection) testimonyFormSection.style.display='block';
+  if(panelId==='photos' && photoSubmitBlock) photoSubmitBlock.style.display='block';
+  if(sharedContact && panel) panel.before(sharedContact);
+  if(panel) panel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+}
+
+const routeContribution = panel => panel==='annuaire' ? 'annuaire' : 'ajouter-'+panel;
+function navigateTo(route){
+  if(location.hash.slice(1)===route) applyRoute();
+  else location.hash=route;
+}
+async function applyRoute(){
+  const route=location.hash.slice(1)||'accueil';
+  let target;
+  if(route==='annuaire'){
+    await showContributionPanel('annuaire');
+    if((location.hash.slice(1)||'accueil')!==route) return;
+    target=annuaireReady ? document.getElementById('listing') : document.getElementById('gateScreen');
+  } else if(route==='participer'){showParticipate(); target=participateScreen;}
+  else if(route==='temoignages'||route==='photos'){showPublicView(route); target=document.getElementById(route);}
+  else if(route==='ajouter-temoignages'||route==='ajouter-photos'){
+    const panel=route.slice(8); await showContributionPanel(panel); target=document.getElementById(panel);
+  } else {goHome();target=homeChoices;}
+  focusView(target);
+}
+function focusView(target){
+  if(!target) return;
+  const heading=target.querySelector('h2, .gen-title')||target;
+  heading.classList.add('view-focus-target');
+  heading.setAttribute('tabindex','-1'); heading.focus({preventScroll:true});
+}
+document.querySelectorAll('.home-choice[data-view], .project-count[data-view]').forEach(btn=>btn.addEventListener('click',()=>navigateTo(btn.dataset.view)));
+document.querySelectorAll('.participate-choice[data-participate]').forEach(btn=>btn.addEventListener('click',()=>navigateTo(routeContribution(btn.dataset.participate))));
+document.querySelectorAll('[data-home]').forEach(btn=>btn.addEventListener('click',()=>navigateTo('accueil')));
+if(floatingHome) floatingHome.addEventListener('click',()=>navigateTo('accueil'));
+document.querySelectorAll('[data-participate-nav]').forEach(btn=>btn.addEventListener('click',()=>navigateTo(routeContribution(btn.dataset.participateNav))));
+window.addEventListener('hashchange',applyRoute);
+
+restoreAnnuaire = window.IUTAnnuaire.restore().then(rows => { if(rows) installerAnnuaire(rows); });
+if(sharedContact) sharedContact.style.display='none';
+applyRoute();
+
+
+function attendreEnvoi(promise){
+  let timer;
+  return Promise.race([promise,new Promise((_,reject)=>{ timer=setTimeout(()=>reject(new Error("Le délai d’attente est dépassé. Vérifiez la réception avant de réessayer pour éviter un doublon.")),45000); })]).finally(()=>clearTimeout(timer));
+}
+function safeLocalURL(value){
+  try { const u=new URL(String(value||''),location.href); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
+}
+function sanitizeTestimony(html){
+  const source=new DOMParser().parseFromString(String(html),'text/html');
+  const allowed=new Set(['P','BR','STRONG','B','EM','I','U','S','H2','H3','H4','H5','H6','UL','OL','LI','BLOCKQUOTE','DIV','SPAN','A','IMG','FIGURE','FIGCAPTION','TABLE','THEAD','TBODY','TR','TH','TD','HR','PRE','CODE','SUP','SUB']);
+  const blocked=new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','FORM','INPUT','BUTTON','SVG','MATH','LINK','META','BASE']);
+  function copy(node){
+    if(node.nodeType===3) return document.createTextNode(node.textContent);
+    const fragment=document.createDocumentFragment();
+    if(node.nodeType!==1 || blocked.has(node.tagName)) return fragment;
+    const out=allowed.has(node.tagName)?document.createElement(node.tagName.toLowerCase()):fragment;
+    if(out.nodeType===1){
+      const classes=(node.getAttribute('class')||'').split(/\s+/).filter(c=>/^[a-zA-Z0-9_-]+$/.test(c)); if(classes.length) out.className=classes.join(' ');
+      if(node.tagName==='A'){
+        try{const u=new URL(node.getAttribute('href')||'',location.href); if(['http:','https:','mailto:'].includes(u.protocol)){out.href=u.href;out.rel='noopener noreferrer';}}catch(_){}
+      }
+      if(node.tagName==='IMG'){const url=safeLocalURL(node.getAttribute('src'));if(url)out.src=url;out.alt=node.getAttribute('alt')||'';out.loading='lazy';}
+      if(['TH','TD'].includes(node.tagName)){for(const key of ['colspan','rowspan']){const v=Number(node.getAttribute(key));if(Number.isInteger(v)&&v>0&&v<=100)out.setAttribute(key,String(v));}}
+    }
+    for(const child of node.childNodes) out.appendChild(copy(child));
+    return out;
+  }
+  const result=document.createDocumentFragment();for(const child of source.body.childNodes) result.appendChild(copy(child));return result;
+}
+
+// Contenus validés, chargés depuis temoignages.js et photos.js.
+function formatFrenchDate(iso){
+  const p=String(iso||'').split('-').map(Number);
+  if(p.length!==3||p.some(Number.isNaN)||p[1]<1||p[1]>12||p[2]<1||p[2]>31) return iso||'';
+  return new Intl.DateTimeFormat('fr-FR',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(p[0],p[1]-1,p[2])));
+}
+const testimonyList=document.getElementById('testimonyList');
+if(testimonyList){
+  [...(window.TEMOIGNAGES||[])].sort((a,b)=>String(b.datePublication||'').localeCompare(String(a.datePublication||''))).forEach(item=>{
+    const article=document.createElement('article'); article.className='testimony-card';
+    const h=document.createElement('h3'); h.textContent=item.titre||'Témoignage';
+    const meta=document.createElement('div'); meta.className='testimony-meta'; meta.textContent=`${item.auteur||'Témoignage anonyme'} · Publié le ${formatFrenchDate(item.datePublication)}`;
+    const prev=document.createElement('p'); prev.className='testimony-preview'; prev.textContent=item.apercu||'';
+    const details=document.createElement('details'), summary=document.createElement('summary'), full=document.createElement('div');
+    summary.textContent='Lire le témoignage'; full.className='testimony-full';
+    if(item.fichier){
+      const frame=document.createElement('iframe');
+      frame.className='testimony-external';
+      frame.title=item.titre||'Témoignage';
+      frame.loading='lazy';
+      frame.setAttribute('sandbox','allow-same-origin');
+      const safeFile = safeLocalURL(item.fichier);
+      if (!safeFile) { full.textContent = 'Adresse du document invalide.'; }
+      else frame.src=safeFile;
+      frame.addEventListener('load',()=>{
+        try{
+          const resize=()=>{ frame.style.height=Math.max(180,frame.contentDocument.documentElement.scrollHeight)+'px'; };
+          resize();
+          if('ResizeObserver' in window) new ResizeObserver(resize).observe(frame.contentDocument.body);
+        }catch(e){ frame.style.height='800px'; }
+      });
+      full.appendChild(frame);
+    }else{
+      full.appendChild(sanitizeTestimony(item.contenu||''));
+    }
+    details.append(summary,full); article.append(h,meta,prev,details); testimonyList.appendChild(article);
+  });
+}
+const photoGallery=document.getElementById('photoGallery'), photoDialog=document.getElementById('photoDialog'),
+photoDialogImage=document.getElementById('photoDialogImage'), photoDialogCaption=document.getElementById('photoDialogCaption'),
+photoDialogClose=document.getElementById('photoDialogClose');
+if(photoGallery){
+  (window.PHOTOS||[]).forEach(item=>{
+    const fig=document.createElement('figure'); fig.className='gallery-item';
+    const btn=document.createElement('button'); btn.type='button'; btn.className='gallery-button';
+    const img=document.createElement('img'); img.src=safeLocalURL(item.fichier)||''; img.alt=item.legende||'Photo'; img.loading='lazy';
+    const cap=document.createElement('figcaption'), title=document.createElement('div'); title.textContent=item.legende||''; cap.appendChild(title);
+    if(item.fournisseur){const f=document.createElement('div'); f.className='photo-provider'; f.textContent=`Cliché fourni par ${item.fournisseur}`; cap.appendChild(f);}
+btn.appendChild(img);
+btn.addEventListener('click',()=>{
+  photoDialogImage.src=safeLocalURL(item.fichier)||'';
+  photoDialogImage.alt=item.legende||'';
+
+  photoDialogCaption.replaceChildren();
+  const captionTitle=document.createElement('strong'); captionTitle.textContent=item.legende||'';
+  photoDialogCaption.appendChild(captionTitle);
+  [['Date / période',item.periode],['Personnes identifiées',item.personnes],['Commentaires',item.commentaires],['Photo fournie par',item.fournisseur]].forEach(([label,value]) => {
+    if(value){ const line=document.createElement('div'); line.textContent=label+' : '+value; photoDialogCaption.appendChild(line); }
+  });
+
+  if(photoDialog.showModal)
+    photoDialog.showModal();
+});
+    fig.append(btn,cap); photoGallery.appendChild(fig);
+  });
+}
+if(photoDialogClose) photoDialogClose.addEventListener('click',()=>photoDialog.close());
+if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDialog)photoDialog.close();});
+</script>
+
+<script>
+(function initPhotoSubmission(){
+  const form = document.getElementById('photoForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+
+    const status = document.getElementById('photoStatus');
+    const button = document.getElementById('photoSubmitBtn');
+    const input = document.getElementById('photoFiles');
+    const files = input ? input.files : [];
+    if (button.disabled) return;
+
+    status.className = 'testimony-status';
+    status.textContent = "Préparation de l'envoi…";
+
+    if (!files || files.length === 0) {
+      status.className = 'testimony-status error';
+      status.textContent = "Sélectionnez au moins une photo.";
+      return;
+    }
+
+    if (files.length > 20) {
+      status.className = 'testimony-status error';
+      status.textContent = "Sélectionnez au maximum 20 photos par envoi.";
+      return;
+    }
+    const total = Array.from(files).reduce((sum,file)=>sum+file.size,0);
+    if (total > 25 * 1024 * 1024) {
+      status.className = 'testimony-status error';
+      status.textContent = "La taille totale des photos dépasse 25 Mo.";
+      return;
+    }
+
+    if (typeof Forminit === "undefined") {
+      status.className = 'testimony-status error';
+      status.textContent = "Forminit n'est pas chargé. Vérifiez la connexion Internet puis rechargez la page.";
+      return;
+    }
+
+    button.disabled = true;
+    const original = button.textContent;
+    button.textContent = "Envoi en cours…";
+
+    try {
+      const client = new Forminit();
+      const data = new FormData(form);
+
+      data.append("fi-text-type_contribution", "Photo");
+
+      const nameField = document.getElementById('contact');
+      const emailField = document.getElementById('email');
+      data.append("fi-sender-fullName", nameField ? nameField.value.trim() : "");
+      data.append("fi-sender-email", emailField ? emailField.value.trim() : "");
+
+      const result = await attendreEnvoi(client.submit(FORMINIT_FORM_ID, data));
+
+      if (result && result.error) {
+        throw new Error(result.error.message || "Erreur Forminit");
+      }
+
+      status.className = 'testimony-status success';
+      status.textContent = "Vos photos ont bien été envoyées. Merci.";
+      form.reset();
+    } catch(err) {
+      status.className = 'testimony-status error';
+      status.textContent = "Échec de l'envoi : " + (err && err.message ? err.message : String(err));
+    } finally {
+      button.disabled = false;
+      button.textContent = original;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>

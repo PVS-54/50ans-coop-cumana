@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /cooperants.js
+
+Sitemap: https://iut-cumana.fr/sitemap.xml

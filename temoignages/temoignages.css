@@ -1,0 +1,11 @@
+/* Style commun des témoignages — IUT Cumaná */
+:root{--ink:#242821;--green:#285b43;--paper:#fffdf8;--line:#d9ded7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Segoe UI",Arial,sans-serif;font-size:.94rem;line-height:1.65}
+.temoignage{max-width:900px;margin:0 auto;padding:36px 42px 48px}
+h2{font-family:"Iowan Old Style",Georgia,serif;font-size:1.18rem;color:var(--green);margin:1.7rem 0 .45rem;border-bottom:1px solid var(--line);padding-bottom:.2rem}
+p{margin:.7rem 0;text-align:justify}
+ul,ol{margin:.5rem 0 1rem;padding-left:1.6rem}
+li{margin:.45rem 0}
+.signature{margin-top:2rem;text-align:right;font-style:italic}
+@media(max-width:600px){.temoignage{padding:24px 20px 36px}p{text-align:left}}
