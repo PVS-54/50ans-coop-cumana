@@ -43,6 +43,15 @@ window.PHOTOS = [
   { fichier:"photos/UPTOS_1.jpg", legende:"UPTOS_1", fournisseur:"UPTOS" },
   { fichier:"photos/UPTOS_2.jpg", legende:"UPTOS_2", fournisseur:"UPTOS" },
   {
+  fichier:"photos/Libreria Cervantes.jpg",
+  legende:"La librairie Cervantes",
+  periode:"1988",
+  personnes:"",
+  commentaires:"Point de passage obligé...",
+  fournisseur:"https://www.facebook.com/Memoriadecumana/photos_by "
+},
+
+{
   fichier:"photos/EM_011.jpg",
   legende:"Bienvenue à l'IUT",
   periode:"1977/1978",
