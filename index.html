@@ -216,6 +216,15 @@ header.hero::after{
   .gallery-item{margin:0; min-width:0;}
   .gallery-button{display:block; width:100%; padding:0; border:0; background:transparent; cursor:pointer;}
   .gallery-button img{display:block; width:100%; aspect-ratio:4/3; object-fit:contain; border-radius:5px; border:1px solid var(--line);}
+  /* Zoom discret au survol, sans modifier les dimensions de la galerie. */
+  .gallery-button{overflow:hidden; border-radius:5px;}
+  @media (hover:hover) and (pointer:fine){
+    .gallery-button img{transition:transform .25s ease;}
+    .gallery-button:hover img{transform:scale(1.08);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .gallery-button img{transition:none;}
+  }
   .gallery-item figcaption{font-size:.84rem; color:var(--muted); margin-top:7px; text-align:center;}
   .photo-dialog{border:0; border-radius:7px; padding:12px; max-width:min(1000px,92vw); background:#fff;}
   .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
