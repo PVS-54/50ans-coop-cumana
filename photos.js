@@ -9,7 +9,7 @@ window.PHOTOS = [
   fournisseur:"Ernesto Madrid Rivas"
 }, 
   {
-  fichier:"photos/visite.jpg",
+  fichier:"photos/Visite.jpg",
   legende:"Viste d'officiels",
   periode:"1980",
   personnes:"El Embajador de Francia en Venezuela  y el Consejero Cultural, Ernesto Madrid Rivas",
