@@ -18,7 +18,7 @@ window.PHOTOS = [
 },
   {
   fichier:"photos/Brindis.jpg",
-  legende:"Levons nos verres !",
+  legende:"Levons nos verres !, non, aucun verre en vue...",
   periode:"1976 ?",
   personnes:"?, Jorge Yánez Caires, ?, ?, ?",
   commentaires:"",
