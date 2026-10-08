@@ -1,10 +1,52 @@
 // Photos validées et publiées.
 window.PHOTOS = [
 {
+  fichier:"photos/Pause_café.jpg",
+  legende:"La pause au cafetin del Sr. Luis",
+  periode:"Debe ser del año 1976",
+  personnes:"Thierry Lefebvre, Chantal Bérard, Ernesto Madrid Rivas, Jorge Yánez Caires",
+  commentaires:"",
+  fournisseur:"Ernesto Madrid Rivas"
+}, 
+  {
+  fichier:"photos/visite.jpg",
+  legende:"Viste d'officiels",
+  periode:"1980",
+  personnes:"El Embajador de Francia en Venezuela  y el Consejero Cultural, Ernesto Madrid Rivas",
+  commentaires:"",
+  fournisseur:"Ernesto Madrid Rivas"
+},
+  {
+  fichier:"photos/Brindis.jpg",
+  legende:"Levons nos verres !",
+  periode:"1976 ?",
+  personnes:"?, Jorge Yánez Caires, ?, ?, ?",
+  commentaires:"",
+  fournisseur:"Ernesto Madrid Rivas"
+},
+  {
+  fichier:"photos/Remise de diplômes.jpg",
+  legende:"Remise de diplômes de la deuxième promotion",
+  periode:"Peut-être 1975",
+  personnes:"Ernesto Madrid Rivas, Jorge Yánez Caires, Jean Pierre Navarro, Thierry Lefebvre",
+  commentaires:"",
+  fournisseur:"Ernesto Madrid Rivas"
+},
+  {
+  fichier:"photos/Equipe de foot.jpg",
+  legende:"L'équipe de foot",
+  periode:"1978",
+  personnes:"Ils sont nombreux",
+  commentaires:"C'était pas onze, la norme ?",
+  fournisseur:"Ernesto Madrid Rivas"
+},
+
+  
+  {
   fichier:"photos/visitas-1976.jpg",
   legende:"Visitas 1976",
   periode:"Debe ser del año 1976",
-  personnes:"",
+  personnes:" ?, Jean Pierre Navarro, Monte (?), Alejandro Sanchez Vegas, ?",
   commentaires:"Visita al IUT de Cumaná del otrora Director de Educación Superior del Ministerio de Educación, Dr. Luis Manuel Manzanilla.",
   fournisseur:"Ernesto Madrid Rivas"
 }, 
