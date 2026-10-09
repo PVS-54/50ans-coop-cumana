@@ -115,39 +115,20 @@
     "aria_53": "Cerrar"
   }
 };
-  let langue = 'fr';
-  // Les cartes ajoutées par le site conservent leurs textes ; seul leur bouton est traduit.
-  const libellesLecture = {fr: 'Lire le témoignage', es: 'Leer el testimonio'};
-  function appliquer(code) {
-    if (!Object.hasOwn(traductions, code)) return;
-    langue = code;
-    document.documentElement.lang = code;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const texte = traductions[code][el.dataset.i18n];
-      if (texte !== undefined) el.innerHTML = texte;
-    });
-    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
-      const texte = traductions[code][el.dataset.i18nAria];
-      if (texte !== undefined) el.setAttribute('aria-label', texte);
-    });
-    document.querySelectorAll('#testimonyList details > summary').forEach(el => {
-      el.textContent = libellesLecture[code];
-      el.lang = code;
-    });
-    // Les témoignages et les légendes demeurent en français dans l’interface espagnole.
-    ['testimonyList','photoGallery','listing','photoDialogCaption','gateScreen'].forEach(id => {
-      const el = document.getElementById(id); if (el) el.lang = 'fr';
-    });
-    document.querySelectorAll('form, .testimony-section, #photoSubmitBlock, .shared-contact').forEach(el => el.lang = 'fr');
-    document.querySelectorAll('[data-language]').forEach(el => {
-      el.setAttribute('aria-pressed', String(el.dataset.language === code));
-    });
-    try { localStorage.setItem('iut-cumana-langue', code); } catch (_) {}
-  }
-  document.querySelectorAll('[data-language]').forEach(el => {
-    el.addEventListener('click', () => appliquer(el.dataset.language));
+  // Les textes de chaque langue sont déjà présents dans le HTML généré.
+  const code = document.documentElement.lang === 'es' ? 'es' : 'fr';
+  document.querySelectorAll('#testimonyList details > summary').forEach(el => {
+    el.textContent = code === 'es' ? 'Leer el testimonio' : 'Lire le témoignage';
+    el.lang = code;
   });
-  let initiale = 'fr';
-  try { if (localStorage.getItem('iut-cumana-langue') === 'es') initiale = 'es'; } catch (_) {}
-  appliquer(initiale);
+  document.querySelectorAll('.language-switch a').forEach(el => {
+    const cible = new URL(el.getAttribute('href'), location.href);
+    cible.hash = location.hash;
+    el.href = cible.href;
+  });
+  window.addEventListener('hashchange', () => {
+    document.querySelectorAll('.language-switch a').forEach(el => {
+      const cible = new URL(el.href); cible.hash = location.hash; el.href = cible.href;
+    });
+  });
 })();
