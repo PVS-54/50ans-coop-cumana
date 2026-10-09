@@ -3,6 +3,7 @@
   'use strict';
   const traductions = {
   "fr": {
+    "pied_de_page": "Projet animé par Philippe Vogt-Schilb. Contact : <a href=\"mailto:vogtphil@yahoo.fr\">vogtphil@yahoo.fr</a>. Hébergement du site public : GitHub Pages (GitHub, Inc.).",
     "texte_0": "← Retour à l’accueil",
     "texte_1": "RECHERCHE HISTORIQUE · COOPÉRATION FRANCE–VENEZUELA",
     "titre_accueil": "Les coopérants français<br>de l'IUT de Cumaná<br>(1973–1980)",
@@ -59,6 +60,7 @@
     "aria_53": "Fermer"
   },
   "es": {
+    "pied_de_page": "Proyecto coordinado por Philippe Vogt-Schilb. Contacto: <a href=\"mailto:vogtphil@yahoo.fr\">vogtphil@yahoo.fr</a>. Alojamiento del sitio público: GitHub Pages (GitHub, Inc.).",
     "texte_0": "← Volver al inicio",
     "texte_1": "INVESTIGACIÓN HISTÓRICA · COOPERACIÓN FRANCIA–VENEZUELA",
     "titre_accueil": "Los cooperantes franceses<br>del IUT de Cumaná<br>(1973–1980)",
