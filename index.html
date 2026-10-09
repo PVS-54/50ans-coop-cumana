@@ -1105,7 +1105,10 @@ if(testimonyList){
       frame.className='testimony-external';
       frame.title=item.titre||'Témoignage';
       frame.loading='lazy';
-      frame.setAttribute('sandbox','allow-same-origin');
+      frame.setAttribute(
+  'sandbox',
+  'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
+);
       const safeFile = safeLocalURL(item.fichier);
       if (!safeFile) { full.textContent = 'Adresse du document invalide.'; }
       else frame.src=safeFile;
