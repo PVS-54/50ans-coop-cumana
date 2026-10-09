@@ -230,6 +230,16 @@ header.hero::after{
   }
   .gallery-item figcaption{font-size:.84rem; color:var(--muted); margin-top:7px; text-align:center;}
   .photo-dialog{border:0; border-radius:7px; padding:12px; max-width:min(1000px,92vw); background:#fff;}
+
+  /* Étiquettes réservées à la photo agrandie. */
+  .photo-dialog-stage{position:relative;}
+  .photo-person-layer{position:absolute;pointer-events:none;}
+  .photo-person-zone{position:absolute;pointer-events:auto;background:transparent;border:0;padding:0;border-radius:8px;cursor:help;}
+  .photo-person-zone:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #315b85;}
+  .photo-person-label{position:absolute;left:50%;top:100%;transform:translateX(-50%);padding:6px 10px;border-radius:5px;background:rgba(20,30,40,.94);color:#fff;font:600 14px/1.35 system-ui,sans-serif;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;z-index:2;}
+  .photo-person-zone:hover .photo-person-label,.photo-person-zone:focus-visible .photo-person-label,.photo-person-zone.is-active .photo-person-label{opacity:1;visibility:visible;}
+  .photo-person-hint{text-align:center;color:var(--muted);font-size:.82rem;margin:8px 0;}
+  .photo-dialog-close{z-index:5;}
   .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
   .photo-dialog img{display:block; max-width:100%; max-height:78vh; height:auto; margin:auto;}
   .photo-dialog-caption{text-align:center; margin:8px 38px 2px; color:var(--ink);}
@@ -600,7 +610,11 @@ header.hero::after{
       <div class="gallery-grid" id="photoGallery"></div>
       <dialog class="photo-dialog" id="photoDialog">
         <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer" data-i18n-aria="aria_53">×</button>
-        <img id="photoDialogImage" alt="">
+        <div class="photo-dialog-stage" id="photoDialogStage">
+          <img id="photoDialogImage" alt="">
+          <div class="photo-person-layer" id="photoPersonLayer"></div>
+        </div>
+        <p class="photo-person-hint" id="photoPersonHint" hidden></p>
         <div class="photo-dialog-caption" id="photoDialogCaption"></div>
       </dialog>
 
@@ -1138,6 +1152,45 @@ if(testimonyList){
 const photoGallery=document.getElementById('photoGallery'), photoDialog=document.getElementById('photoDialog'),
 photoDialogImage=document.getElementById('photoDialogImage'), photoDialogCaption=document.getElementById('photoDialogCaption'),
 photoDialogClose=document.getElementById('photoDialogClose');
+
+const photoPersonLayer=document.getElementById('photoPersonLayer');
+const photoPersonHint=document.getElementById('photoPersonHint');
+const photoDialogStage=document.getElementById('photoDialogStage');
+function alignPhotoPeople(){
+  const image=photoDialogImage.getBoundingClientRect(), stage=photoDialogStage.getBoundingClientRect();
+  Object.assign(photoPersonLayer.style,{left:(image.left-stage.left)+'px',top:(image.top-stage.top)+'px',width:image.width+'px',height:image.height+'px'});
+}
+function clearPhotoPersonSelection(){
+  photoPersonLayer.querySelectorAll('.is-active').forEach(zone=>{zone.classList.remove('is-active');zone.setAttribute('aria-expanded','false');});
+}
+function renderPhotoPeople(item){
+  photoPersonLayer.replaceChildren();
+  const people=Array.isArray(item.etiquettes)?item.etiquettes:[];
+  let count=0;
+  people.forEach(person=>{
+    const {nom,x,y,largeur,hauteur}=person;
+    if(!nom||![x,y,largeur,hauteur].every(Number.isFinite)||x<0||y<0||largeur<=0||hauteur<=0||x+largeur>100||y+hauteur>100)return;
+    const zone=document.createElement('button');zone.type='button';zone.className='photo-person-zone';
+    zone.style.left=x+'%';zone.style.top=y+'%';zone.style.width=largeur+'%';zone.style.height=hauteur+'%';
+    zone.setAttribute('aria-label',nom);zone.setAttribute('aria-expanded','false');
+    const label=document.createElement('span');label.className='photo-person-label';label.textContent=nom;
+    zone.appendChild(label);
+    zone.addEventListener('click',event=>{
+      event.stopPropagation();const active=zone.classList.contains('is-active');clearPhotoPersonSelection();
+      if(!active){zone.classList.add('is-active');zone.setAttribute('aria-expanded','true');}
+    });
+    photoPersonLayer.appendChild(zone);count++;
+  });
+  photoPersonHint.hidden=!count;
+  photoPersonHint.textContent=document.documentElement.lang.startsWith('es')?'Pase el cursor sobre los rostros identificados o tóquelos para ver los nombres.':'Survolez les visages identifiés ou touchez-les pour afficher les noms.';
+  requestAnimationFrame(alignPhotoPeople);
+}
+photoDialogImage.addEventListener('load',alignPhotoPeople);
+window.addEventListener('resize',alignPhotoPeople);
+if(window.ResizeObserver)new ResizeObserver(alignPhotoPeople).observe(photoDialogImage);
+photoDialogStage.addEventListener('click',clearPhotoPersonSelection);
+photoDialog.addEventListener('close',()=>{clearPhotoPersonSelection();photoPersonLayer.replaceChildren();});
+
 if(photoGallery){
   (window.PHOTOS||[]).forEach(item=>{
     const fig=document.createElement('figure'); fig.className='gallery-item';
@@ -1159,6 +1212,7 @@ btn.addEventListener('click',()=>{
 
   if(photoDialog.showModal)
     photoDialog.showModal();
+  renderPhotoPeople(item);
 });
     fig.append(btn,cap); photoGallery.appendChild(fig);
   });
