@@ -34,6 +34,13 @@ window.PHOTOS = [
 },
   {
   fichier:"photos/Equipe de foot.jpg",
+    etiquettes:[
+  {nom:"Jean Michel Agnier", x:32.5, y:21, largeur:7.5, hauteur:12},
+  {nom:"Jean Pierre Navarro", x:32.5, y:43.5, largeur:8, hauteur:14},
+  {nom:"Christian Maurice", x:67.2, y:43, largeur:7, hauteur:13},
+  {nom:"Jean Louis Varon", x:77.2, y:43.5, largeur:6.5, hauteur:13},
+  {nom:"André Krafft", x:84.5, y:42.5, largeur:7.5, hauteur:14}
+],
   legende:"L'équipe de foot",
   periode:"1978",
   personnes:"Ils sont nombreux",
