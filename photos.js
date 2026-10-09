@@ -134,6 +134,22 @@ window.PHOTOS = [
   fournisseur:"M-O VS"
 },
   {
+  fichier:"photos/Calypso.png",
+  legende:"La Calypso dans le port de Cumaná",
+  periode:"1979",
+  personnes:"",
+  commentaires:"https://petroleumag.com/proyecto-calypso-1979-investigaciones-en-el-margen-continental-venezolano/",
+  fournisseur:""
+},
+  {
+  fichier:"photos/Concorde_Maiquetia.jpg",
+  legende:"Concorde à l'aéroport de Maiquetia",
+  periode:"1979",
+  personnes:"",
+  commentaires:"",
+  fournisseur:""
+},
+  {
   fichier:"photos/Aves.jpg",
   legende:"Aves en Araya",
   periode:"",
