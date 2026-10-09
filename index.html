@@ -329,25 +329,34 @@ header.hero::after{
     .timeline-text{font-size:.84rem;}
   }
 
+  .language-switch{display:flex;justify-content:flex-end;gap:8px;padding:12px max(16px,calc((100% - 1100px)/2));background:var(--paper);}
+  .language-switch button{border:1px solid var(--pine);border-radius:5px;padding:7px 12px;background:transparent;color:var(--pine);cursor:pointer;font:inherit;}
+  .language-switch button[aria-pressed="true"]{background:var(--pine);color:white;}
+  .language-switch button:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
 </style>
 </head>
 <body>
 
-<button type="button" id="floatingHome" hidden>← Retour à l’accueil</button>
+<button type="button" id="floatingHome" hidden data-i18n="texte_0">← Retour à l’accueil</button>
+
+<nav class="language-switch" aria-label="Langue / Idioma">
+  <button type="button" data-language="fr" lang="fr" aria-pressed="true">Français</button>
+  <button type="button" data-language="es" lang="es" aria-pressed="false">Español</button>
+</nav>
 
 <header class="hero">
   <div class="hero-inner">
     <div>
-      <p class="eyebrow serif">RECHERCHE HISTORIQUE · COOPÉRATION FRANCE–VENEZUELA</p>
-      <h1 class="serif">Les coopérants français<br>de l'IUT de Cumaná<br>(1973–1980)</h1>
-      <p>Un travail de mémoire collective pour reconstituer, nom par nom, la liste des enseignants
+      <p class="eyebrow serif" data-i18n="texte_1">RECHERCHE HISTORIQUE · COOPÉRATION FRANCE–VENEZUELA</p>
+      <h1 class="serif" data-i18n="titre_accueil">Les coopérants français<br>de l'IUT de Cumaná<br>(1973–1980)</h1>
+      <p data-i18n="description_accueil">Un travail de mémoire collective pour reconstituer, nom par nom, la liste des enseignants
       et VSNA français qui ont exercé au sein de l'IUT créé avec deux centres d'enseignement, à 
       Cumaná et Cariaco (Estado Sucre, Venezuela).</p>
     </div>
     <div class="hero-illus">
       <div class="map-frame">
         <div id="map"></div>
-        <div class="map-caption">Cumaná et Cariaco, Estado Sucre — Venezuela</div>
+        <div class="map-caption" data-i18n="texte_4">Cumaná et Cariaco, Estado Sucre — Venezuela</div>
       </div>
     </div>
   </div>
@@ -355,7 +364,7 @@ header.hero::after{
 
 <main>
   
-<div class="intro-note">
+<div class="intro-note" data-i18n="presentation_0">
     Ce site retrace une partie de l’histoire de la <strong>coopération française au Venezuela</strong>
     à travers les enseignants et <strong>VSNA français de l’IUT de Cumaná</strong>
     (Instituto Universitario de Tecnología de Cumaná), dans l’État de Sucre,
@@ -363,7 +372,7 @@ header.hero::after{
     témoignages, souvenirs et photographies liés à cette période.
 </div>
   
-  <div class="intro-note">
+  <div class="intro-note" data-i18n="presentation_1">
     <strong>Pourquoi maintenant :</strong> cinquante ans après les premières promotions de VSNA
     envoyées à Cumaná, les témoins directs de cette aventure se font plus rares chaque année et
     les souvenirs s'effacent. C'est une course contre le temps autant qu'un travail d'archives.<br><br>
@@ -375,14 +384,14 @@ header.hero::after{
     de proposer des photos et de partager des témoignages / souvenirs.
   </div>
 
-  <div class="intro-note" style="border-left-color: var(--gold);">
+  <div class="intro-note" style="border-left-color: var(--gold);" data-i18n="presentation_2">
     <strong>L’IUT de Cumaná aujourd’hui :</strong> depuis avril 2012, l’Institut Universitaire de Technologie de Cumaná (IUT Cumaná) a laissé place à l’Université Polytechnique Territoriale de l’Ouest de l’État de Sucre « Clodosbaldo Russián » (UPTOS).<br><br>
     Cette évolution s’inscrit dans une réforme engagée par l’État vénézuélien visant à transformer les anciens instituts universitaires de technologie en universités polytechniques territoriales.<br><br>
     L’établissement poursuit aujourd’hui ses activités sous le nom d’<strong>UPTOS « Clodosbaldo Russián »</strong>, assurant des formations universitaires et participant au développement économique et social de la région.<br><br>
     <strong>Site actuel :</strong> <a href="https://www.uptos.edu.ve/" target="_blank" rel="noopener noreferrer">UPTOS « Clodosbaldo Russián » ↗</a>
   </div>
 
-  <div class="mentions">
+  <div class="mentions" data-i18n="presentation_3">
     <strong>Mentions</strong><br>
     Page compilée à titre personnel et non commercial, à partir de témoignages directs d'anciens
     coopérants et de sources publiques (rapports du Sénat français sur la coopération technique
@@ -398,35 +407,35 @@ header.hero::after{
 
 
   <section class="project-overview" aria-labelledby="timelineHeading">
-    <div class="project-counts" aria-label="État du projet">
-      <button type="button" class="project-count" data-view="annuaire" aria-label="Voir ou compléter l’annuaire"><span class="count-number" id="countCooperants">—</span><span class="count-label">coopérants recensés</span></button>
-      <button type="button" class="project-count" data-view="temoignages" aria-label="Voir les témoignages"><span class="count-number" id="countTestimonies">—</span><span class="count-label">témoignages / documents</span></button>
-      <button type="button" class="project-count" data-view="photos" aria-label="Voir les photos"><span class="count-number" id="countPhotos">—</span><span class="count-label">photos publiées</span></button>
+    <div class="project-counts" aria-label="État du projet" data-i18n-aria="aria_9">
+      <button type="button" class="project-count" data-view="annuaire" aria-label="Voir ou compléter l’annuaire" data-i18n-aria="aria_10"><span class="count-number" id="countCooperants">—</span><span class="count-label" data-i18n="texte_11">coopérants recensés</span></button>
+      <button type="button" class="project-count" data-view="temoignages" aria-label="Voir les témoignages" data-i18n-aria="aria_12"><span class="count-number" id="countTestimonies">—</span><span class="count-label" data-i18n="texte_13">témoignages / documents</span></button>
+      <button type="button" class="project-count" data-view="photos" aria-label="Voir les photos" data-i18n-aria="aria_14"><span class="count-number" id="countPhotos">—</span><span class="count-label" data-i18n="texte_15">photos publiées</span></button>
     </div>
-    <h2 class="timeline-title" id="timelineHeading">Quelques repères</h2>
+    <h2 class="timeline-title" id="timelineHeading" data-i18n="texte_16">Quelques repères</h2>
     <div class="timeline">
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1969</span><span class="timeline-text">Premières missions françaises préparant la création des IUT vénézuéliens.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text">Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text">Premier coopérant actuellement identifié à Cumaná.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1980</span><span class="timeline-text">Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">Après 1980</span><span class="timeline-text">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text">L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text">Collecte des souvenirs, photographies et identification des anciens coopérants.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1969</span><span class="timeline-text" data-i18n="texte_17">Premières missions françaises préparant la création des IUT vénézuéliens.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text" data-i18n="texte_18">Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text" data-i18n="texte_19">Premier coopérant actuellement identifié à Cumaná.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1980</span><span class="timeline-text" data-i18n="texte_20">Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year" data-i18n="texte_21">Après 1980</span><span class="timeline-text" data-i18n="texte_22">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text" data-i18n="texte_23">L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text" data-i18n="texte_24">Collecte des souvenirs, photographies et identification des anciens coopérants.</span></div>
     </div>
   </section>
 
   <section id="homeChoices" class="architecture-screen">
-    <h2 class="serif">Découvrir et participer</h2>
-    <p>Choisissez ce que vous souhaitez consulter ou faire.</p>
+    <h2 class="serif" data-i18n="texte_25">Découvrir et participer</h2>
+    <p data-i18n="texte_26">Choisissez ce que vous souhaitez consulter ou faire.</p>
     <div class="home-choice-grid">
-      <button type="button" class="home-choice" data-view="temoignages"><strong>Voir les témoignages</strong><span>Lire les souvenirs et documents déjà publiés.</span></button>
-      <button type="button" class="home-choice" data-view="photos"><strong>Voir les photos</strong><span>Parcourir les photographies déjà publiées.</span></button>
-      <button type="button" class="home-choice" data-view="participer"><strong>Participer</strong><span>Partager un témoignage, proposer des photos ou compléter l’annuaire.</span></button>
+      <button type="button" class="home-choice" data-view="temoignages"><strong data-i18n="texte_27">Voir les témoignages</strong><span data-i18n="texte_28">Lire les souvenirs et documents déjà publiés.</span></button>
+      <button type="button" class="home-choice" data-view="photos"><strong data-i18n="texte_29">Voir les photos</strong><span data-i18n="texte_30">Parcourir les photographies déjà publiées.</span></button>
+      <button type="button" class="home-choice" data-view="participer"><strong data-i18n="texte_31">Participer</strong><span data-i18n="texte_32">Partager un témoignage, proposer des photos ou compléter l’annuaire.</span></button>
     </div>
   </section>
 
   <div id="directoryArea" hidden>
-  <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+  <button type="button" class="back-home" data-home data-i18n="texte_33">← Retour à la page d’accueil</button>
   <div id="gateScreen">
     <h2 class="serif">Accès sur demande</h2>
     <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1980. Pour
@@ -490,21 +499,21 @@ header.hero::after{
       </div>
     </section>
 
-    <nav id="participateNav" hidden aria-label="Navigation des contributions">
-      <button type="button" data-participate-nav="temoignages">Ajouter un témoignage</button>
-      <button type="button" data-participate-nav="photos">Ajouter des photos</button>
-      <button type="button" data-participate-nav="annuaire">Annuaire / corrections</button>
-      <button type="button" data-home class="participate-home">← Retour à l’accueil</button>
+    <nav id="participateNav" hidden aria-label="Navigation des contributions" data-i18n-aria="aria_34">
+      <button type="button" data-participate-nav="temoignages" data-i18n="texte_35">Ajouter un témoignage</button>
+      <button type="button" data-participate-nav="photos" data-i18n="texte_36">Ajouter des photos</button>
+      <button type="button" data-participate-nav="annuaire" data-i18n="texte_37">Annuaire / corrections</button>
+      <button type="button" data-home class="participate-home" data-i18n="texte_38">← Retour à l’accueil</button>
     </nav>
 
     <section id="participateScreen" class="architecture-screen" hidden>
-      <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
-      <h2 class="serif">Participer</h2>
-      <p>Comment souhaitez-vous contribuer au travail de mémoire ?</p>
+      <button type="button" class="back-home" data-home data-i18n="texte_39">← Retour à la page d’accueil</button>
+      <h2 class="serif" data-i18n="texte_40">Participer</h2>
+      <p data-i18n="texte_41">Comment souhaitez-vous contribuer au travail de mémoire ?</p>
       <div class="participate-choice-grid">
-        <button type="button" class="participate-choice" data-participate="temoignages"><strong>Ajouter un témoignage</strong><span>Partager un souvenir, une anecdote ou un document.</span></button>
-        <button type="button" class="participate-choice" data-participate="photos"><strong>Ajouter des photos</strong><span>Transmettre une ou plusieurs photographies.</span></button>
-        <button type="button" class="participate-choice" data-participate="annuaire"><strong>Voir / compléter l’annuaire</strong><span>Consulter la liste des coopérants et proposer une correction ou un complément. Code demandé.</span></button>
+        <button type="button" class="participate-choice" data-participate="temoignages"><strong data-i18n="texte_42">Ajouter un témoignage</strong><span data-i18n="texte_43">Partager un souvenir, une anecdote ou un document.</span></button>
+        <button type="button" class="participate-choice" data-participate="photos"><strong data-i18n="texte_44">Ajouter des photos</strong><span data-i18n="texte_45">Transmettre une ou plusieurs photographies.</span></button>
+        <button type="button" class="participate-choice" data-participate="annuaire"><strong data-i18n="texte_46">Voir / compléter l’annuaire</strong><span data-i18n="texte_47">Consulter la liste des coopérants et proposer une correction ou un complément. Code demandé.</span></button>
       </div>
     </section>
 
@@ -546,10 +555,10 @@ header.hero::after{
     </section>
 
     <section class="contribution-panel section-anchor architecture-screen" id="temoignages" hidden>
-    <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
+    <button type="button" class="back-home" data-home data-i18n="texte_48">← Retour à la page d’accueil</button>
     <div class="published-testimonies">
-      <h2>Témoignages</h2>
-      <p>Les témoignages publiés sont présentés du plus récent au plus ancien.</p>
+      <h2 data-i18n="texte_49">Témoignages</h2>
+      <p data-i18n="texte_50">Les témoignages publiés sont présentés du plus récent au plus ancien.</p>
 
       <div id="testimonyList"></div>
     </div>
@@ -582,12 +591,12 @@ header.hero::after{
     </section>
 
     <section class="photos-section section-anchor contribution-panel architecture-screen" id="photos" hidden>
-      <button type="button" class="back-home" data-home>← Retour à la page d’accueil</button>
-      <h2>Photos</h2>
+      <button type="button" class="back-home" data-home data-i18n="texte_51">← Retour à la page d’accueil</button>
+      <h2 data-i18n="texte_52">Photos</h2>
       <p>Cette rubrique accueille les photos validées : images d'époque, vie à Cumaná, voyages et retrouvailles. Chaque photo peut être accompagnée d'une date, d'une légende, des personnes identifiées et du nom du photographe lorsqu'il est connu.</p>
       <div class="gallery-grid" id="photoGallery"></div>
       <dialog class="photo-dialog" id="photoDialog">
-        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer">×</button>
+        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer" data-i18n-aria="aria_53">×</button>
         <img id="photoDialogImage" alt="">
         <div class="photo-dialog-caption" id="photoDialogCaption"></div>
       </dialog>
@@ -1105,10 +1114,7 @@ if(testimonyList){
       frame.className='testimony-external';
       frame.title=item.titre||'Témoignage';
       frame.loading='lazy';
-      frame.setAttribute(
-  'sandbox',
-  'allow-same-origin allow-popups allow-popups-to-escape-sandbox'
-);
+      frame.setAttribute('sandbox','allow-same-origin allow-popups allow-popups-to-escape-sandbox');
       const safeFile = safeLocalURL(item.fichier);
       if (!safeFile) { full.textContent = 'Adresse du document invalide.'; }
       else frame.src=safeFile;
@@ -1234,5 +1240,6 @@ if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDial
 })();
 </script>
 
+<script src="langues.js"></script>
 </body>
 </html>
