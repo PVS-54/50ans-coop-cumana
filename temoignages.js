@@ -1,6 +1,13 @@
 // Témoignages validés. Le site les trie automatiquement du plus récent au plus ancien.
 
 window.TEMOIGNAGES = [
+     {
+    datePublication: "2026-10-09",
+    titre: "Venezuela, années 1970 : les promesses et les contradictions de l’abondance",
+    auteur: "Éclairage historique — Ph. V‑S., avec l’aide de l’IA",
+    apercu: "La manne pétrolière nourrit de grandes ambitions, mais révèle aussi les tensions entre importations et production locale, les inégalités et les défis du développement régional.",
+    fichier: "temoignages/temoignage-contexte.html"
+  },
     {
   datePublication: "2026-10-03",
   titre: "Qui étaient les VSNA ?",
