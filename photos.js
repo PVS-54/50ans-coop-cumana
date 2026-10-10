@@ -35,6 +35,8 @@ window.PHOTOS = [
   {
   fichier:"photos/Equipe de foot.jpg",
     etiquettes:[
+  {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
+  {nom:"Georges Cascarino", x:48, y:46, largeur:9, hauteur:14},
   {nom:"Jean Michel Agnier", x:32.5, y:21, largeur:7.5, hauteur:12},
   {nom:"Jean Pierre Navarro", x:32.5, y:43.5, largeur:8, hauteur:14},
   {nom:"Christian Maurice", x:67.2, y:43, largeur:7, hauteur:13},
