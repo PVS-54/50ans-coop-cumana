@@ -1,6 +1,40 @@
 // Témoignages validés. Le site les trie automatiquement du plus récent au plus ancien.
 
 window.TEMOIGNAGES = [
+  {
+    datePublication: "2026-10-12",
+    titre: "Federico Rivero Palacio et la création des IUT du Venezuela",
+    auteur: "Dúmar Ramirez — El Conocimiento es Vida",
+    apercu: "Un regard sur le rôle de Federico Rivero Palacio et l’apport de la coopération française à la création des IUT vénézuéliens, présenté par l’ingénieur Dúmar Ramirez.",
+    contenu: `
+      <p>
+        Dans cet article publié le <strong>16 novembre 2022</strong> sur
+        <em>El Conocimiento es Vida</em>, l’ingénieur <strong>Dúmar Ramirez</strong>
+        présente son intervention consacrée à Federico Rivero Palacio et
+        à la création des Instituts Universitaires de Technologie du Venezuela.
+      </p>
+      <p>
+        Invité à un forum de la Société franco-vénézuélienne d’ingénieurs
+        et de scientifiques, dans le cadre du 161e anniversaire du Colegio
+        de Ingenieros de Venezuela, il évoque l’apport de la coopération
+        française dans les années 1970 et 1980 et le rôle de Federico Rivero
+        Palacio, promoteur du projet du côté vénézuélien.
+      </p>
+      <p>
+        Cette ressource éclaire le contexte historique dans lequel s’inscrit
+        l’expérience des coopérants de l’IUT de Cumaná.
+      </p>
+      <p>
+        <a href="https://elconesvida.net/2022/11/16/recordando-al-dr-federico-rivero-palacio-y-la-creacion-de-los-iut-de-venezuela/"
+           target="_blank" rel="noopener noreferrer">
+          Consulter l’article original — en espagnol
+        </a>
+      </p>
+      <p class="testimony-signature">
+        Article de Dúmar Ramirez — 16 novembre 2022. Présentation du lien ajoutée le 12 octobre 2026.
+      </p>
+    `
+  },
      {
     datePublication: "2026-10-09",
     titre: "Venezuela, années 1970 : les promesses et les contradictions de l’abondance",
