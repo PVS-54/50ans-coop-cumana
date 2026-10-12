@@ -107,7 +107,7 @@ window.PHOTOS = [
   legende:"Vos papiers !",
   periode:"1977",
   personnes:"Ph. V-S",
-  commentaires:"Le sésame du MRE qui pouvait parfois nous sauver en passant une alcabala et le carnet de l'IUT",
+  commentaires:"Le sésame du MRE qui pouvait parfois nous sauver au passage d'une alcabala et le carnet de l'IUT",
   fournisseur:"PVS"
 },
   {
