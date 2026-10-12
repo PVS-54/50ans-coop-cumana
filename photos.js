@@ -306,7 +306,7 @@ window.PHOTOS = [
   fournisseur:"PVS"
 },
   {
-  fichier:"photos/Logo-IUT-Cumana.jpg",
+  fichier:"photos/Logo-IUT-Cumana.png",
   legende:"Un logo historique !",
   periode:"Depuis 1973 ?",
   personnes:"",
