@@ -87,6 +87,22 @@ window.PHOTOS = [
   fournisseur:"Wladimir Briceño"
 },
   {
+  fichier:"photos/Pensum.jpg",
+  legende:"Pensum",
+  periode:"1980",
+  personnes:"",
+  commentaires:"Bien avant les tablettes et l'invention du pdf",
+  fournisseur:"PVS"
+},
+  {
+  fichier:"photos/Identités.jpg",
+  legende:"Vos papiers !",
+  periode:"1977",
+  personnes:"Ph. V-S",
+  commentaires:"Le sésame du MRE qui pouvait parfois nous sauver en passant une alcabala et le carnet de l'IUT",
+  fournisseur:"PVS"
+},
+  {
   fichier:"photos/Entrada.jpg",
   legende:"Entrada",
   periode:"Peut-être 2010",
