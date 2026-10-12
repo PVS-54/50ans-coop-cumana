@@ -87,6 +87,14 @@ window.PHOTOS = [
   fournisseur:"Wladimir Briceño"
 },
   {
+  fichier:"photos/Agradecimiento.png",
+  legende:"Agradecimiento",
+  periode:"2011",
+  personnes:"",
+  commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
+  fournisseur:"Jesus Gonzalez"
+},
+  {
   fichier:"photos/Pensum.jpg",
   legende:"Pensum",
   periode:"1980",
