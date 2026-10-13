@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<title>Cooperantes franceses — IUT de Cumaná (1973–1980)</title>
-<meta name="description" content="Memoria de los cooperantes franceses y VSNA del IUT de Cumaná, Venezuela, entre 1973 y 1980: historia, testimonios, fotografías y archivos.">
+<title>Cooperantes franceses — IUT de Cumaná (1973–1981)</title>
+<meta name="description" content="Memoria de los cooperantes franceses y VSNA del IUT de Cumaná, Venezuela, entre 1973 y 1981: historia, testimonios, fotografías y archivos.">
 <link rel="canonical" href="https://iut-cumana.fr/es/">
 <link rel="alternate" hreflang="fr" href="https://iut-cumana.fr/">
 <link rel="alternate" hreflang="es" href="https://iut-cumana.fr/es/">
 <link rel="alternate" hreflang="x-default" href="https://iut-cumana.fr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_VE">
-<meta property="og:title" content="Cooperantes franceses — IUT de Cumaná (1973–1980)">
-<meta property="og:description" content="Mémoire collective des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1980.">
+<meta property="og:title" content="Cooperantes franceses — IUT de Cumaná (1973–1981)">
+<meta property="og:description" content="Mémoire collective des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981.">
 <meta property="og:url" content="https://iut-cumana.fr/es/">
 <meta property="og:image" content="https://iut-cumana.fr/photos/drapeaux.jpg">
 <meta property="og:image:alt" content="Banderas francesa y venezolana">
@@ -54,7 +54,7 @@ header.hero::before{
   transform:translateY(-50%);
   width:430px;
   height:85%;
-  background:url("../photos/Logo-IUT-Cumana-transparent.jpg") no-repeat left center;
+  background:url("photos/Logo-IUT-Cumana-transparent.png") no-repeat left center;
   background-size:contain;
   opacity:.14;
   pointer-events:none;
@@ -68,7 +68,7 @@ header.hero::after{
   transform:translateY(-50%);
   width:360px;
   height:85%;
-  background:url("../photos/drapeaux.jpg") no-repeat right center;
+  background:url("photos/drapeaux.jpg") no-repeat right center;
   background-size:contain;
   opacity:.40;
   pointer-events:none;
@@ -230,6 +230,16 @@ header.hero::after{
   }
   .gallery-item figcaption{font-size:.84rem; color:var(--muted); margin-top:7px; text-align:center;}
   .photo-dialog{border:0; border-radius:7px; padding:12px; max-width:min(1000px,92vw); background:#fff;}
+
+  /* Étiquettes réservées à la photo agrandie. */
+  .photo-dialog-stage{position:relative;}
+  .photo-person-layer{position:absolute;pointer-events:none;}
+  .photo-person-zone{position:absolute;pointer-events:auto;background:transparent;border:0;padding:0;border-radius:8px;cursor:help;}
+  .photo-person-zone:focus-visible{outline:2px solid #fff;box-shadow:0 0 0 4px #315b85;}
+  .photo-person-label{position:absolute;left:50%;top:100%;transform:translateX(-50%);padding:6px 10px;border-radius:5px;background:rgba(20,30,40,.94);color:#fff;font:600 14px/1.35 system-ui,sans-serif;white-space:nowrap;pointer-events:none;opacity:0;visibility:hidden;z-index:2;}
+  .photo-person-zone:hover .photo-person-label,.photo-person-zone:focus-visible .photo-person-label,.photo-person-zone.is-active .photo-person-label{opacity:1;visibility:visible;}
+  .photo-person-hint{text-align:center;color:var(--muted);font-size:.82rem;margin:8px 0;}
+  .photo-dialog-close{z-index:5;}
   .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
   .photo-dialog img{display:block; max-width:100%; max-height:78vh; height:auto; margin:auto;}
   .photo-dialog-caption{text-align:center; margin:8px 38px 2px; color:var(--ink);}
@@ -251,7 +261,7 @@ header.hero::after{
   /* === NAVIGATION PUBLIQUE ET CONTRIBUTIONS === */
   #gateScreen{display:none;}
   #siteContent{display:block;}
-  #stats,#listing,#directoryNote{display:none;}
+  #stats,#listing{display:none;}
   .home-choice-grid,.participate-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 34px;}
   .home-choice,.participate-choice,.back-home{background:#fffdf6;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:20px;text-align:left;cursor:pointer;font:inherit;text-decoration:none;}
   .home-choice:hover,.participate-choice:hover{border-color:var(--gold);}
@@ -273,9 +283,8 @@ header.hero::after{
   #participateNav button:hover,#participateNav button.active{border-color:var(--pine);background:#f3efe4;}
   #participateNav .participate-home{margin-left:auto;font-weight:700;border-color:var(--pine);}
   #directoryArea[hidden]{display:none!important;}
-  #directoryArea.unlocked #stats,#directoryArea.unlocked #listing,#directoryArea.unlocked #directoryNote{display:flex;}
+  #directoryArea.unlocked #stats,#directoryArea.unlocked #listing{display:flex;}
   #directoryArea.unlocked #listing{display:block;}
-  #directoryArea.unlocked #directoryNote{display:block;}
   #directoryArea.unlocked #gateScreen{display:none!important;}
   #directoryArea:not(.unlocked) #gateScreen{display:block;}
   #participateScreen .shared-contact{margin-top:22px;}
@@ -343,21 +352,23 @@ header.hero::after{
 <button type="button" id="floatingHome" hidden data-i18n="texte_0">← Volver al inicio</button>
 
 <nav class="language-switch" aria-label="Langue / Idioma">
-  <a href="../" data-language="fr" lang="fr">Français</a>
-  <a href="./" data-language="es" lang="es" aria-current="page">Español</a>
+  <a href=".././" data-language="fr" lang="fr" aria-current="page">Français</a>
+  <a href=".././es/" data-language="es" lang="es">Español</a>
 </nav>
 
 <header class="hero">
   <div class="hero-inner">
     <div>
       <p class="eyebrow serif" data-i18n="texte_1">INVESTIGACIÓN HISTÓRICA · COOPERACIÓN FRANCIA–VENEZUELA</p>
-      <h1 class="serif" data-i18n="titre_accueil">Los cooperantes franceses<br>del IUT de Cumaná<br>(1973–1980)</h1>
-      <p data-i18n="description_accueil">Un proyecto de memoria colectiva para reconstruir, nombre por nombre, la lista de docentes y VSNA franceses que trabajaron en el IUT, creado con dos centros de enseñanza, en Cumaná y Cariaco (estado Sucre, Venezuela).</p>
+      <h1 class="serif" data-i18n="titre_accueil">Los cooperantes franceses<br>del IUT de Cumaná<br>(1973–1981)</h1>
+      <p data-i18n="description_accueil">Un travail de mémoire collective pour reconstituer, nom par nom, la liste des enseignants
+      et VSNA français qui ont exercé au sein de l'IUT créé avec deux centres d'enseignement, à 
+      Cumaná et Cariaco (Estado Sucre, Venezuela).</p>
     </div>
     <div class="hero-illus">
       <div class="map-frame">
         <div id="map"></div>
-        <div class="map-caption" data-i18n="texte_4">Cumaná y Cariaco, estado Sucre — Venezuela</div>
+        <div class="map-caption" data-i18n="texte_4">Cumaná et Cariaco, Estado Sucre — Venezuela</div>
       </div>
     </div>
   </div>
@@ -365,48 +376,81 @@ header.hero::after{
 
 <main>
   
-<div class="intro-note" data-i18n="presentation_0">Este sitio reconstruye parte de la historia de la <strong>cooperación francesa en Venezuela</strong> a través de los docentes y <strong>VSNA franceses del IUT de Cumaná</strong> (Instituto Universitario de Tecnología de Cumaná), en el estado Sucre, principalmente entre 1973 y 1980. Reúne progresivamente archivos, testimonios, recuerdos y fotografías de aquella época.</div>
+<div class="intro-note" data-i18n="presentation_0">
+    Ce site retrace une partie de l’histoire de la <strong>coopération française au Venezuela</strong>
+    à travers les enseignants et <strong>VSNA français de l’IUT de Cumaná</strong>
+    (Instituto Universitario de Tecnología de Cumaná), dans l’État de Sucre,
+    principalement entre 1973 et 1981. Il rassemble progressivement archives,
+    témoignages, souvenirs et photographies liés à cette période.
+</div>
   
-  <div class="intro-note" data-i18n="presentation_1"><strong>¿Por qué ahora?</strong> Cincuenta años después de las primeras promociones de VSNA enviadas a Cumaná, cada año quedan menos testigos directos de esta experiencia y los recuerdos se desvanecen. Es una carrera contra el tiempo, además de un trabajo de archivo.<br><br><strong>Cómo leer esta página:</strong> la información procede de testimonios directos de antiguos cooperantes y de recuerdos compartidos por antiguos alumnos o familiares, contrastados cuando es posible con fuentes oficiales (por ejemplo, informes del Senado francés sobre el acuerdo de cooperación franco-venezolano) y las redes sociales. La lista de testigos crece a medida que avanza el proyecto. Muchas especialidades y fechas siguen marcadas como « por confirmar »: es un trabajo en curso, no una lista definitiva. La sección « Participar » permite señalar correcciones o aportar información, proponer fotografías y compartir testimonios o recuerdos.</div>
+  <div class="intro-note" data-i18n="presentation_1">
+    <strong>Pourquoi maintenant :</strong> cinquante ans après les premières promotions de VSNA
+    envoyées à Cumaná, les témoins directs de cette aventure se font plus rares chaque année et
+    les souvenirs s'effacent. C'est une course contre le temps autant qu'un travail d'archives.<br><br>
+    <strong>Comment lire cette page :</strong> les informations viennent de témoignages directs
+    d'anciens coopérants et de souvenirs rapportés par d'anciens élèves ou des proches, recoupés quand c'est possible avec
+    des sources officielles (rapports du Sénat sur l'accord de coopération franco-vénézuélien par exemple) et les réseaux sociaux. La
+    liste des témoins s'agrandit au fil du projet. Beaucoup de disciplines et de dates restent
+    marquées « à confirmer » — c'est un chantier vivant, pas une liste figée. La rubrique « Participer » permet de signaler une correction ou un complément,
+    de proposer des photos et de partager des témoignages / souvenirs.
+  </div>
 
-  <div class="intro-note" style="border-left-color: var(--gold);" data-i18n="presentation_2"><strong>El IUT de Cumaná en la actualidad:</strong> desde abril de 2012, el Instituto Universitario de Tecnología de Cumaná (IUT Cumaná) dio paso a la Universidad Politécnica Territorial del Oeste del Estado Sucre « Clodosbaldo Russián » (UPTOS).<br><br>Esta transformación forma parte de una reforma impulsada por el Estado venezolano para convertir los antiguos institutos universitarios de tecnología en universidades politécnicas territoriales.<br><br>La institución continúa hoy sus actividades como <strong>UPTOS « Clodosbaldo Russián »</strong>, ofreciendo formación universitaria y participando en el desarrollo económico y social de la región.<br><br><strong>Sitio actual:</strong> <a href="https://www.uptos.edu.ve/" target="_blank" rel="noopener noreferrer">UPTOS « Clodosbaldo Russián » ↗</a></div>
+  <div class="intro-note" style="border-left-color: var(--gold);" data-i18n="presentation_2">
+    <strong>L’IUT de Cumaná aujourd’hui :</strong> depuis avril 2012, l’Institut Universitaire de Technologie de Cumaná (IUT Cumaná) a laissé place à l’Université Polytechnique Territoriale de l’Ouest de l’État de Sucre « Clodosbaldo Russián » (UPTOS).<br><br>
+    Cette évolution s’inscrit dans une réforme engagée par l’État vénézuélien visant à transformer les anciens instituts universitaires de technologie en universités polytechniques territoriales.<br><br>
+    L’établissement poursuit aujourd’hui ses activités sous le nom d’<strong>UPTOS « Clodosbaldo Russián »</strong>, assurant des formations universitaires et participant au développement économique et social de la région.<br><br>
+    <strong>Site actuel :</strong> <a href="https://www.uptos.edu.ve/" target="_blank" rel="noopener noreferrer">UPTOS « Clodosbaldo Russián » ↗</a>
+  </div>
 
-  <div class="mentions" data-i18n="presentation_3"><strong>Información sobre el sitio</strong><br>Página elaborada a título personal y sin fines comerciales, a partir de testimonios directos de antiguos cooperantes y de fuentes públicas (informes del Senado francés sobre la cooperación técnica Francia–Venezuela, 1975–1976; archivos diplomáticos). Objetivo: reconstruir, con el consentimiento de las personas interesadas cuando ha sido posible obtenerlo, la memoria colectiva de un grupo de cooperantes franceses que trabajaron en el IUT de Cumaná entre 1973 y 1980.<br><br>Proyecto impulsado por Philippe Vogt-Schilb, antiguo cooperante del IUT de Cumaná (1977–1980), con la ayuda de herramientas de inteligencia artificial (ChatGPT, Mistral AI y Claude).<br><br>Cualquier persona mencionada aquí, o un familiar, puede solicitar una corrección o la retirada completa de su ficha a través de « Participar », luego « Directorio / correcciones », o escribiendo a la dirección de contacto del responsable del proyecto. Última actualización: octubre de 2026.</div>
+  <div class="mentions" data-i18n="presentation_3">
+    <strong>Mentions</strong><br>
+    Page compilée à titre personnel et non commercial, à partir de témoignages directs d'anciens
+    coopérants et de sources publiques (rapports du Sénat français sur la coopération technique
+    France–Venezuela, 1975–1976 ; archives diplomatiques). Objectif : reconstituer, avec l'accord
+    des personnes concernées quand il a pu être recueilli, la mémoire collective d'un groupe de
+    coopérants français ayant exercé à l'IUT de Cumaná entre 1973 et 1981.<br><br>
+    Projet porté par Philippe Vogt-Schilb, lui-même ancien coopérant à l'IUT de Cumaná
+    (1977-1980), coaché par des IA (ChatGPT, Mistral AI & Claude).<br><br>
+    Toute personne citée ici, ou un proche, peut demander une correction ou le retrait complet
+    de sa fiche via la rubrique « Participer », puis « Annuaire / corrections » ou l'adresse de contact du porteur du projet.
+    Dernière mise à jour : Octobre 2026.
+  </div>
 
 
   <section class="project-overview" aria-labelledby="timelineHeading">
-    <div class="project-counts" aria-label="Estado del proyecto" data-i18n-aria="aria_9">
-      <button type="button" class="project-count" data-view="annuaire" aria-label="Consultar o completar el directorio" data-i18n-aria="aria_10"><span class="count-number" id="countCooperants">—</span><span class="count-label" data-i18n="texte_11">cooperantes registrados</span></button>
-      <button type="button" class="project-count" data-view="temoignages" aria-label="Ver los testimonios" data-i18n-aria="aria_12"><span class="count-number" id="countTestimonies">—</span><span class="count-label" data-i18n="texte_13">testimonios / documentos</span></button>
-      <button type="button" class="project-count" data-view="photos" aria-label="Ver las fotografías" data-i18n-aria="aria_14"><span class="count-number" id="countPhotos">—</span><span class="count-label" data-i18n="texte_15">fotografías publicadas</span></button>
+    <div class="project-counts" aria-label="État du projet" data-i18n-aria="aria_9">
+      <button type="button" class="project-count" data-view="annuaire" aria-label="Voir ou compléter l’annuaire" data-i18n-aria="aria_10"><span class="count-number" id="countCooperants">—</span><span class="count-label" data-i18n="texte_11">coopérants recensés</span></button>
+      <button type="button" class="project-count" data-view="temoignages" aria-label="Voir les témoignages" data-i18n-aria="aria_12"><span class="count-number" id="countTestimonies">—</span><span class="count-label" data-i18n="texte_13">témoignages / documents</span></button>
+      <button type="button" class="project-count" data-view="photos" aria-label="Voir les photos" data-i18n-aria="aria_14"><span class="count-number" id="countPhotos">—</span><span class="count-label" data-i18n="texte_15">photos publiées</span></button>
     </div>
-    <h2 class="timeline-title" id="timelineHeading" data-i18n="texte_16">Algunas fechas clave</h2>
+    <h2 class="timeline-title" id="timelineHeading" data-i18n="texte_16">Quelques repères</h2>
     <div class="timeline">
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1969</span><span class="timeline-text" data-i18n="texte_17">Primeras misiones francesas para preparar la creación de los IUT venezolanos.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text" data-i18n="texte_18">Llegada de los primeros equipos franceses que participan en el desarrollo de los IUT en Venezuela.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text" data-i18n="texte_19">Primer cooperante identificado hasta ahora en Cumaná.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1980</span><span class="timeline-text" data-i18n="texte_20">Período principal recogido en este sitio, marcado por las sucesivas llegadas de cooperantes y VSNA franceses a Cumaná y Cariaco.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year" data-i18n="texte_21">Después de 1980</span><span class="timeline-text" data-i18n="texte_22">La cooperación francesa continúa más allá del período principal recogido en este sitio.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text" data-i18n="texte_23">El IUT de Cumaná se convierte en la UPTOS « Clodosbaldo Russián ».</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text" data-i18n="texte_24">Recopilación de recuerdos y fotografías e identificación de los antiguos cooperantes.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1969</span><span class="timeline-text" data-i18n="texte_17">Premières missions françaises préparant la création des IUT vénézuéliens.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text" data-i18n="texte_18">Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text" data-i18n="texte_19">Premier coopérant actuellement identifié à Cumaná.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1981</span><span class="timeline-text" data-i18n="texte_20">Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year" data-i18n="texte_21">Après 1981</span><span class="timeline-text" data-i18n="texte_22">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text" data-i18n="texte_23">L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text" data-i18n="texte_24">Collecte des souvenirs, photographies et identification des anciens coopérants.</span></div>
     </div>
   </section>
 
   <section id="homeChoices" class="architecture-screen">
-    <h2 class="serif" data-i18n="texte_25">Descubrir y participar</h2>
-    <p data-i18n="texte_26">Elija lo que desea consultar o hacer.</p>
+    <h2 class="serif" data-i18n="texte_25">Découvrir et participer</h2>
+    <p data-i18n="texte_26">Choisissez ce que vous souhaitez consulter ou faire.</p>
     <div class="home-choice-grid">
-      <button type="button" class="home-choice" data-view="temoignages"><strong data-i18n="texte_27">Ver los testimonios</strong><span data-i18n="texte_28">Leer los recuerdos y documentos ya publicados.</span></button>
-      <button type="button" class="home-choice" data-view="photos"><strong data-i18n="texte_29">Ver las fotografías</strong><span data-i18n="texte_30">Explorar las fotografías ya publicadas.</span></button>
-      <button type="button" class="home-choice" data-view="participer"><strong data-i18n="texte_31">Participar</strong><span data-i18n="texte_32">Compartir un testimonio, proponer fotografías o completar el directorio.</span></button>
+      <button type="button" class="home-choice" data-view="temoignages"><strong data-i18n="texte_27">Voir les témoignages</strong><span data-i18n="texte_28">Lire les souvenirs et documents déjà publiés.</span></button>
+      <button type="button" class="home-choice" data-view="photos"><strong data-i18n="texte_29">Voir les photos</strong><span data-i18n="texte_30">Parcourir les photographies déjà publiées.</span></button>
+      <button type="button" class="home-choice" data-view="participer"><strong data-i18n="texte_31">Participer</strong><span data-i18n="texte_32">Partager un témoignage, proposer des photos ou compléter l’annuaire.</span></button>
     </div>
   </section>
 
   <div id="directoryArea" hidden>
-  <button type="button" class="back-home" data-home data-i18n="texte_33">← Volver a la página de inicio</button>
-  <div id="gateScreen" lang="fr">
+  <button type="button" class="back-home" data-home data-i18n="texte_33">← Retour à la page d’accueil</button>
+  <div id="gateScreen">
     <h2 class="serif">Accès sur demande</h2>
-    <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1980. Pour
+    <p>Cette page recense des personnes ayant exercé à l'IUT de Cumaná entre 1973 et 1981. Pour
     respecter leur vie privée, l'accès à la liste est réservé aux personnes concernées, à leurs
     proches, et aux personnes impliquées dans ce travail de mémoire. Si vous avez reçu un code
     d'accès, saisissez-le ci-dessous ; sinon, vous pouvez en faire la demande.</p>
@@ -440,18 +484,12 @@ header.hero::after{
 
     <div class="stats" id="stats"></div>
 
-    <div id="listing" lang="fr"></div>
-
-    <div class="intro-note" id="directoryNote" style="border-left-color: var(--gold);">
-      <strong>Note complémentaire :</strong> un coopérant plus tardif (VSNA, 1981-1982)
-      a également été identifié. Il se situe après la période couverte par ce recensement (1973-1980)
-      et n'est donc pas inclus dans la liste ci-dessus, mais mérite d'être mentionné si le projet
-      s'élargit un jour à ces années suivantes.
-    </div>
+    <div id="listing"></div>
+    
   </div>
 
   <div id="siteContent" data-nosnippet>
-    <section class="shared-contact" lang="fr">
+    <section class="shared-contact">
       <h2 class="serif">Vos coordonnées</h2>
       <p class="shared-contact-note">Votre nom et votre e-mail sont facultatifs. Ces informations sont communes aux formulaires de contribution.</p>
       <p class="shared-contact-note">Vos coordonnées servent à échanger avec Philippe Vogt-Schilb au sujet de votre contribution. Les témoignages et photos sont transmis par Forminit pour examen avant publication. Pour demander une correction ou un retrait, écrivez à <a href="mailto:vogtphil@yahoo.fr">vogtphil@yahoo.fr</a>. Ne transmettez que les informations et documents que vous souhaitez proposer au projet.</p>
@@ -467,21 +505,21 @@ header.hero::after{
       </div>
     </section>
 
-    <nav id="participateNav" hidden aria-label="Navegación de las contribuciones" data-i18n-aria="aria_34">
-      <button type="button" data-participate-nav="temoignages" data-i18n="texte_35">Añadir un testimonio</button>
-      <button type="button" data-participate-nav="photos" data-i18n="texte_36">Añadir fotografías</button>
-      <button type="button" data-participate-nav="annuaire" data-i18n="texte_37">Directorio / correcciones</button>
+    <nav id="participateNav" hidden aria-label="Navigation des contributions" data-i18n-aria="aria_34">
+      <button type="button" data-participate-nav="temoignages" data-i18n="texte_35">Ajouter un témoignage</button>
+      <button type="button" data-participate-nav="photos" data-i18n="texte_36">Ajouter des photos</button>
+      <button type="button" data-participate-nav="annuaire" data-i18n="texte_37">Annuaire / corrections</button>
       <button type="button" data-home class="participate-home" data-i18n="texte_38">← Volver al inicio</button>
     </nav>
 
     <section id="participateScreen" class="architecture-screen" hidden>
-      <button type="button" class="back-home" data-home data-i18n="texte_39">← Volver a la página de inicio</button>
-      <h2 class="serif" data-i18n="texte_40">Participar</h2>
-      <p data-i18n="texte_41">¿Cómo desea contribuir a esta memoria colectiva?</p>
+      <button type="button" class="back-home" data-home data-i18n="texte_39">← Retour à la page d’accueil</button>
+      <h2 class="serif" data-i18n="texte_40">Participer</h2>
+      <p data-i18n="texte_41">Comment souhaitez-vous contribuer au travail de mémoire ?</p>
       <div class="participate-choice-grid">
-        <button type="button" class="participate-choice" data-participate="temoignages"><strong data-i18n="texte_42">Añadir un testimonio</strong><span data-i18n="texte_43">Compartir un recuerdo, una anécdota o un documento.</span></button>
-        <button type="button" class="participate-choice" data-participate="photos"><strong data-i18n="texte_44">Añadir fotografías</strong><span data-i18n="texte_45">Enviar una o varias fotografías.</span></button>
-        <button type="button" class="participate-choice" data-participate="annuaire"><strong data-i18n="texte_46">Consultar / completar el directorio</strong><span data-i18n="texte_47">Consultar la lista de cooperantes y proponer una corrección o información adicional. Se requiere un código.</span></button>
+        <button type="button" class="participate-choice" data-participate="temoignages"><strong data-i18n="texte_42">Ajouter un témoignage</strong><span data-i18n="texte_43">Partager un souvenir, une anecdote ou un document.</span></button>
+        <button type="button" class="participate-choice" data-participate="photos"><strong data-i18n="texte_44">Ajouter des photos</strong><span data-i18n="texte_45">Transmettre une ou plusieurs photographies.</span></button>
+        <button type="button" class="participate-choice" data-participate="annuaire"><strong data-i18n="texte_46">Voir / compléter l’annuaire</strong><span data-i18n="texte_47">Consulter la liste des coopérants et proposer une correction ou un complément. Code demandé.</span></button>
       </div>
     </section>
 
@@ -489,7 +527,7 @@ header.hero::after{
       <h2 class="serif">Mise à jour de l'annuaire</h2>
       <button type="button" class="secondary" id="forgetAnnuaire">Fermer l’accès à l’annuaire dans cet onglet</button>
       <p class="lead">Un nom qui vous revient, une date à corriger ou une information à compléter : le formulaire prépare un message que vous pouvez envoyer directement par e-mail, ou copier pour le transmettre autrement.</p>
-      <form lang="fr" id="reportForm">
+      <form id="reportForm">
         <div class="row2">
           <div class="field">
             <label for="personne">Personne concernée</label>
@@ -523,22 +561,22 @@ header.hero::after{
     </section>
 
     <section class="contribution-panel section-anchor architecture-screen" id="temoignages" hidden>
-    <button type="button" class="back-home" data-home data-i18n="texte_48">← Volver a la página de inicio</button>
+    <button type="button" class="back-home" data-home data-i18n="texte_48">← Retour à la page d’accueil</button>
     <div class="published-testimonies">
-      <h2 data-i18n="texte_49">Testimonios</h2>
-      <p data-i18n="texte_50">Los testimonios publicados se presentan del más reciente al más antiguo.</p>
+      <h2 data-i18n="texte_49">Témoignages</h2>
+      <p data-i18n="texte_50">Les témoignages publiés sont présentés du plus récent au plus ancien.</p>
 
-      <div id="testimonyList" lang="fr"></div>
+      <div id="testimonyList"></div>
     </div>
 
-    <section class="testimony-section" lang="fr">
+    <section class="testimony-section">
       <h2 class="serif">Partager un souvenir ou un témoignage</h2>
       <p class="lead">
         Vous pouvez partager ici un souvenir, une anecdote ou un témoignage lié à votre passage à l'IUT de Cumaná.
         Les contributions sont relues avant toute éventuelle publication sur le site.
         Les nom et e-mail renseignés dans le bloc « Vos coordonnées » sont également transmis avec votre témoignage.
       </p>
-      <form lang="fr" id="testimonyForm">
+      <form id="testimonyForm">
 <input type="hidden" name="_gotcha" value="" style="display:none !important">
         <div class="field">
           <label for="testimonyPerson">Personne(s) concernée(s), si applicable</label>
@@ -559,17 +597,21 @@ header.hero::after{
     </section>
 
     <section class="photos-section section-anchor contribution-panel architecture-screen" id="photos" hidden>
-      <button type="button" class="back-home" data-home data-i18n="texte_51">← Volver a la página de inicio</button>
-      <h2 data-i18n="texte_52">Fotografías</h2>
+      <button type="button" class="back-home" data-home data-i18n="texte_51">← Retour à la page d’accueil</button>
+      <h2 data-i18n="texte_52">Photos</h2>
       <p>Cette rubrique accueille les photos validées : images d'époque, vie à Cumaná, voyages et retrouvailles. Chaque photo peut être accompagnée d'une date, d'une légende, des personnes identifiées et du nom du photographe lorsqu'il est connu.</p>
-      <div class="gallery-grid" id="photoGallery" lang="fr"></div>
+      <div class="gallery-grid" id="photoGallery"></div>
       <dialog class="photo-dialog" id="photoDialog">
-        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Cerrar" data-i18n-aria="aria_53">×</button>
-        <img id="photoDialogImage" alt="">
-        <div class="photo-dialog-caption" id="photoDialogCaption" lang="fr"></div>
+        <button type="button" class="photo-dialog-close" id="photoDialogClose" aria-label="Fermer" data-i18n-aria="aria_53">×</button>
+        <div class="photo-dialog-stage" id="photoDialogStage">
+          <img id="photoDialogImage" alt="">
+          <div class="photo-person-layer" id="photoPersonLayer"></div>
+        </div>
+        <p class="photo-person-hint" id="photoPersonHint" hidden></p>
+        <div class="photo-dialog-caption" id="photoDialogCaption"></div>
       </dialog>
 
-      <div class="photo-submit" id="photoSubmitBlock" lang="fr">
+      <div class="photo-submit" id="photoSubmitBlock">
         <h3>Proposer des photos</h3>
         <p>
           Vous pouvez proposer ici une ou plusieurs photos. Si vous sélectionnez plusieurs
@@ -578,7 +620,7 @@ header.hero::after{
           des photos. Pour fournir des informations différentes pour chaque photo, effectuez
           des envois séparés. Les photos seront examinées avant toute publication sur le site.
         </p>
-        <form lang="fr" id="photoForm" enctype="multipart/form-data">
+        <form id="photoForm" enctype="multipart/form-data">
 <input type="hidden" name="_gotcha" value="" style="display:none !important">
           <div class="field">
             <label for="photoFiles">Photo(s)</label>
@@ -609,12 +651,8 @@ header.hero::after{
       </div>
     </section>
   </div>
- <footer class="shared-contact-note">
-  Proyecto coordinado por Philippe Vogt-Schilb.
-  Contacto : <a href="mailto:vogtphil@yahoo.fr">vogtphil@yahoo.fr</a>.
-  Alojamiento del sitio público : GitHub Pages (GitHub, Inc.).
-</footer>
- </main>
+  <footer class="shared-contact-note">Projet animé par Philippe Vogt-Schilb. Contact : <a href="mailto:vogtphil@yahoo.fr">vogtphil@yahoo.fr</a>. Hébergement du site public : GitHub Pages (GitHub, Inc.).</footer>
+</main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
 <script src="../vendor/forminit-sdk-v1.js" integrity="sha256-ScZ97sh1yqQbJ4PErIsPP3ySY9TQYRCMByVER6FnCXw="></script>
@@ -1041,7 +1079,7 @@ function attendreEnvoi(promise){
   return Promise.race([promise,new Promise((_,reject)=>{ timer=setTimeout(()=>reject(new Error("Le délai d’attente est dépassé. Vérifiez la réception avant de réessayer pour éviter un doublon.")),45000); })]).finally(()=>clearTimeout(timer));
 }
 function safeLocalURL(value){
-  try { const u=new URL(String(value||''),new URL('../',location.href)); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
+  try { const u=new URL(String(value||''),location.href); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
 }
 function sanitizeTestimony(html){
   const source=new DOMParser().parseFromString(String(html),'text/html');
@@ -1055,7 +1093,7 @@ function sanitizeTestimony(html){
     if(out.nodeType===1){
       const classes=(node.getAttribute('class')||'').split(/\s+/).filter(c=>/^[a-zA-Z0-9_-]+$/.test(c)); if(classes.length) out.className=classes.join(' ');
       if(node.tagName==='A'){
-        try{const u=new URL(node.getAttribute('href')||'',new URL('../',location.href)); if(['http:','https:','mailto:'].includes(u.protocol)){out.href=u.href;out.rel='noopener noreferrer';}}catch(_){}
+        try{const u=new URL(node.getAttribute('href')||'',location.href); if(['http:','https:','mailto:'].includes(u.protocol)){out.href=u.href;out.rel='noopener noreferrer';}}catch(_){}
       }
       if(node.tagName==='IMG'){const url=safeLocalURL(node.getAttribute('src'));if(url)out.src=url;out.alt=node.getAttribute('alt')||'';out.loading='lazy';}
       if(['TH','TD'].includes(node.tagName)){for(const key of ['colspan','rowspan']){const v=Number(node.getAttribute(key));if(Number.isInteger(v)&&v>0&&v<=100)out.setAttribute(key,String(v));}}
@@ -1107,6 +1145,45 @@ if(testimonyList){
 const photoGallery=document.getElementById('photoGallery'), photoDialog=document.getElementById('photoDialog'),
 photoDialogImage=document.getElementById('photoDialogImage'), photoDialogCaption=document.getElementById('photoDialogCaption'),
 photoDialogClose=document.getElementById('photoDialogClose');
+
+const photoPersonLayer=document.getElementById('photoPersonLayer');
+const photoPersonHint=document.getElementById('photoPersonHint');
+const photoDialogStage=document.getElementById('photoDialogStage');
+function alignPhotoPeople(){
+  const image=photoDialogImage.getBoundingClientRect(), stage=photoDialogStage.getBoundingClientRect();
+  Object.assign(photoPersonLayer.style,{left:(image.left-stage.left)+'px',top:(image.top-stage.top)+'px',width:image.width+'px',height:image.height+'px'});
+}
+function clearPhotoPersonSelection(){
+  photoPersonLayer.querySelectorAll('.is-active').forEach(zone=>{zone.classList.remove('is-active');zone.setAttribute('aria-expanded','false');});
+}
+function renderPhotoPeople(item){
+  photoPersonLayer.replaceChildren();
+  const people=Array.isArray(item.etiquettes)?item.etiquettes:[];
+  let count=0;
+  people.forEach(person=>{
+    const {nom,x,y,largeur,hauteur}=person;
+    if(!nom||![x,y,largeur,hauteur].every(Number.isFinite)||x<0||y<0||largeur<=0||hauteur<=0||x+largeur>100||y+hauteur>100)return;
+    const zone=document.createElement('button');zone.type='button';zone.className='photo-person-zone';
+    zone.style.left=x+'%';zone.style.top=y+'%';zone.style.width=largeur+'%';zone.style.height=hauteur+'%';
+    zone.setAttribute('aria-label',nom);zone.setAttribute('aria-expanded','false');
+    const label=document.createElement('span');label.className='photo-person-label';label.textContent=nom;
+    zone.appendChild(label);
+    zone.addEventListener('click',event=>{
+      event.stopPropagation();const active=zone.classList.contains('is-active');clearPhotoPersonSelection();
+      if(!active){zone.classList.add('is-active');zone.setAttribute('aria-expanded','true');}
+    });
+    photoPersonLayer.appendChild(zone);count++;
+  });
+  photoPersonHint.hidden=!count;
+  photoPersonHint.textContent=document.documentElement.lang.startsWith('es')?'Pase el cursor sobre los rostros identificados o tóquelos para ver los nombres.':'Survolez les visages identifiés ou touchez-les pour afficher les noms.';
+  requestAnimationFrame(alignPhotoPeople);
+}
+photoDialogImage.addEventListener('load',alignPhotoPeople);
+window.addEventListener('resize',alignPhotoPeople);
+if(window.ResizeObserver)new ResizeObserver(alignPhotoPeople).observe(photoDialogImage);
+photoDialogStage.addEventListener('click',clearPhotoPersonSelection);
+photoDialog.addEventListener('close',()=>{clearPhotoPersonSelection();photoPersonLayer.replaceChildren();});
+
 if(photoGallery){
   (window.PHOTOS||[]).forEach(item=>{
     const fig=document.createElement('figure'); fig.className='gallery-item';
@@ -1128,6 +1205,7 @@ btn.addEventListener('click',()=>{
 
   if(photoDialog.showModal)
     photoDialog.showModal();
+  renderPhotoPeople(item);
 });
     fig.append(btn,cap); photoGallery.appendChild(fig);
   });
