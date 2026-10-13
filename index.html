@@ -261,7 +261,7 @@ header.hero::after{
   /* === NAVIGATION PUBLIQUE ET CONTRIBUTIONS === */
   #gateScreen{display:none;}
   #siteContent{display:block;}
-  #stats,#listing,#directoryNote{display:none;}
+  #stats,#listing{display:none;}
   .home-choice-grid,.participate-choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0 34px;}
   .home-choice,.participate-choice,.back-home{background:#fffdf6;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:20px;text-align:left;cursor:pointer;font:inherit;text-decoration:none;}
   .home-choice:hover,.participate-choice:hover{border-color:var(--gold);}
@@ -283,9 +283,8 @@ header.hero::after{
   #participateNav button:hover,#participateNav button.active{border-color:var(--pine);background:#f3efe4;}
   #participateNav .participate-home{margin-left:auto;font-weight:700;border-color:var(--pine);}
   #directoryArea[hidden]{display:none!important;}
-  #directoryArea.unlocked #stats,#directoryArea.unlocked #listing,#directoryArea.unlocked #directoryNote{display:flex;}
+  #directoryArea.unlocked #stats,#directoryArea.unlocked #listing{display:flex;}
   #directoryArea.unlocked #listing{display:block;}
-  #directoryArea.unlocked #directoryNote{display:block;}
   #directoryArea.unlocked #gateScreen{display:none!important;}
   #directoryArea:not(.unlocked) #gateScreen{display:block;}
   #participateScreen .shared-contact{margin-top:22px;}
@@ -486,13 +485,7 @@ header.hero::after{
     <div class="stats" id="stats"></div>
 
     <div id="listing"></div>
-
-    <div class="intro-note" id="directoryNote" style="border-left-color: var(--gold);">
-      <strong>Note complémentaire :</strong> un coopérant plus tardif (VSNA, 1981-1982)
-      a également été identifié. Il se situe après la période couverte par ce recensement (1973-1980)
-      et n'est donc pas inclus dans la liste ci-dessus, mais mérite d'être mentionné si le projet
-      s'élargit un jour à ces années suivantes.
-    </div>
+    
   </div>
 
   <div id="siteContent" data-nosnippet>
