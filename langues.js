@@ -1,6 +1,6 @@
-// Textes de l’accueil et de la navigation. Les contenus des contributions restent inchangés.
+// Traductions centralisées et bascule sans rechargement.
 (() => {
-  'use strict';
+  "use strict";
   const traductions = {
   "fr": {
     "pied_de_page": "Projet animé par Philippe Vogt-Schilb. Contact : <a href=\"mailto:vogtphil@yahoo.fr\">vogtphil@yahoo.fr</a>. Hébergement du site public : GitHub Pages (GitHub, Inc.).",
@@ -25,7 +25,7 @@
     "texte_18": "Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.",
     "texte_19": "Premier coopérant actuellement identifié à Cumaná.",
     "texte_20": "Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.",
-    "texte_21": "Après 1981",
+    "texte_21": "Après 1980",
     "texte_22": "La coopération française se poursuit au-delà de la période principalement couverte par ce site.",
     "texte_23": "L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».",
     "texte_24": "Collecte des souvenirs, photographies et identification des anciens coopérants.",
@@ -69,7 +69,7 @@
     "presentation_0": "Este sitio reconstruye parte de la historia de la <strong>cooperación francesa en Venezuela</strong> a través de los docentes y <strong>VSNA franceses del IUT de Cumaná</strong> (Instituto Universitario de Tecnología de Cumaná), en el estado Sucre, principalmente entre 1973 y 1981. Reúne progresivamente archivos, testimonios, recuerdos y fotografías de aquella época.",
     "presentation_1": "<strong>¿Por qué ahora?</strong> Cincuenta años después de las primeras promociones de VSNA enviadas a Cumaná, cada año quedan menos testigos directos de esta experiencia y los recuerdos se desvanecen. Es una carrera contra el tiempo, además de un trabajo de archivo.<br><br><strong>Cómo leer esta página:</strong> la información procede de testimonios directos de antiguos cooperantes y de recuerdos compartidos por antiguos alumnos o familiares, contrastados cuando es posible con fuentes oficiales (por ejemplo, informes del Senado francés sobre el acuerdo de cooperación franco-venezolano) y las redes sociales. La lista de testigos crece a medida que avanza el proyecto. Muchas especialidades y fechas siguen marcadas como « por confirmar »: es un trabajo en curso, no una lista definitiva. La sección « Participar » permite señalar correcciones o aportar información, proponer fotografías y compartir testimonios o recuerdos.",
     "presentation_2": "<strong>El IUT de Cumaná en la actualidad:</strong> desde abril de 2012, el Instituto Universitario de Tecnología de Cumaná (IUT Cumaná) dio paso a la Universidad Politécnica Territorial del Oeste del Estado Sucre « Clodosbaldo Russián » (UPTOS).<br><br>Esta transformación forma parte de una reforma impulsada por el Estado venezolano para convertir los antiguos institutos universitarios de tecnología en universidades politécnicas territoriales.<br><br>La institución continúa hoy sus actividades como <strong>UPTOS « Clodosbaldo Russián »</strong>, ofreciendo formación universitaria y participando en el desarrollo económico y social de la región.<br><br><strong>Sitio actual:</strong> <a href=\"https://www.uptos.edu.ve/\" target=\"_blank\" rel=\"noopener noreferrer\">UPTOS « Clodosbaldo Russián » ↗</a>",
-    "presentation_3": "<strong>Información sobre el sitio</strong><br>Página elaborada a título personal y sin fines comerciales, a partir de testimonios directos de antiguos cooperantes y de fuentes públicas (informes del Senado francés sobre la cooperación técnica Francia–Venezuela, 1975–1976; archivos diplomáticos). Objetivo: reconstruir, con el consentimiento de las personas interesadas cuando ha sido posible obtenerlo, la memoria colectiva de un grupo de cooperantes franceses que trabajaron en el IUT de Cumaná entre 1973 y 1981.<br><br>Proyecto impulsado por Philippe Vogt-Schilb, antiguo cooperante del IUT de Cumaná (1977–1980), con la ayuda de herramientas de inteligencia artificial (ChatGPT, Mistral AI y Claude).<br><br>Cualquier persona mencionada aquí, o un familiar, puede solicitar una corrección o la retirada completa de su ficha a través de « Participar », luego « Directorio / correcciones », o escribiendo a la dirección de contacto del responsable del proyecto. Última actualización: octubre de 2026.",
+    "presentation_3": "<strong>Información sobre el sitio</strong><br>Página elaborada a título personal y sin fines comerciales, a partir de testimonios directos de antiguos cooperantes y de fuentes públicas (informes del Senado francés sobre la cooperación técnica Francia–Venezuela, 1975–1976; archivos diplomáticos). Objetivo: reconstruir, con el consentimiento de las personas interesadas cuando ha sido posible obtenerlo, la memoria colectiva de un grupo de cooperantes franceses que trabajaron en el IUT de Cumaná entre 1973 y 1980.<br><br>Proyecto impulsado por Philippe Vogt-Schilb, antiguo cooperante del IUT de Cumaná (1977–1980), con la ayuda de herramientas de inteligencia artificial (ChatGPT, Mistral AI y Claude).<br><br>Cualquier persona mencionada aquí, o un familiar, puede solicitar una corrección o la retirada completa de su ficha a través de « Participar », luego « Directorio / correcciones », o escribiendo a la dirección de contacto del responsable del proyecto. Última actualización: octubre de 2026.",
     "aria_9": "Estado del proyecto",
     "aria_10": "Consultar o completar el directorio",
     "texte_11": "cooperantes registrados",
@@ -82,7 +82,7 @@
     "texte_18": "Llegada de los primeros equipos franceses que participan en el desarrollo de los IUT en Venezuela.",
     "texte_19": "Primer cooperante identificado hasta ahora en Cumaná.",
     "texte_20": "Período principal recogido en este sitio, marcado por las sucesivas llegadas de cooperantes y VSNA franceses a Cumaná y Cariaco.",
-    "texte_21": "Después de 1981",
+    "texte_21": "Después de 1980",
     "texte_22": "La cooperación francesa continúa más allá del período principal recogido en este sitio.",
     "texte_23": "El IUT de Cumaná se convierte en la UPTOS « Clodosbaldo Russián ».",
     "texte_24": "Recopilación de recuerdos y fotografías e identificación de los antiguos cooperantes.",
@@ -117,20 +117,45 @@
     "aria_53": "Cerrar"
   }
 };
-  // Les textes de chaque langue sont déjà présents dans le HTML généré.
-  const code = document.documentElement.lang === 'es' ? 'es' : 'fr';
-  document.querySelectorAll('#testimonyList details > summary').forEach(el => {
-    el.textContent = code === 'es' ? 'Leer el testimonio' : 'Lire le témoignage';
-    el.lang = code;
-  });
-  document.querySelectorAll('.language-switch a').forEach(el => {
-    const cible = new URL(el.getAttribute('href'), location.href);
-    cible.hash = location.hash;
-    el.href = cible.href;
-  });
-  window.addEventListener('hashchange', () => {
+
+  const ROOT = new URL(document.currentScript.src).href.replace(/langues\.js(?:\?.*)?$/, '');
+  const urls = {fr: ROOT, es: ROOT + 'es/'};
+  let current = document.documentElement.lang === 'es' ? 'es' : 'fr';
+
+  function apply(code, changeUrl) {
+    current = code;
+    document.documentElement.lang = code;
+    const words = traductions[code];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const value = words[el.dataset.i18n];
+      if (value !== undefined) el.innerHTML = value;
+    });
+    document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+      const value = words[el.dataset.i18nAria];
+      if (value !== undefined) el.setAttribute('aria-label', value);
+    });
     document.querySelectorAll('.language-switch a').forEach(el => {
-      const cible = new URL(el.href); cible.hash = location.hash; el.href = cible.href;
+      const lang = el.dataset.language;
+      el.href = urls[lang] + location.hash;
+      if (lang === code) el.setAttribute('aria-current','page');
+      else el.removeAttribute('aria-current');
+    });
+    document.querySelectorAll('#testimonyList details > summary').forEach(el => {
+      el.textContent = code === 'es' ? 'Leer el testimonio' : 'Lire le témoignage';
+      el.lang = code;
+    });
+    const title = code === 'es' ? 'Cooperantes franceses — IUT de Cumaná (1973–1981)' : 'Coopérants français — IUT de Cumaná (1973–1981)';
+    document.title = title;
+    if (changeUrl && history.pushState) history.pushState({lang:code}, '', urls[code] + location.hash);
+  }
+  document.querySelectorAll('.language-switch a').forEach(el => {
+    el.addEventListener('click', e => {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      apply(el.dataset.language, true);
     });
   });
+  window.addEventListener('popstate', () => apply(location.pathname.replace(/\/$/,'').endsWith('/es') ? 'es' : 'fr', false));
+  window.addEventListener('hashchange', () => apply(current, false));
+  apply(current, false);
 })();

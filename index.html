@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<title>Coopérants français — IUT de Cumaná (1973-1981)</title>
-<meta name="description" content="Mémoire des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981 : histoire, témoignages, photographies et travail collectif d’archives.">
+<title>Coopérants français — IUT de Cumaná (1973–1981)</title>
+<meta name="description" content="Mémoire des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981 : histoire, témoignages, photographies et archives.">
 <link rel="canonical" href="https://iut-cumana.fr/">
-<link rel="alternate" hreflang="fr" href="https://iut-cumana.fr/">
-<link rel="alternate" hreflang="es" href="https://iut-cumana.fr/es/">
-<link rel="alternate" hreflang="x-default" href="https://iut-cumana.fr/">
+
+
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:title" content="Coopérants français — IUT de Cumaná (1973-1981)">
-<meta property="og:description" content="Mémoire collective des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981.">
+<meta property="og:title" content="Coopérants français — IUT de Cumaná (1973–1981)">
+<meta property="og:description" content="Mémoire des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981 : histoire, témoignages, photographies et archives.">
 <meta property="og:url" content="https://iut-cumana.fr/">
 <meta property="og:image" content="https://iut-cumana.fr/photos/drapeaux.jpg">
 <meta property="og:image:alt" content="Drapeaux français et vénézuélien">
@@ -54,7 +54,7 @@ header.hero::before{
   transform:translateY(-50%);
   width:430px;
   height:85%;
-  background:url("photos/Logo-IUT-Cumana-transparent.png") no-repeat left center;
+  background:url("/photos/Logo-IUT-Cumana-transparent.png") no-repeat left center;
   background-size:contain;
   opacity:.14;
   pointer-events:none;
@@ -68,7 +68,7 @@ header.hero::after{
   transform:translateY(-50%);
   width:360px;
   height:85%;
-  background:url("photos/drapeaux.jpg") no-repeat right center;
+  background:url("/photos/drapeaux.jpg") no-repeat right center;
   background-size:contain;
   opacity:.40;
   pointer-events:none;
@@ -346,14 +346,17 @@ header.hero::after{
   .language-switch a[aria-current="page"]{background:var(--pine);color:white;}
   .language-switch a:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
 </style>
+<link rel="alternate" hreflang="fr" href="https://iut-cumana.fr/">
+<link rel="alternate" hreflang="es" href="https://iut-cumana.fr/es/">
+<link rel="alternate" hreflang="x-default" href="https://iut-cumana.fr/">
 </head>
 <body>
 
 <button type="button" id="floatingHome" hidden data-i18n="texte_0">← Retour à l’accueil</button>
 
 <nav class="language-switch" aria-label="Langue / Idioma">
-  <a href="./" data-language="fr" lang="fr" aria-current="page">Français</a>
-  <a href="./es/" data-language="es" lang="es">Español</a>
+  <a href="/" data-language="fr" lang="fr" aria-current="page">Français</a>
+  <a href="/es/" data-language="es" lang="es">Español</a>
 </nav>
 
 <header class="hero">
@@ -430,7 +433,7 @@ header.hero::after{
       <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1970</span><span class="timeline-text" data-i18n="texte_18">Arrivée des premières équipes françaises participant au développement des IUT au Venezuela.</span></div>
       <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1972</span><span class="timeline-text" data-i18n="texte_19">Premier coopérant actuellement identifié à Cumaná.</span></div>
       <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">1973–1981</span><span class="timeline-text" data-i18n="texte_20">Période principale couverte par ce site, marquée par les arrivées successives de coopérants et de VSNA français à Cumaná et Cariaco.</span></div>
-      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year" data-i18n="texte_21">Après 1981</span><span class="timeline-text" data-i18n="texte_22">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
+      <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year" data-i18n="texte_21">Après 1980</span><span class="timeline-text" data-i18n="texte_22">La coopération française se poursuit au-delà de la période principalement couverte par ce site.</span></div>
       <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2012</span><span class="timeline-text" data-i18n="texte_23">L’IUT de Cumaná devient l’UPTOS « Clodosbaldo Russián ».</span></div>
       <div class="timeline-item"><span class="timeline-dot"></span><span class="timeline-year">2026</span><span class="timeline-text" data-i18n="texte_24">Collecte des souvenirs, photographies et identification des anciens coopérants.</span></div>
     </div>
@@ -655,11 +658,11 @@ header.hero::after{
 </main>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="anonymous"></script>
-<script src="vendor/forminit-sdk-v1.js" integrity="sha256-ScZ97sh1yqQbJ4PErIsPP3ySY9TQYRCMByVER6FnCXw="></script>
-<script src="cooperants.enc.js"></script>
-<script src="annuaire-crypto.js"></script>
-<script src="temoignages.js"></script>
-<script src="photos.js"></script>
+<script src="/vendor/forminit-sdk-v1.js" integrity="sha256-ScZ97sh1yqQbJ4PErIsPP3ySY9TQYRCMByVER6FnCXw="></script>
+<script src="/cooperants.enc.js"></script>
+<script src="/annuaire-crypto.js"></script>
+<script src="/temoignages.js"></script>
+<script src="/photos.js"></script>
 <script>
 
 
@@ -1079,7 +1082,7 @@ function attendreEnvoi(promise){
   return Promise.race([promise,new Promise((_,reject)=>{ timer=setTimeout(()=>reject(new Error("Le délai d’attente est dépassé. Vérifiez la réception avant de réessayer pour éviter un doublon.")),45000); })]).finally(()=>clearTimeout(timer));
 }
 function safeLocalURL(value){
-  try { const u=new URL(String(value||''),location.href); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
+  try { const u=new URL(String(value||''),new URL("/",location.origin)); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
 }
 function sanitizeTestimony(html){
   const source=new DOMParser().parseFromString(String(html),'text/html');
@@ -1290,6 +1293,6 @@ if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDial
 })();
 </script>
 
-<script src="langues.js"></script>
+<script src="/langues.js"></script>
 </body>
 </html>
