@@ -1079,7 +1079,7 @@ function attendreEnvoi(promise){
   return Promise.race([promise,new Promise((_,reject)=>{ timer=setTimeout(()=>reject(new Error("Le délai d’attente est dépassé. Vérifiez la réception avant de réessayer pour éviter un doublon.")),45000); })]).finally(()=>clearTimeout(timer));
 }
 function safeLocalURL(value){
-  try { const u=new URL(String(value||''),location.href); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
+  try { const u=new URL(String(value||''),new URL('../',location.href)); return u.origin===location.origin && ['http:','https:'].includes(u.protocol) ? u.href : null; } catch(_){ return null; }
 }
 function sanitizeTestimony(html){
   const source=new DOMParser().parseFromString(String(html),'text/html');
