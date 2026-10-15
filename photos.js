@@ -51,7 +51,7 @@ window.PHOTOS = [
   legende:"L'équipe de foot",
   periode:"1978",
   personnes:"Ils sont nombreux",
-  commentaires:"C'était pas onze, la norme ?",
+  commentaires:"Presque tous identifiés",
   fournisseur:"Ernesto Madrid Rivas"
 },
 
