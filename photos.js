@@ -36,6 +36,7 @@ window.PHOTOS = [
   fichier:"photos/Equipe de foot.jpg",
     etiquettes:[
   {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
+  {nom:"Pierre Rebaud", x:6.5, y:15, largeur:8, hauteur:15},
   {nom:"Michel Menny", x:70.5, y:15, largeur:8, hauteur:13},
   {nom:"Pierre Sirbat", x:80.5, y:7, largeur:7, hauteur:13},
   {nom:"Bruno Cohades", x:35.5, y:14, largeur:7, hauteur:9},    
