@@ -14,10 +14,10 @@ if not match:
 translations = json.loads(match.group(1))
 
 metadata = {
-    'fr': {'url':'https://iut-cumana.fr/', 'locale':'fr_FR',
+    'fr': {'url':'https://iut-cumana.fr/', 'locale':'fr_FR', 'image':'https://iut-cumana.fr/photos/bandeau-partage-fr.jpg', 'image_alt':"Les coopérants français de l'IUT de Cumaná – Coopération France-Venezuela",
            'title':'Coopérants français — IUT de Cumaná (1973–1981)',
            'description':'Mémoire des coopérants français et VSNA de l’IUT de Cumaná au Venezuela entre 1973 et 1981 : histoire, témoignages, photographies et archives.'},
-    'es': {'url':'https://iut-cumana.fr/es/', 'locale':'es_VE',
+    'es': {'url':'https://iut-cumana.fr/es/', 'locale':'es_VE', 'image':'https://iut-cumana.fr/photos/bandeau-partage-es.jpg', 'image_alt':'Los cooperantes franceses del IUT de Cumaná – Cooperación Francia-Venezuela',
            'title':'Cooperantes franceses — IUT de Cumaná (1973–1981)',
            'description':'Memoria de los cooperantes franceses y VSNA del IUT de Cumaná, Venezuela, entre 1973 y 1981: historia, testimonios, fotografías y archivos.'},
 }
@@ -44,7 +44,7 @@ def render(code):
     doc=re.sub(r'<title>.*?</title>',lambda _: '<title>'+meta['title']+'</title>',doc,count=1,flags=re.S)
     doc=re.sub(r'<meta name="description" content="[^"]*">',lambda _: '<meta name="description" content="'+html.escape(meta['description'],quote=True)+'">',doc,count=1)
     doc=re.sub(r'<link rel="canonical" href="[^"]*">',lambda _: '<link rel="canonical" href="'+meta['url']+'">',doc,count=1)
-    for property_,value in [('og:locale',meta['locale']),('og:title',meta['title']),('og:description',meta['description']),('og:url',meta['url'])]:
+    for property_,value in [('og:locale',meta['locale']),('og:title',meta['title']),('og:description',meta['description']),('og:url',meta['url']),('og:image',meta['image']),('og:image:alt',meta['image_alt'])]:
         doc=re.sub(r'(<meta property="'+re.escape(property_)+r'" content=")[^"]*(")',lambda m:m.group(1)+html.escape(value,quote=True)+m.group(2),doc,count=1)
     doc=re.sub(r'<link rel="alternate" hreflang="[^"]+" href="[^"]+">\s*','',doc)
     alternates='\n'.join('<link rel="alternate" hreflang="{}" href="{}">'.format(c,metadata[c]['url']) for c in ('fr','es'))
