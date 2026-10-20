@@ -2,6 +2,13 @@
 
 window.TEMOIGNAGES = [
   {
+    datePublication: "2026-10-20",
+    titre: "Cumaná et Araya : une histoire entre mer, sel et rencontres",
+    auteur: "Philippe Vogt-Schilb — repères historiques et souvenirs",
+    apercu: "De la Primogénita aux salines d’Araya, des séismes aux flamants de Chacopata : quelques repères historiques et les images restées en mémoire depuis les années de coopération.",
+    fichier: "temoignages/temoignage-cumana-araya.html"
+  },
+  {
     datePublication: "2026-10-12",
     titre: "Federico Rivero Palacio et la création des IUT du Venezuela",
     auteur: "Dúmar Ramirez — El Conocimiento es Vida",
