@@ -13,34 +13,7 @@ window.TEMOIGNAGES = [
     titre: "Federico Rivero Palacio et la création des IUT du Venezuela",
     auteur: "Dúmar Ramirez — El Conocimiento es Vida",
     apercu: "Un regard sur le rôle de Federico Rivero Palacio et l’apport de la coopération française à la création des IUT vénézuéliens, présenté par l’ingénieur Dúmar Ramirez.",
-    contenu: `
-      <p>
-        Dans cet article publié le <strong>16 novembre 2022</strong> sur
-        <em>El Conocimiento es Vida</em>, l’ingénieur <strong>Dúmar Ramirez</strong>
-        présente son intervention consacrée à Federico Rivero Palacio et
-        à la création des Instituts Universitaires de Technologie du Venezuela.
-      </p>
-      <p>
-        Invité à un forum de la Société franco-vénézuélienne d’ingénieurs
-        et de scientifiques, dans le cadre du 161e anniversaire du Colegio
-        de Ingenieros de Venezuela, il évoque l’apport de la coopération
-        française dans les années 1970 et 1980 et le rôle de Federico Rivero
-        Palacio, promoteur du projet du côté vénézuélien.
-      </p>
-      <p>
-        Cette ressource éclaire le contexte historique dans lequel s’inscrit
-        l’expérience des coopérants de l’IUT de Cumaná.
-      </p>
-      <p>
-        <a href="https://elconesvida.net/2022/11/16/recordando-al-dr-federico-rivero-palacio-y-la-creacion-de-los-iut-de-venezuela/"
-           target="_blank" rel="noopener noreferrer">
-          Consulter l’article original — en espagnol
-        </a>
-      </p>
-      <p class="testimony-signature">
-        Article de Dúmar Ramirez — 16 novembre 2022. Présentation du lien ajoutée le 12 octobre 2026.
-      </p>
-    `
+    fichier: "temoignages/presentation-federico-rivero.html"
   },
      {
     datePublication: "2026-10-09",
@@ -74,33 +47,7 @@ window.TEMOIGNAGES = [
 
     apercu: "Un document de référence sur l'origine et le développement des Instituts Universitaires de Technologie au Venezuela, créés dans les années 1970 en s'inspirant notamment du modèle français.",
 
-    contenu: `
-      <p>
-        Cette communication de María Egilda Castellano de Sjöstrand,
-        alors vice-ministre des Politiques académiques du ministère
-        vénézuélien de l'Enseignement supérieur, a été présentée à
-        La Havane en novembre 2002.
-      </p>
-
-      <p>
-        Elle retrace l'origine et le développement des Instituts
-        Universitaires de Technologie au Venezuela et rappelle notamment
-        l'influence du modèle français lors de leur création dans les
-        années 1970.
-      </p>
-
-      <p>
-        <a href="https://pr1enahp.wordpress.com/wp-content/uploads/2011/11/iut-venezuela-maria-e-castellano.pdf"
-           target="_blank"
-           rel="noopener noreferrer">
-          Consulter le document original (PDF, en espagnol)
-        </a>
-      </p>
-
-      <p class="testimony-signature">
-        María Egilda Castellano de Sjöstrand — 2002
-      </p>
-    `
+    fichier: "temoignages/presentation-iut-venezuela.html"
   },
   {
     datePublication: "2026-09-30",
@@ -112,7 +59,7 @@ window.TEMOIGNAGES = [
 ];
 
 
-// Versions espagnoles des trois récits de Philippe et du contexte historique.
+// Versions espagnoles des récits et des présentations.
 // La langue est celle de la page générée ; aucun changement du générateur requis.
 (() => {
   const originaux = window.TEMOIGNAGES.map(item => ({...item}));
@@ -144,6 +91,16 @@ window.TEMOIGNAGES = [
     "titre": "Los orígenes de los IUT venezolanos y de la cooperación francesa",
     "apercu": "La historia de la creación de los IUT en Venezuela: la elección del modelo francés, el papel del IUT de Cachan y la llegada de los primeros cooperantes franceses en 1970.",
     "fichier": "/temoignages/temoignage-origines-iut-es.html"
+  },
+  "temoignages/presentation-iut-venezuela.html": {
+    "titre": "Los Institutos Universitarios de Tecnología en Venezuela",
+    "apercu": "Un documento de referencia sobre el origen y el desarrollo de los Institutos Universitarios de Tecnología en Venezuela, creados en los años setenta e inspirados, en particular, en el modelo francés.",
+    "fichier": "/temoignages/presentation-iut-venezuela-es.html"
+  },
+  "temoignages/presentation-federico-rivero.html": {
+    "titre": "Federico Rivero Palacio y la creación de los IUT de Venezuela",
+    "apercu": "Una mirada al papel de Federico Rivero Palacio y al aporte de la cooperación francesa en la creación de los IUT venezolanos, presentada por el ingeniero Dúmar Ramirez.",
+    "fichier": "/temoignages/presentation-federico-rivero-es.html"
   }
 };
     let langueAppliquee = '';
