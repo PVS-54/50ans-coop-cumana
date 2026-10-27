@@ -80,15 +80,7 @@ window.PHOTOS = [
   commentaires:"Otra foto de visitantes de aquellos tiempos. Entre los visitantes ministros y presidentes de Institutos Autónomos.",
   fournisseur:"Ernesto Madrid Rivas"
 },
-  {
-  fichier:"photos/Patio y pasillos.jpg",
-  legende:"Patio y pasillos",
-  periode:"Peut-être 2010",
-  personnes:"",
-  commentaires:"publication sur le groupe Facebook IUT CUMANA",
-  fournisseur:"Wladimir Briceño"
-},
-  {
+    {
   fichier:"photos/Agradecimiento.png",
   legende:"Agradecimiento",
   periode:"2011",
@@ -111,6 +103,14 @@ window.PHOTOS = [
   personnes:"Ph. V-S",
   commentaires:"Le sésame du MRE qui pouvait parfois nous sauver au passage d'une alcabala et le carnet de l'IUT",
   fournisseur:"PVS"
+},
+  {
+  fichier:"photos/Patio y pasillos.jpg",
+  legende:"Patio y pasillos",
+  periode:"Peut-être 2010",
+  personnes:"",
+  commentaires:"publication sur le groupe Facebook IUT CUMANA",
+  fournisseur:"Wladimir Briceño"
 },
   {
   fichier:"photos/Entrada.jpg",
