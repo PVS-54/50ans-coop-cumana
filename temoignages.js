@@ -355,3 +355,34 @@ window.TEMOIGNAGES = [
     fichier: "temoignages/temoignage-pvs.html"
   }
 ];
+
+
+// Versions espagnoles des trois récits de Philippe et du contexte historique.
+// La langue est celle de la page générée ; aucun changement du générateur requis.
+(() => {
+  const langue = document.documentElement.lang.toLowerCase().split('-')[0];
+  if (langue !== 'es') return;
+  const versionsEspagnoles = {
+  "temoignages/temoignage-pvs.html": {
+    "titre": "Mis años en Cumaná",
+    "apercu": "Era mi primer viaje en avión. Entre Navidad y Año Nuevo, salí de Francia, con una novela de Raphaëlle Billetdoux en la mano, para llegar a Cumaná, al otro lado del Atlántico…",
+    "fichier": "/temoignages/temoignage-pvs-es.html"
+  },
+  "temoignages/temoignage-contexte.html": {
+    "titre": "Venezuela, años setenta: las promesas y las contradicciones de la abundancia",
+    "auteur": "Contexto histórico — Ph. V‑S., con ayuda de la IA",
+    "apercu": "La bonanza petrolera alimenta grandes ambiciones, pero también revela las tensiones entre las importaciones y la producción nacional, las desigualdades y los retos del desarrollo regional.",
+    "fichier": "/temoignages/temoignage-contexte-es.html"
+  },
+  "temoignages/temoignage-cumana-araya.html": {
+    "titre": "Cumaná y Araya: una historia entre el mar, la sal y los encuentros",
+    "auteur": "Philippe Vogt-Schilb — historia y recuerdos",
+    "apercu": "De la Primogénita a las salinas de Araya, de los terremotos a los flamencos de Chacopata: referencias históricas e imágenes que siguen en la memoria desde los años de cooperación.",
+    "fichier": "/temoignages/temoignage-cumana-araya-es.html"
+  }
+};
+  window.TEMOIGNAGES.forEach(temoignage => {
+    const version = versionsEspagnoles[temoignage.fichier];
+    if (version) Object.assign(temoignage, version);
+  });
+})();
