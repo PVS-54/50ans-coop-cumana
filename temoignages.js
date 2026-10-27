@@ -360,8 +360,7 @@ window.TEMOIGNAGES = [
 // Versions espagnoles des trois récits de Philippe et du contexte historique.
 // La langue est celle de la page générée ; aucun changement du générateur requis.
 (() => {
-  const langue = document.documentElement.lang.toLowerCase().split('-')[0];
-  if (langue !== 'es') return;
+  const originaux = window.TEMOIGNAGES.map(item => ({...item}));
   const versionsEspagnoles = {
   "temoignages/temoignage-pvs.html": {
     "titre": "Mis años en Cumaná",
@@ -381,8 +380,74 @@ window.TEMOIGNAGES = [
     "fichier": "/temoignages/temoignage-cumana-araya-es.html"
   }
 };
-  window.TEMOIGNAGES.forEach(temoignage => {
-    const version = versionsEspagnoles[temoignage.fichier];
-    if (version) Object.assign(temoignage, version);
-  });
+    let langueAppliquee = '';
+
+  function actualiserTemoignages() {
+    const langue = document.documentElement.lang
+      .toLowerCase().split('-')[0];
+
+    if (langue === langueAppliquee) return;
+    langueAppliquee = langue;
+
+    window.TEMOIGNAGES.forEach((item, index) => {
+      const original = originaux[index];
+      const version = versionsEspagnoles[original.fichier];
+
+      if (version) {
+        Object.assign(item, original, langue === 'es' ? version : {});
+      }
+    });
+
+    const tries = [...window.TEMOIGNAGES].sort((a, b) =>
+      String(b.datePublication || '')
+        .localeCompare(String(a.datePublication || ''))
+    );
+
+    document.querySelectorAll('#testimonyList .testimony-card')
+      .forEach((carte, index) => {
+        const item = tries[index];
+        if (!item) return;
+
+        const original = originaux[window.TEMOIGNAGES.indexOf(item)];
+        if (!versionsEspagnoles[original.fichier]) return;
+
+        const titre = carte.querySelector('h3');
+        const apercu = carte.querySelector('.testimony-preview');
+        const meta = carte.querySelector('.testimony-meta');
+        const frame = carte.querySelector('iframe');
+
+        if (titre) titre.textContent = item.titre;
+        if (apercu) apercu.textContent = item.apercu;
+
+        if (meta) {
+          const date = new Intl.DateTimeFormat(
+            langue === 'es' ? 'es-VE' : 'fr-FR',
+            {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+              timeZone: 'UTC'
+            }
+          ).format(new Date(item.datePublication + 'T00:00:00Z'));
+
+          meta.textContent = item.auteur
+            + (langue === 'es' ? ' · Publicado el ' : ' · Publié le ')
+            + date;
+        }
+
+        if (frame) {
+          frame.title = item.titre;
+          if (frame.getAttribute('src') !== item.fichier) {
+            frame.setAttribute('src', item.fichier);
+          }
+        }
+      });
+  }
+
+  actualiserTemoignages();
+
+  new MutationObserver(actualiserTemoignages).observe(
+    document.documentElement,
+    {attributes: true, attributeFilter: ['lang']}
+  );
 })();
