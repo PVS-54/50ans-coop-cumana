@@ -37,7 +37,7 @@ window.PHOTOS = [
     etiquettes:[
   {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
   {nom:"Bernard Genaud", x:51, y:20, largeur:8, hauteur:13},
-  {nom:"Pierre Rebaud", x:6.5, y:15, largeur:8, hauteur:15},
+  {nom:"Michel Chevin", x:6.5, y:15, largeur:8, hauteur:15},
   {nom:"Michel Menny", x:70.5, y:15, largeur:8, hauteur:13},
   {nom:"Pierre Sirbat", x:80.5, y:7, largeur:7, hauteur:13},
   {nom:"Bruno Cohades", x:35.5, y:14, largeur:7, hauteur:9},    
@@ -51,7 +51,7 @@ window.PHOTOS = [
   legende:"L'équipe de foot",
   periode:"1978",
   personnes:"Ils sont nombreux",
-  commentaires:"Presque tous identifiés",
+  commentaires:"C'était pas onze, la norme ?",
   fournisseur:"Ernesto Madrid Rivas"
 },
 
