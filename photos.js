@@ -36,6 +36,7 @@ window.PHOTOS = [
   fichier:"photos/Equipe de foot.jpg",
     etiquettes:[
   {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
+  {nom:"Yannick Salmon", x:58, y:14, largeur:9, hauteur:16},
   {nom:"Bernard Genaud", x:51, y:20, largeur:8, hauteur:13},
   {nom:"Michel Chevin", x:6.5, y:15, largeur:8, hauteur:15},
   {nom:"Michel Menny", x:70.5, y:15, largeur:8, hauteur:13},
