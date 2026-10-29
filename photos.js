@@ -192,7 +192,7 @@ window.PHOTOS = [
   periode:"1977/1978",
   personnes:"Eric Monnier, Nelson Albornoz",
   commentaires:"photo en partie restaurée par IA",
-  fournisseur:"EM"
+  fournisseur:"Eric Monnier"
   },
   {
   fichier:"photos/EM_031.jpg",
