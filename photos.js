@@ -152,7 +152,15 @@ window.PHOTOS = [
   periode:"1988",
   personnes:"",
   commentaires:"Point de passage obligé...",
-  fournisseur:"https://www.facebook.com/Memoriadecumana/photos_by "
+  fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
+  },
+  {
+  fichier:"photos/Aceras_San_Francisco.jpg",
+  legende:"Las aceras tipicas de una calle del barrio San Francisco",
+  periode:"",
+  personnes:"",
+  commentaires:"Pas vraiment adaptées au public en génaral !",
+  fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
   {
   fichier:"photos/EM_011.jpg",
