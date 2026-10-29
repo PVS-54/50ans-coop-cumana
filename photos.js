@@ -155,6 +155,22 @@ window.PHOTOS = [
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
   {
+  fichier:"photos/Aeropuerto_San_Luis.jpg",
+  legende:"El aeropuerto de San Luis",
+  periode:"1950-1980",
+  personnes:"",
+  commentaires:"Remplacé depuis par l'aéroport international Antonio Jose de Sucre",
+  fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
+  },
+  {
+  fichier:"photos/Chalana.jpg",
+  legende:"No sabias cuando ibas a salir y menos aun, cuando podrias volver",
+  periode:"",
+  personnes:"",
+  commentaires:"Caracas, Colon, Caroni, Maria Guevara",
+  fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
+  },
+  {
   fichier:"photos/Aceras_San_Francisco.jpg",
   legende:"Las aceras tipicas de una calle del barrio San Francisco",
   periode:"",
