@@ -69,7 +69,7 @@ window.PHOTOS = [
   fichier:"photos/ofrenda-1979.jpg",
   legende:"Ofrenda 1979",
   periode:"09/05/1979",
-  personnes:"De izq. a der.: Sr. Benito Rodríguez, representante del Sindicato de Trabajadores; Profesores Luis Elguezabal, Jefe del Departamento de Biología Aplicada; Juan José Díaz C., Jefe del Departamento de Química Aplicada; Thiery Lefebre, Jefe del Departamento de Electricidad; Jorge Yánez Caires, Director del IUT Cumaná; Francisco Alcalá, Presidente de la Asociación de Profesores del IUT Cumaná; Ernesto Madrid Rivas, Sub-director del IUT Cumaná; Sr. Silvio García, Presidente de la Asociación de Empleados del IUT Cumaná y Br. Alfonzo Rodríguez, Presidente del Centro de Estudiantes del IUT Cumaná.",
+  personnes:"De izq. a der.: Sr. Benito Rodríguez, representante del Sindicato de Trabajadores; Profesores Luis Elguezabal, Jefe del Departamento de Biología Aplicada; Juan José Díaz C., Jefe del Departamento de Química Aplicada; Thierry Lefebre, Jefe del Departamento de Electricidad; Jorge Yánez Caires, Director del IUT Cumaná; Francisco Alcalá, Presidente de la Asociación de Profesores del IUT Cumaná; Ernesto Madrid Rivas, Sub-director del IUT Cumaná; Sr. Silvio García, Presidente de la Asociación de Empleados del IUT Cumaná y Br. Alfonzo Rodríguez, Presidente del Centro de Estudiantes del IUT Cumaná.",
   commentaires:"Ofrenda floral en la plaza Bolívar de Cumaná con motivo del VI Aniversario del IUT Cumaná.",
   fournisseur:"Ernesto Madrid Rivas"
 },
@@ -138,7 +138,7 @@ window.PHOTOS = [
   periode:"1977/1978",
   personnes:"Eric Monnier",
   commentaires:"photo en partie restaurée par IA",
-  fournisseur:"EM"
+  fournisseur:"Eric Monnier"
 },
   {
   fichier:"photos/EM_021.jpg",
@@ -146,7 +146,7 @@ window.PHOTOS = [
   periode:"1977/1978",
   personnes:"Eric Monnier, Nelson Albornoz",
   commentaires:"photo en partie restaurée par IA",
-  fournisseur:"EM"
+  fournisseur:"Eric Monnier"
 },
   {
   fichier:"photos/EM_031.jpg",
@@ -154,7 +154,7 @@ window.PHOTOS = [
   periode:"1977/1978",
   personnes:"Eric Monnier",
   commentaires:"photo en partie restaurée par IA",
-  fournisseur:"EM"
+  fournisseur:"Eric Monnier"
 },
   {
   fichier:"photos/Edificio Hola.jpg",
@@ -162,7 +162,7 @@ window.PHOTOS = [
   periode:"1977/1978",
   personnes:"",
   commentaires:"Lieu de résidence de plusieurs générations de coopérants",
-  fournisseur:"EM"
+  fournisseur:"Eric Monnier"
 },
 {
   fichier:"photos/Subiendo.jpg",
