@@ -5,7 +5,7 @@ window.TEMOIGNAGES = [
     datePublication: "2026-10-20",
     titre: "Cumaná et Araya : une histoire entre mer, sel et rencontres",
     auteur: "Philippe Vogt-Schilb — repères historiques et souvenirs",
-    apercu: "De la Primogénita aux salines d’Araya, des séismes aux flamants de Chacopata : quelques repères historiques et les images restées en mémoire depuis les années de coopération.",
+    apercu: "De la Primogénita aux salines d’Araya, des séismes aux flamants roses de Chacopata : quelques repères historiques et les images restées en mémoire depuis les années de coopération.",
     fichier: "temoignages/temoignage-cumana-araya.html"
   },
   {
@@ -78,7 +78,7 @@ window.TEMOIGNAGES = [
   "temoignages/temoignage-cumana-araya.html": {
     "titre": "Cumaná y Araya: una historia entre el mar, la sal y los encuentros",
     "auteur": "Philippe Vogt-Schilb — historia y recuerdos",
-    "apercu": "De la Primogénita a las salinas de Araya, de los terremotos a los flamencos de Chacopata: referencias históricas e imágenes que siguen en la memoria desde los años de cooperación.",
+    "apercu": "De la Primogénita a las salinas de Araya, de los terremotos a los flamencos rosados de Chacopata: referencias históricas e imágenes que siguen en la memoria desde los años de cooperación.",
     "fichier": "/temoignages/temoignage-cumana-araya-es.html"
   },
   "temoignages/temoignage-vsna.html": {
