@@ -235,7 +235,7 @@ window.PHOTOS = [
   fournisseur:""
   },
  {
-  fichier:"Araguaney.jpg",
+  fichier:"photos/Araguaney.jpg",
   legende:"Araguaney",
   periode:"",
   personnes:"",
@@ -243,7 +243,7 @@ window.PHOTOS = [
   fournisseur:"Wikipedia"
   },
  {
-  fichier:"Flamboyant.jpg",
+  fichier:"photos/Flamboyant.jpg",
   legende:"Flamboyant",
   periode:"",
   personnes:"",
