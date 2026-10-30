@@ -234,6 +234,22 @@ window.PHOTOS = [
   commentaires:"",
   fournisseur:""
   },
+ {
+  fichier:"Araguaney.jpg",
+  legende:"Araguaney",
+  periode:"",
+  personnes:"",
+  commentaires:"Arbol nacional de Venezuela",
+  fournisseur:"Wikipedia"
+  },
+ {
+  fichier:"Flamboyant.jpg",
+  legende:"Flamboyant",
+  periode:"",
+  personnes:"",
+  commentaires:"",
+  fournisseur:"Wikipedia"
+  },
   {
   fichier:"photos/Aves.jpg",
   legende:"Aves en Araya",
