@@ -349,6 +349,7 @@ header.hero::after{
 /* Compteurs illustrés et répartition publique : effectifs uniquement. */
 .project-dashboard{display:grid;grid-template-columns:minmax(0,2fr) minmax(220px,1fr);gap:20px;margin:0 0 28px}.people-panel,.memory-count{background:#fffdf6;border:1px solid var(--line);border-radius:6px}.people-panel{position:relative;padding:22px 26px 18px}.people-count{display:flex;align-items:baseline;gap:12px;padding:0 155px 0 0;border:0;background:none;text-align:left}.people-count:hover{background:none}.people-count .count-number,.memory-count .count-number{font-size:2.3rem;line-height:1.15}.people-count .count-label{color:var(--pine-dark);font-size:.95rem;margin:0}.cohort-heading{font:600 1.12rem "Iowan Old Style",Georgia,serif;color:var(--pine-dark);margin:12px 0 6px}.cohort-note{font-size:.78rem;color:var(--muted);margin:0 0 20px}.cohort-chart{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px;height:150px;align-items:end}.cohort{height:100%;display:grid;grid-template-rows:20px 1fr 24px;position:relative;text-align:center;align-items:end}.cohort-value{position:absolute;bottom:calc(24px + var(--height));font-size:.8rem;font-weight:650;color:var(--pine-dark);display:none}.cohort-bar{grid-row:2;height:var(--height);min-height:5px;background:var(--pine);border-radius:3px 3px 0 0;position:relative;margin:0 3px}.cohort-bar:before{content:attr(data-value);position:absolute;top:-24px;left:0;right:0;font-size:.8rem;font-weight:650;color:var(--pine-dark)}.cohort-year{grid-row:3;font-size:.7rem;color:var(--muted);padding-top:6px;border-top:1px solid var(--line)}.cohort-pending{margin:18px 0 0;padding-top:12px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}.cohort-pending strong{color:var(--rust);font-size:1rem;margin-right:5px}.memory-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}.memory-count{position:relative;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:24px 140px 24px 24px;text-align:left;overflow:hidden}.memory-count:hover{background:#f4eedf}.memory-count .count-label{font-size:.95rem;color:var(--pine-dark)}.memory-action{font-size:.8rem;color:var(--rust);margin-top:10px}.writing-illustration{object-fit:contain;position:absolute;width:126px;height:114px;right:9px;top:50%;transform:translateY(-50%);pointer-events:none}.airmail-stamp{object-fit:contain;position:absolute;right:20px;top:17px;width:150px;height:84px;transform:rotate(6deg);pointer-events:none;opacity:.85}.photo-stack{position:absolute;width:104px;height:96px;right:22px;top:50%;transform:translateY(-50%);pointer-events:none}.photo-stack img{position:absolute;inset:12px 0 auto;width:96px;height:72px;object-fit:cover;border:4px solid #fffdf6;box-shadow:0 2px 7px #24282140;transform:translate(var(--dx),var(--dy)) rotate(var(--angle))}
 @media(max-width:650px){.project-dashboard{grid-template-columns:1fr;gap:14px}.memory-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:14px}.people-panel{padding:20px 18px}.people-count{padding-right:113px;gap:8px}.people-count .count-label{font-size:.85rem}.airmail-stamp{right:13px;top:19px;width:111px;height:63px}.cohort-chart{gap:6px}.cohort-bar{margin:0 1px}.cohort-year{font-size:.62rem}.cohort-heading{font-size:1.05rem}.memory-count{padding:18px}.memory-count .count-number{padding-right:65px}.memory-count .count-label{margin-top:4px}.writing-illustration{width:73px;height:65px;right:5px;top:10px;transform:none}.photo-stack{width:60px;height:53px;right:12px;top:17px;transform:none}.photo-stack img{width:56px;height:43px;border-width:3px;inset:4px 0 auto}}
+.cohort-chart[hidden],.cohort-pending[hidden],#cohortUnavailable[hidden]{display:none!important}
 </style>
 <link rel="alternate" hreflang="fr" href="https://iut-cumana.fr/">
 <link rel="alternate" hreflang="es" href="https://iut-cumana.fr/es/">
@@ -430,9 +431,10 @@ header.hero::after{
 <div class="people-panel"><img class="airmail-stamp" src="/photos/timbre-avion.png" alt="" aria-hidden="true"><button type="button" class="project-count people-count" data-view="annuaire" aria-label="Voir ou compléter l’annuaire" data-i18n-aria="aria_10"><span class="count-number" id="countCooperants">—</span><span class="count-label" data-i18n="texte_11">coopérants recensés</span></button>
 <h3 class="cohort-heading" data-i18n="cohort_title">Les arrivées classées par année</h3>
 <p class="cohort-note" data-i18n="cohort_note">Personnes recensées par cohorte · état actuel des recherches</p>
-<!-- Effectifs par cohorte (1972 à 1981), tableau du 31/10/2026 : 1,6,12,8,4,19,5,7,7,6 ; 11 à positionner. -->
-<div class="cohort-chart" role="group" aria-label="Répartition des personnes recensées par année d’arrivée" data-i18n-aria="cohort_aria"><div class="cohort" role="img" aria-label="1972 : 1"><span class="cohort-value">1</span><span class="cohort-bar" data-value="1" style="--height:5.263%"></span><span class="cohort-year">1972</span></div><div class="cohort" role="img" aria-label="1973 : 6"><span class="cohort-value">6</span><span class="cohort-bar" data-value="6" style="--height:31.579%"></span><span class="cohort-year">1973</span></div><div class="cohort" role="img" aria-label="1974 : 12"><span class="cohort-value">12</span><span class="cohort-bar" data-value="12" style="--height:63.158%"></span><span class="cohort-year">1974</span></div><div class="cohort" role="img" aria-label="1975 : 8"><span class="cohort-value">8</span><span class="cohort-bar" data-value="8" style="--height:42.105%"></span><span class="cohort-year">1975</span></div><div class="cohort" role="img" aria-label="1976 : 4"><span class="cohort-value">4</span><span class="cohort-bar" data-value="4" style="--height:21.053%"></span><span class="cohort-year">1976</span></div><div class="cohort" role="img" aria-label="1977 : 19"><span class="cohort-value">19</span><span class="cohort-bar" data-value="19" style="--height:100.000%"></span><span class="cohort-year">1977</span></div><div class="cohort" role="img" aria-label="1978 : 5"><span class="cohort-value">5</span><span class="cohort-bar" data-value="5" style="--height:26.316%"></span><span class="cohort-year">1978</span></div><div class="cohort" role="img" aria-label="1979 : 7"><span class="cohort-value">7</span><span class="cohort-bar" data-value="7" style="--height:36.842%"></span><span class="cohort-year">1979</span></div><div class="cohort" role="img" aria-label="1980 : 7"><span class="cohort-value">7</span><span class="cohort-bar" data-value="7" style="--height:36.842%"></span><span class="cohort-year">1980</span></div><div class="cohort" role="img" aria-label="1981 : 6"><span class="cohort-value">6</span><span class="cohort-bar" data-value="6" style="--height:31.579%"></span><span class="cohort-year">1981</span></div></div>
-<p class="cohort-pending"><strong>11</strong> <span data-i18n="cohort_pending">personnes restent à positionner</span></p></div>
+<!-- Les effectifs publics sont calculés par outils/chiffrer.py. Aucun nom ici. -->
+<div id="cohortChart" class="cohort-chart" role="group" aria-label="Répartition des personnes recensées par année d’arrivée" data-i18n-aria="cohort_aria" hidden></div>
+<p id="cohortPending" class="cohort-pending" hidden><strong id="cohortPendingNumber"></strong> <span data-i18n="cohort_pending">personnes restent à positionner</span></p>
+<p id="cohortUnavailable" class="cohort-note" data-i18n="cohort_unavailable">Répartition disponible après la prochaine actualisation de l’annuaire.</p></div>
 <div class="memory-stack"><button type="button" class="project-count memory-count testimony-card" data-view="temoignages" aria-label="Voir les témoignages" data-i18n-aria="aria_12"><span class="count-number" id="countTestimonies">—</span><span class="count-label" data-i18n="texte_13">témoignages / documents</span><span class="memory-action" data-i18n="memories_action">Au fil des souvenirs →</span><img class="writing-illustration" src="/photos/illustration-plume.png" alt="" aria-hidden="true"></button><button type="button" class="project-count memory-count photo-card" data-view="photos" aria-label="Voir les photos" data-i18n-aria="aria_14"><span class="count-number" id="countPhotos">—</span><span class="count-label" data-i18n="texte_15">photos publiées</span><span class="memory-action" data-i18n="photos_action">Parcourir la galerie →</span><span class="photo-stack" aria-hidden="true"></span></button></div></div>
     <h2 class="timeline-title" id="timelineHeading" data-i18n="texte_16">Quelques repères</h2>
     <div class="timeline">
@@ -977,6 +979,34 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
    const [x,y,angle]=poses[i];img.style.cssText=`--dx:${x}px;--dy:${y}px;--angle:${angle}deg`;
    stack.appendChild(img);
  }
+})();
+
+// Graphique et compteur alimentés par le même fichier chiffré et ses totaux publics.
+(function updateCohortChart(){
+ const encrypted=window.IUT_ENCRYPTED;
+ const data=encrypted&&encrypted.cohortes;
+ const chart=document.getElementById('cohortChart');
+ if(!chart||!data||!data.parGeneration) return;
+ const entries=Object.entries(data.parGeneration).sort((a,b)=>Number(a[0])-Number(b[0]));
+ const pending=data.aPositionner;
+ if(!entries.length||!Number.isInteger(pending)||pending<0||
+    entries.some(([g,n])=>!/^\d{1,2}$/.test(g)||!Number.isInteger(n)||n<0)||
+    entries.reduce((sum,[,n])=>sum+n,0)+pending!==encrypted.count) return;
+ const maximum=Math.max(1,...entries.map(([,n])=>n));
+ chart.style.gridTemplateColumns=`repeat(${entries.length},minmax(0,1fr))`;
+ entries.forEach(([generation,count])=>{
+   const year=1972+Number(generation);
+   const item=document.createElement('div');item.className='cohort';
+   item.setAttribute('role','img');item.setAttribute('aria-label',`${year} : ${count}`);
+   const bar=document.createElement('span');bar.className='cohort-bar';bar.dataset.value=String(count);
+   bar.style.setProperty('--height',`${count/maximum*100}%`);
+   if(count===0) bar.style.minHeight='0';
+   const label=document.createElement('span');label.className='cohort-year';label.textContent=year;
+   item.append(bar,label);chart.appendChild(item);
+ });
+ document.getElementById('cohortPendingNumber').textContent=pending;
+ chart.hidden=false;document.getElementById('cohortPending').hidden=false;
+ document.getElementById('cohortUnavailable').hidden=true;
 })();
 
 // Compteurs de l'état actuel du projet.

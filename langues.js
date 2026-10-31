@@ -63,7 +63,8 @@
     "cohort_pending": "personnes restent à positionner",
     "memories_action": "Au fil des souvenirs →",
     "photos_action": "Parcourir la galerie →",
-    "cohort_aria": "Répartition des personnes recensées par année d’arrivée"
+    "cohort_aria": "Répartition des personnes recensées par année d’arrivée",
+    "cohort_unavailable": "Répartition disponible après la prochaine actualisation de l’annuaire."
 
   },
   "es": {
@@ -127,7 +128,8 @@
     "cohort_pending": "personas quedan por ubicar",
     "memories_action": "Entre recuerdos →",
     "photos_action": "Recorrer la galería →",
-    "cohort_aria": "Distribución de las personas registradas por año de llegada"
+    "cohort_aria": "Distribución de las personas registradas por año de llegada",
+    "cohort_unavailable": "La distribución estará disponible después de la próxima actualización del directorio."
 
   }
 };
