@@ -128,6 +128,14 @@ window.PHOTOS = [
   commentaires:"Photo restaurée par IA",
   fournisseur:"Patrice Gry"
   },
+ {
+  fichier:"photos/P_Gry_4.png",
+  legende:"Easy Rider ?",
+  periode:"1981",
+  personnes:"Patrice Gry",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Patrice Gry"
+  },
   {
   fichier:"photos/Patio y pasillos.jpg",
   legende:"Patio y pasillos",
