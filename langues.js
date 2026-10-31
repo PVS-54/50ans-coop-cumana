@@ -57,7 +57,14 @@
     "texte_50": "Les témoignages publiés sont présentés du plus récent au plus ancien.",
     "texte_51": "← Retour à la page d’accueil",
     "texte_52": "Photos",
-    "aria_53": "Fermer"
+    "aria_53": "Fermer",
+    "cohort_title": "Les arrivées classées par année",
+    "cohort_note": "Personnes recensées par cohorte · état actuel des recherches",
+    "cohort_pending": "personnes restent à positionner",
+    "memories_action": "Au fil des souvenirs →",
+    "photos_action": "Parcourir la galerie →",
+    "cohort_aria": "Répartition des personnes recensées par année d’arrivée"
+
   },
   "es": {
     "pied_de_page": "Proyecto coordinado por Philippe Vogt-Schilb. Contacto: <a href=\"mailto:vogtphil@yahoo.fr\">vogtphil@yahoo.fr</a>. Alojamiento del sitio público: GitHub Pages (GitHub, Inc.).",
@@ -114,7 +121,14 @@
     "texte_50": "Los testimonios publicados se presentan del más reciente al más antiguo.",
     "texte_51": "← Volver a la página de inicio",
     "texte_52": "Fotografías",
-    "aria_53": "Cerrar"
+    "aria_53": "Cerrar",
+    "cohort_title": "Las llegadas por año",
+    "cohort_note": "Personas registradas por promoción · estado actual de la investigación",
+    "cohort_pending": "personas quedan por ubicar",
+    "memories_action": "Entre recuerdos →",
+    "photos_action": "Recorrer la galería →",
+    "cohort_aria": "Distribución de las personas registradas por año de llegada"
+
   }
 };
 
