@@ -630,8 +630,8 @@ header.hero::after{
         <p class="photo-person-hint" id="photoPersonHint" hidden></p>
         <div class="photo-dialog-caption" id="photoDialogCaption"></div>
         <section class="fc-test-panel" id="photoCommentsTest" hidden>
-          <h4>Commentaires et échanges</h4>
-          <p>Les contributions sont soumises à validation avant publication.</p>
+          <h4 data-i18n="fc_comments_title">Commentaires et échanges</h4>
+          <p data-i18n="fc_comments_note">Les commentaires peuvent être soumis à validation avant publication.</p>
           <div id="photoCommentsWidget"></div>
         </section>
       </dialog>
@@ -1176,7 +1176,7 @@ function sanitizeTestimony(html){
   const result=document.createDocumentFragment();for(const child of source.body.childNodes) result.appendChild(copy(child));return result;
 }
 
-// ESSAI FASTCOMMENTS : un témoignage et la première photo uniquement.
+// FastComments : un fil de discussion par témoignage et par photographie.
 // Le module est chargé à la demande, et non dans les iframes des témoignages.
 const FC_TEST_TENANT = 'eu-M8PsO3BI1N';
 let fcTestLibraryPromise;
@@ -1243,25 +1243,31 @@ if(testimonyList){
     }else{
       full.appendChild(sanitizeTestimony(item.contenu||''));
     }
-    // Premier essai limité au témoignage Cumaná / Araya.
-    const isCumanaAraya=String(item.fichier||'').toLowerCase().includes('temoignage-cumana-araya');
-    if(isCumanaAraya){
+    // Un fil stable pour chaque témoignage, commun aux pages FR et ES.
+    {
+      const isCumanaAraya=String(item.fichier||'').toLowerCase().includes('temoignage-cumana-araya');
+      const testimonyKey=isCumanaAraya?'temoignage-cumana-araya':
+        'temoignage-'+(item.fichier?String(item.fichier).replace(/^\/+/, ''):
+        String(item.datePublication||'')+'-'+String(item.titre||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''));
       const panel=document.createElement('section');panel.className='fc-test-panel';
-      const heading=document.createElement('h4');heading.textContent='Commentaires et échanges';
-      const note=document.createElement('p');note.textContent='Les contributions sont soumises à validation avant publication.';
+      const heading=document.createElement('h4');heading.dataset.i18n='fc_comments_title';heading.textContent='Commentaires et échanges';
+      const note=document.createElement('p');note.dataset.i18n='fc_comments_note';note.textContent='Les commentaires peuvent être soumis à validation avant publication.';
       const target=document.createElement('div');panel.append(heading,note,target);full.appendChild(panel);
       let instance=null, loading=false, generation=0;
       async function showTestimonyComments(){
         if(!details.open || loading || instance) return;
         loading=true;
         const request=++generation;
-        const result=await startFastCommentsTest(target,'temoignage-cumana-araya',item.titre||'Cumaná et Araya');
+        const result=await startFastCommentsTest(target,testimonyKey,item.titre||'Témoignage');
         if(request!==generation || !details.open){if(result) result.destroy();}
         else instance=result;
         loading=false;
       }
       details.addEventListener('toggle',showTestimonyComments);
       window.addEventListener('iut:languagechange',()=>{
+        const spanish=document.documentElement.lang==='es';
+        heading.textContent=spanish?'Comentarios e intercambios':'Commentaires et échanges';
+        note.textContent=spanish?'Los comentarios pueden estar sujetos a aprobación antes de su publicación.':'Les commentaires peuvent être soumis à validation avant publication.';
         ++generation;
         if(instance){instance.destroy();instance=null;}
         target.replaceChildren();
@@ -1343,8 +1349,8 @@ btn.addEventListener('click',()=>{
   if(photoDialog.showModal)
     photoDialog.showModal();
   renderPhotoPeople(item);
-  // Première photographie seulement, identifiée par son chemin de fichier stable.
-  if(item===(window.PHOTOS||[]).filter(p=>p.fichier)[0]){
+  // Toutes les photos disposent de leur propre fil de discussion.
+  if(item.fichier){
     photoCommentsTest.hidden=false;
     const request=++photoCommentsRequest;
     const photoKey='photo-'+String(item.fichier).replace(/^\/+/, '');

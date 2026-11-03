@@ -64,7 +64,9 @@
     "memories_action": "Au fil des souvenirs →",
     "photos_action": "Parcourir la galerie →",
     "cohort_aria": "Répartition des personnes recensées par année d’arrivée",
-    "cohort_unavailable": "Répartition disponible après la prochaine actualisation de l’annuaire."
+    "cohort_unavailable": "Répartition disponible après la prochaine actualisation de l’annuaire.",
+    "fc_comments_title": "Commentaires et échanges",
+    "fc_comments_note": "Les commentaires peuvent être soumis à validation avant publication."
 
   },
   "es": {
@@ -129,7 +131,9 @@
     "memories_action": "Entre recuerdos →",
     "photos_action": "Recorrer la galería →",
     "cohort_aria": "Distribución de las personas registradas por año de llegada",
-    "cohort_unavailable": "La distribución estará disponible después de la próxima actualización del directorio."
+    "cohort_unavailable": "La distribución estará disponible después de la próxima actualización del directorio.",
+    "fc_comments_title": "Comentarios e intercambios",
+    "fc_comments_note": "Los comentarios pueden estar sujetos a aprobación antes de su publicación."
 
   }
 };
