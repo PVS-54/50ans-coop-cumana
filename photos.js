@@ -179,6 +179,14 @@ window.PHOTOS = [
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
   {
+  fichier:"photos/vendedor.png",
+  legende:"El vendedor de periodicos",
+  periode:"1980?",
+  personnes:"Jorge Antonio “Cundo” Montes Sánchez",
+  commentaires:"En la plaza del tamarindo cuatricentenario",
+  fournisseur:"Instagram/memoriasdecumana Photographe Wilfredo Grau"
+  },
+  {
   fichier:"photos/Aeropuerto_San_Luis.jpg",
   legende:"El aeropuerto de San Luis",
   periode:"1950-1980",
