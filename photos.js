@@ -80,13 +80,21 @@ window.PHOTOS = [
   commentaires:"Otra foto de visitantes de aquellos tiempos. Entre los visitantes ministros y presidentes de Institutos Autónomos.",
   fournisseur:"Ernesto Madrid Rivas"
   },
-    {
+  {
   fichier:"photos/Agradecimiento.png",
   legende:"Agradecimiento",
   periode:"2011",
   personnes:"",
   commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
   fournisseur:"Jesus Gonzalez"
+  },
+  {
+  fichier:"photos/Anfiteatro.jpg",
+  legende:"El anfiteatro",
+  periode:"1979 ?",
+  personnes:" Jorge Yánez Caires, Luis Elguezabal, Thierry Lefebvre, Francisco Sierra",
+  commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
+  fournisseur:"Nivea Rodriguez Carrión"
   },
   {
   fichier:"photos/Pensum.jpg",
