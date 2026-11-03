@@ -1218,11 +1218,23 @@ if(testimonyList){
       const heading=document.createElement('h4');heading.textContent='Commentaires et échanges';
       const note=document.createElement('p');note.textContent='Les contributions sont soumises à validation avant publication.';
       const target=document.createElement('div');panel.append(heading,note,target);full.appendChild(panel);
-      let instance=null, loading=false;
-      details.addEventListener('toggle',async()=>{
-        if(details.open && !instance && !loading){
-          loading=true;instance=await startFastCommentsTest(target,'temoignage-cumana-araya',item.titre||'Cumaná et Araya');loading=false;
-        }
+      let instance=null, loading=false, generation=0;
+      async function showTestimonyComments(){
+        if(!details.open || loading || instance) return;
+        loading=true;
+        const request=++generation;
+        const result=await startFastCommentsTest(target,'temoignage-cumana-araya',item.titre||'Cumaná et Araya');
+        if(request!==generation || !details.open){if(result) result.destroy();}
+        else instance=result;
+        loading=false;
+      }
+      details.addEventListener('toggle',showTestimonyComments);
+      window.addEventListener('iut:languagechange',()=>{
+        ++generation;
+        if(instance){instance.destroy();instance=null;}
+        target.replaceChildren();
+        // Le widget est recréé dans la nouvelle langue uniquement s'il est visible.
+        if(details.open){loading=false;showTestimonyComments();}
       });
     }
     details.append(summary,full); article.append(h,meta,prev,details); testimonyList.appendChild(article);
@@ -1314,6 +1326,20 @@ btn.addEventListener('click',()=>{
     fig.append(btn,cap); photoGallery.appendChild(fig);
   });
 }
+// Réinitialiser les commentaires de la photo ouverte après un changement de langue.
+window.addEventListener('iut:languagechange',()=>{
+  if(!photoDialog.open || photoCommentsTest.hidden) return;
+  const request=++photoCommentsRequest;
+  if(photoCommentsInstance){photoCommentsInstance.destroy();photoCommentsInstance=null;}
+  photoCommentsWidget.replaceChildren();
+  const activePhoto=(window.PHOTOS||[]).find(p=>safeLocalURL(p.fichier)===photoDialogImage.src || new URL(safeLocalURL(p.fichier)||'/',location.href).href===photoDialogImage.src);
+  if(!activePhoto) return;
+  const photoKey='photo-'+String(activePhoto.fichier).replace(/^\/+/, '');
+  startFastCommentsTest(photoCommentsWidget,photoKey,activePhoto.legende||'Photographie').then(instance=>{
+    if(request===photoCommentsRequest && photoDialog.open) photoCommentsInstance=instance;
+    else if(instance) instance.destroy();
+  });
+});
 if(photoDialogClose) photoDialogClose.addEventListener('click',()=>photoDialog.close());
 if(photoDialog) photoDialog.addEventListener('click',e=>{if(e.target===photoDialog)photoDialog.close();});
 </script>
