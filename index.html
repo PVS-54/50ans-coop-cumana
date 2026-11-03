@@ -1204,6 +1204,7 @@ async function startFastCommentsTest(target,threadId,title){
     target.replaceChildren();
     return window.FastCommentsUI(target,{
       tenantId:FC_TEST_TENANT,
+      locale:document.documentElement.lang.toLowerCase().startsWith('es')?'es_es':'fr_fr',
       urlId:threadId,
       url:location.origin+'/#'+encodeURIComponent(threadId),
       pageTitle:title
