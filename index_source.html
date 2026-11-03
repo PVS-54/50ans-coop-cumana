@@ -240,6 +240,11 @@ header.hero::after{
   .photo-person-zone:hover .photo-person-label,.photo-person-zone:focus-visible .photo-person-label,.photo-person-zone.is-active .photo-person-label{opacity:1;visibility:visible;}
   .photo-person-hint{text-align:center;color:var(--muted);font-size:.82rem;margin:8px 0;}
   .photo-dialog-close{z-index:5;}
+  .photo-dialog{max-height:92vh;overflow-y:auto;}
+  .fc-test-panel{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);}
+  .fc-test-panel h4{font-family:"Iowan Old Style",Georgia,serif;color:var(--pine-dark);margin:0 0 8px;}
+  .fc-test-panel p{font-size:.85rem;color:var(--muted);}
+  .photo-dialog .fc-test-panel{margin:20px 16px 8px;}
   .photo-dialog::backdrop{background:rgba(0,0,0,.72);}
   .photo-dialog img{display:block; max-width:100%; max-height:78vh; height:auto; margin:auto;}
   .photo-dialog-caption{text-align:center; margin:8px 38px 2px; color:var(--ink);}
@@ -624,6 +629,11 @@ header.hero::after{
         </div>
         <p class="photo-person-hint" id="photoPersonHint" hidden></p>
         <div class="photo-dialog-caption" id="photoDialogCaption"></div>
+        <section class="fc-test-panel" id="photoCommentsTest" hidden>
+          <h4>Commentaires et échanges</h4>
+          <p>Les contributions sont soumises à validation avant publication.</p>
+          <div id="photoCommentsWidget"></div>
+        </section>
       </dialog>
 
       <div class="photo-submit" id="photoSubmitBlock">
@@ -1166,6 +1176,37 @@ function sanitizeTestimony(html){
   const result=document.createDocumentFragment();for(const child of source.body.childNodes) result.appendChild(copy(child));return result;
 }
 
+// ESSAI FASTCOMMENTS : un témoignage et la première photo uniquement.
+// Le module est chargé à la demande, et non dans les iframes des témoignages.
+const FC_TEST_TENANT = 'eu-M8PsO3BI1N';
+let fcTestLibraryPromise;
+function loadFastCommentsTest(){
+  if(window.FastCommentsUI) return Promise.resolve();
+  if(!fcTestLibraryPromise){
+    fcTestLibraryPromise=new Promise((resolve,reject)=>{
+      const script=document.createElement('script');
+      script.src='https://cdn-eu.fastcomments.com/js/embed-v2.min.js';
+      script.onload=()=>window.FastCommentsUI?resolve():reject(new Error('FastComments indisponible'));
+      script.onerror=()=>reject(new Error('Impossible de charger FastComments'));
+      document.head.appendChild(script);
+    }).catch(error=>{fcTestLibraryPromise=null;throw error;});
+  }
+  return fcTestLibraryPromise;
+}
+async function startFastCommentsTest(target,threadId,title){
+  target.textContent='Chargement des commentaires…';
+  try{
+    await loadFastCommentsTest();
+    if(!target.isConnected) return null;
+    target.replaceChildren();
+    return window.FastCommentsUI(target,{
+      tenantId:FC_TEST_TENANT,
+      urlId:threadId,
+      url:location.origin+'/#'+encodeURIComponent(threadId),
+      pageTitle:title
+    });
+  }catch(error){target.textContent='Commentaires indisponibles pour le moment.';console.warn(error);return null;}
+}
 // Contenus validés, chargés depuis temoignages.js et photos.js.
 function formatFrenchDate(iso){
   const p=String(iso||'').split('-').map(Number);
@@ -1201,12 +1242,28 @@ if(testimonyList){
     }else{
       full.appendChild(sanitizeTestimony(item.contenu||''));
     }
+    // Premier essai limité au témoignage Cumaná / Araya.
+    const isCumanaAraya=String(item.fichier||'').toLowerCase().includes('temoignage-cumana-araya');
+    if(isCumanaAraya){
+      const panel=document.createElement('section');panel.className='fc-test-panel';
+      const heading=document.createElement('h4');heading.textContent='Commentaires et échanges';
+      const note=document.createElement('p');note.textContent='Les contributions sont soumises à validation avant publication.';
+      const target=document.createElement('div');panel.append(heading,note,target);full.appendChild(panel);
+      let instance=null, loading=false;
+      details.addEventListener('toggle',async()=>{
+        if(details.open && !instance && !loading){
+          loading=true;instance=await startFastCommentsTest(target,'temoignage-cumana-araya',item.titre||'Cumaná et Araya');loading=false;
+        }
+      });
+    }
     details.append(summary,full); article.append(h,meta,prev,details); testimonyList.appendChild(article);
   });
 }
 const photoGallery=document.getElementById('photoGallery'), photoDialog=document.getElementById('photoDialog'),
 photoDialogImage=document.getElementById('photoDialogImage'), photoDialogCaption=document.getElementById('photoDialogCaption'),
 photoDialogClose=document.getElementById('photoDialogClose');
+const photoCommentsTest=document.getElementById('photoCommentsTest'),photoCommentsWidget=document.getElementById('photoCommentsWidget');
+let photoCommentsInstance=null,photoCommentsRequest=0;
 
 const photoPersonLayer=document.getElementById('photoPersonLayer');
 const photoPersonHint=document.getElementById('photoPersonHint');
@@ -1244,7 +1301,12 @@ photoDialogImage.addEventListener('load',alignPhotoPeople);
 window.addEventListener('resize',alignPhotoPeople);
 if(window.ResizeObserver)new ResizeObserver(alignPhotoPeople).observe(photoDialogImage);
 photoDialogStage.addEventListener('click',clearPhotoPersonSelection);
-photoDialog.addEventListener('close',()=>{clearPhotoPersonSelection();photoPersonLayer.replaceChildren();});
+photoDialog.addEventListener('close',()=>{
+  clearPhotoPersonSelection();photoPersonLayer.replaceChildren();
+  photoCommentsRequest++;
+  if(photoCommentsInstance){photoCommentsInstance.destroy();photoCommentsInstance=null;}
+  photoCommentsWidget.replaceChildren();photoCommentsTest.hidden=true;
+});
 
 if(photoGallery){
   (window.PHOTOS||[]).forEach(item=>{
@@ -1268,6 +1330,17 @@ btn.addEventListener('click',()=>{
   if(photoDialog.showModal)
     photoDialog.showModal();
   renderPhotoPeople(item);
+  // Première photographie seulement, identifiée par son chemin de fichier stable.
+  if(item===(window.PHOTOS||[]).filter(p=>p.fichier)[0]){
+    photoCommentsTest.hidden=false;
+    const request=++photoCommentsRequest;
+    const photoKey='photo-'+String(item.fichier).replace(/^\/+/, '');
+    startFastCommentsTest(photoCommentsWidget,photoKey,item.legende||'Photographie').then(instance=>{
+      if(request===photoCommentsRequest && photoDialog.open)photoCommentsInstance=instance;
+      else if(instance)instance.destroy();
+    });
+  }else{photoCommentsTest.hidden=true;}
+
 });
     fig.append(btn,cap); photoGallery.appendChild(fig);
   });
