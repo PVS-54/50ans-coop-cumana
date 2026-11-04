@@ -113,6 +113,14 @@ window.PHOTOS = [
   fournisseur:"PVS"
   },
   {
+  fichier:"photos/Calcul.png",
+  legende:"Evolucion de las tecnicas",
+  periode:"1979",
+  personnes:"",
+  commentaires:"Ofertas Camel, la notation polonaise inversée...",
+  fournisseur:"Image générée par IA"
+  },
+  {
   fichier:"photos/Identités.jpg",
   legende:"Vos papiers !",
   periode:"1977",
