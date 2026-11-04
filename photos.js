@@ -118,7 +118,7 @@ window.PHOTOS = [
   periode:"1979",
   personnes:"",
   commentaires:"Ofertas Camel, la notation polonaise inversée...",
-  fournisseur:"Image générée par IA"
+  fournisseur:"PVS, image générée par IA"
   },
   {
   fichier:"photos/Identités.jpg",
