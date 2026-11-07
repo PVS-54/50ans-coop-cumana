@@ -982,7 +982,7 @@ document.getElementById('copyBtn').addEventListener('click', async () => {
  const stack=document.querySelector('.photo-stack');
  if(!stack) return;
  const photos=(window.PHOTOS||[]).filter(p=>p.fichier);
- const poses=[[-12,-8,-15],[12,-6,12],[0,12,-3]];
+ const poses=[[-12,-16,-15],[12,-2,12],[0,12,-3]];
  for(let i=0;i<3&&photos.length;i++){
    const photo=photos.splice(Math.floor(Math.random()*photos.length),1)[0];
    const url=new URL(photo.fichier,location.origin+'/');
