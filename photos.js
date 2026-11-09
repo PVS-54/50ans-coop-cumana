@@ -81,14 +81,6 @@ window.PHOTOS = [
   fournisseur:"Ernesto Madrid Rivas"
   },
   {
-  fichier:"photos/Agradecimiento.png",
-  legende:"Agradecimiento",
-  periode:"2011",
-  personnes:"",
-  commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
-  fournisseur:"Jesus Gonzalez"
-  },
-  {
   fichier:"photos/Anfiteatro.jpg",
   legende:"El anfiteatro",
   periode:"1979 ?",
@@ -97,6 +89,14 @@ window.PHOTOS = [
   fournisseur:"Nivea Rodriguez Carrión"
   },
   {
+  fichier:"photos/Agradecimiento.png",
+  legende:"Agradecimiento",
+  periode:"2011",
+  personnes:"",
+  commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
+  fournisseur:"Jesus Gonzalez"
+  },  
+{
   fichier:"photos/Autobuses.png",
   legende:"Transporte escolar",
   periode:"",
@@ -195,12 +195,28 @@ window.PHOTOS = [
   fournisseur:"Instagram/memoriasdecumana Photographe Wilfredo Grau"
   },
   {
+  fichier:"photos/El diablo.jpg",
+  legende:"El Diablo de Cumaná",
+  periode:"",
+  personnes:"Luis del Valle, El Diablo de Cumaná",
+  commentaires:"La terreur des plus petits durant le Carnaval",
+  fournisseur:"https://www.analitica.com/opinion/rafael-salvatore/"
+  },
+  {
   fichier:"photos/Aeropuerto_San_Luis.jpg",
   legende:"El aeropuerto de San Luis",
   periode:"1950-1980",
   personnes:"",
   commentaires:"Remplacé depuis par l'aéroport international Antonio Jose de Sucre",
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
+  },
+  {
+  fichier:"photos/Avion.jpg",
+  legende:"En bout de piste",
+  periode:"1979",
+  personnes:"",
+  commentaires:"Remplacé depuis par l'aéroport international Antonio Jose de Sucre",
+  fournisseur:"https://www.facebook.com/SomosCumana/photos"
   },
   {
   fichier:"photos/Chalana.jpg",
