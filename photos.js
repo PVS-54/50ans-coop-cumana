@@ -33,29 +33,6 @@ window.PHOTOS = [
   fournisseur:"Ernesto Madrid Rivas"
   },
   {
-  fichier:"photos/Equipe de foot.jpg",
-    etiquettes:[
-  {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
-  {nom:"Bernard Genaud", x:51, y:20, largeur:8, hauteur:13},
-  {nom:"Michel Chevin", x:6.5, y:15, largeur:8, hauteur:15},
-  {nom:"Michel Menny", x:70.5, y:15, largeur:8, hauteur:13},
-  {nom:"Pierre Sirbat", x:80.5, y:7, largeur:7, hauteur:13},
-  {nom:"Bruno Cohades", x:35.5, y:14, largeur:7, hauteur:9},    
-  {nom:"Georges Cascarino", x:48, y:46, largeur:9, hauteur:14},
-  {nom:"Jean Michel Agnier", x:32.5, y:21, largeur:7.5, hauteur:12},
-  {nom:"Jean Pierre Navarro", x:32.5, y:43.5, largeur:8, hauteur:14},
-  {nom:"Christian Maurice", x:67.2, y:43, largeur:7, hauteur:13},
-  {nom:"Jean Louis Varon", x:77.2, y:43.5, largeur:6.5, hauteur:13},
-  {nom:"André Krafft", x:84.5, y:42.5, largeur:7.5, hauteur:14},
-  {nom:"Yannick Salmon", x:58, y:14, largeur:9, hauteur:16}
-  ],
-  legende:"L'équipe de foot",
-  periode:"1978",
-  personnes:"Ils sont nombreux",
-  commentaires:"C'était pas onze, la norme ?",
-  fournisseur:"Ernesto Madrid Rivas"
-  },
-  {
   fichier:"photos/visitas-1976.jpg",
   legende:"Visitas 1976",
   periode:"Debe ser del año 1976",
@@ -86,6 +63,29 @@ window.PHOTOS = [
   personnes:"Jorge Yánez Caires, Luis Elguezabal, Thierry Lefebvre, Francisco Sierra",
   commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
   fournisseur:"Nivea Rodriguez Carrión"
+  },
+  {
+  fichier:"photos/Equipe de foot.jpg",
+    etiquettes:[
+  {nom:"Jean Louis Gentner", x:11, y:47, largeur:8.5, hauteur:14},
+  {nom:"Bernard Genaud", x:51, y:20, largeur:8, hauteur:13},
+  {nom:"Michel Chevin", x:6.5, y:15, largeur:8, hauteur:15},
+  {nom:"Michel Menny", x:70.5, y:15, largeur:8, hauteur:13},
+  {nom:"Pierre Sirbat", x:80.5, y:7, largeur:7, hauteur:13},
+  {nom:"Bruno Cohades", x:35.5, y:14, largeur:7, hauteur:9},    
+  {nom:"Georges Cascarino", x:48, y:46, largeur:9, hauteur:14},
+  {nom:"Jean Michel Agnier", x:32.5, y:21, largeur:7.5, hauteur:12},
+  {nom:"Jean Pierre Navarro", x:32.5, y:43.5, largeur:8, hauteur:14},
+  {nom:"Christian Maurice", x:67.2, y:43, largeur:7, hauteur:13},
+  {nom:"Jean Louis Varon", x:77.2, y:43.5, largeur:6.5, hauteur:13},
+  {nom:"André Krafft", x:84.5, y:42.5, largeur:7.5, hauteur:14},
+  {nom:"Yannick Salmon", x:58, y:14, largeur:9, hauteur:16}
+  ],
+  legende:"L'équipe de foot",
+  periode:"1978",
+  personnes:"Ils sont nombreux",
+  commentaires:"Challenge en cours : identifier les deux inconnus...",
+  fournisseur:"Ernesto Madrid Rivas"
   },
   {
   fichier:"photos/Agradecimiento.png",
