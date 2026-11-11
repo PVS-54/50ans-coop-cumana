@@ -47,6 +47,7 @@ window.PHOTOS = [
   {nom:"Christian Maurice", x:67.2, y:43, largeur:7, hauteur:13},
   {nom:"Jean Louis Varon", x:77.2, y:43.5, largeur:6.5, hauteur:13},
   {nom:"André Krafft", x:84.5, y:42.5, largeur:7.5, hauteur:14}
+  {nom:"Yannick Salmon", x:58, y:14, largeur:9, hauteur:16},
   ],
   legende:"L'équipe de foot",
   periode:"1978",
@@ -152,15 +153,7 @@ window.PHOTOS = [
   commentaires:"Photo restaurée par IA",
   fournisseur:"Patrice Gry"
   },
- {
-  fichier:"photos/P_Gry_4.png",
-  legende:"Easy Rider ?",
-  periode:"1981",
-  personnes:"Patrice Gry",
-  commentaires:"Photo restaurée par IA",
-  fournisseur:"Patrice Gry"
-  },
-  {
+   {
   fichier:"photos/Patio y pasillos.jpg",
   legende:"Patio y pasillos",
   periode:"Peut-être 2010",
@@ -233,6 +226,14 @@ window.PHOTOS = [
   personnes:"",
   commentaires:"Pas vraiment adaptées au public en génaral !",
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
+  },
+  {
+  fichier:"photos/P_Gry_4.png",
+  legende:"Easy Rider ?",
+  periode:"1981",
+  personnes:"Patrice Gry",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Patrice Gry"
   },
   {
   fichier:"photos/EM_011.jpg",
