@@ -55,8 +55,6 @@ window.PHOTOS = [
   commentaires:"C'était pas onze, la norme ?",
   fournisseur:"Ernesto Madrid Rivas"
   },
-
-  
   {
   fichier:"photos/visitas-1976.jpg",
   legende:"Visitas 1976",
@@ -96,8 +94,8 @@ window.PHOTOS = [
   personnes:"",
   commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
   fournisseur:"Jesus Gonzalez"
-  },  
-{
+  },
+  {
   fichier:"photos/Autobuses.png",
   legende:"Transporte escolar",
   periode:"",
@@ -153,7 +151,7 @@ window.PHOTOS = [
   commentaires:"Photo restaurée par IA",
   fournisseur:"Patrice Gry"
   },
-   {
+  {
   fichier:"photos/Patio y pasillos.jpg",
   legende:"Patio y pasillos",
   periode:"Peut-être 2010",
