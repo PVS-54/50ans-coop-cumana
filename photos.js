@@ -94,15 +94,7 @@ window.PHOTOS = [
   personnes:"",
   commentaires:"publication sur le groupe Facebook Ex-alumnos IUT CUMANA",
   fournisseur:"Jesus Gonzalez"
-  },
-  {
-  fichier:"photos/Autobuses.png",
-  legende:"Transporte escolar",
-  periode:"",
-  personnes:"",
-  commentaires:"publication sur le groupe Facebook IUT CUMANA",
-  fournisseur:"Grellysvir Lunar, restaurée par IA"
-  },
+  },  
   {
   fichier:"photos/Pensum.jpg",
   legende:"Pensum",
@@ -126,6 +118,14 @@ window.PHOTOS = [
   personnes:"Ph. V-S",
   commentaires:"Le sésame du MRE qui pouvait parfois nous sauver au passage d'une alcabala et le carnet de l'IUT",
   fournisseur:"PVS"
+  },
+  {
+  fichier:"photos/Autobuses.png",
+  legende:"Transporte escolar",
+  periode:"",
+  personnes:"",
+  commentaires:"publication sur le groupe Facebook IUT CUMANA",
+  fournisseur:"Grellysvir Lunar, restaurée par IA"
   },
   {
   fichier:"photos/P_Gry_1.png",
