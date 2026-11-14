@@ -638,7 +638,6 @@ header.hero::after{
       <p>Cette rubrique accueille les photos validées : images d'époque, vie à Cumaná, voyages et retrouvailles. Chaque photo peut être accompagnée d'une date, d'une légende, des personnes identifiées et du nom du photographe lorsqu'il est connu.</p>
       <div class="photo-chapters" id="photoChapters" aria-label="Chapitres photographiques"></div>
       <div id="photoChapterView" hidden>
-        <div class="photo-chapter-bar" id="photoChapterNav"></div>
         <h3 class="photo-chapter-heading" id="photoChapterHeading"></h3>
         <div class="gallery-grid" id="photoGallery"></div>
       </div>
@@ -1356,7 +1355,6 @@ const photoChapterLabels={
 const photoChapterOrder=['iut','social','cumana'];
 const photoChapters=document.getElementById('photoChapters');
 const photoChapterView=document.getElementById('photoChapterView');
-const photoChapterNav=document.getElementById('photoChapterNav');
 const photoChapterHeading=document.getElementById('photoChapterHeading');
 let currentPhotoChapter=null;
 const photoFigures={iut:[],social:[],cumana:[]};
@@ -1366,19 +1364,21 @@ function showPhotoChapter(key){
   photoChapters.hidden=true;photoChapterView.hidden=false;
   photoChapterHeading.textContent=photoChapterLabel(key);
   photoGallery.replaceChildren(...photoFigures[key]);
-  photoChapterNav.replaceChildren();
-  photoChapterOrder.forEach(ch=>{
-    const button=document.createElement('button');button.type='button';button.textContent=photoChapterLabel(ch);
-    if(ch===key)button.setAttribute('aria-current','true');
-    button.addEventListener('click',()=>showPhotoChapter(ch));photoChapterNav.appendChild(button);
-  });
+
 }
+// Une photo de couverture par chapitre, choisie une fois au chargement.
+// Elle reste stable pendant les changements de langue et la navigation.
+const photoChapterCovers={};
+photoChapterOrder.forEach(key=>{
+  const candidates=(window.PHOTOS||[]).filter(p=>p.categorie===key && p.fichier);
+  photoChapterCovers[key]=candidates.length ? candidates[Math.floor(Math.random()*candidates.length)] : null;
+});
 function renderPhotoChapters(){
   photoChapters.replaceChildren();
   photoChapterOrder.forEach(key=>{
     const photos=(window.PHOTOS||[]).filter(p=>p.categorie===key);
     const button=document.createElement('button');button.type='button';button.className='photo-chapter';
-    const image=document.createElement('img');image.src=safeLocalURL(photos[0]?.fichier)||'';image.alt='';image.loading='lazy';
+    const image=document.createElement('img');image.src=safeLocalURL(photoChapterCovers[key]?.fichier)||'';image.alt='';image.loading='lazy';
     const title=document.createElement('strong');title.textContent=photoChapterLabel(key);
     const count=document.createElement('small');count.textContent=photos.length+' '+(document.documentElement.lang.startsWith('es')?'fotos':'photos');
     button.append(image,title,count);button.addEventListener('click',()=>showPhotoChapter(key));photoChapters.appendChild(button);
