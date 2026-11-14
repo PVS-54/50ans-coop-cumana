@@ -128,6 +128,54 @@ window.PHOTOS = [
   fournisseur:"Grellysvir Lunar, restaurée par IA"
   },
   {
+  fichier:"photos/Dpt_Biologia.jpg",
+  legende:"Le bâtiment du Dpt. de Biologia",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Las_aulas.jpg",
+  legende:"Las aulas y salones de clase",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Labo_Biologia_Grimaldi.jpg",
+  legende:"Le labo de Biologia (A. Grimaldi)",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Labo_Bioquimicq_Sibiril.jpg",
+  legende:"Le labo de Bioquimica (S. Sibiril)",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Planta_Piloto_1.jpg",
+  legende:"La planta piloto",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Planta_Piloto_2.jpg",
+  legende:"La planta piloto",
+  periode:"1978",
+  personnes:"",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
   fichier:"photos/P_Gry_1.png",
   legende:"Patio",
   periode:"1981",
