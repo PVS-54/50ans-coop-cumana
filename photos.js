@@ -152,7 +152,7 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
   {
-  fichier:"photos/Labo_Bioquimicq_Sibiril.jpg",
+  fichier:"photos/Labo_Bioquimica_Sibiril.jpg",
   legende:"Le labo de Bioquimica (S. Sibiril)",
   periode:"1978",
   personnes:"",
