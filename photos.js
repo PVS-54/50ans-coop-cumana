@@ -96,12 +96,36 @@ window.PHOTOS = [
   fournisseur:"PVS"
   },
   {
+  fichier:"photos/Saliendo_Manzanares.jpg", categorie:"social",
+  legende:"L'embouchure du Manzanares",
+  periode:"1977/1978",
+  personnes:"B. Trachez et Guy Royer",
+  commentaires:"Vamonos pa' la playa !",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Volviendo_Mochima.jpg", categorie:"social",
+  legende:"Retour de Mochima",
+  periode:"1977/1978",
+  personnes:"P. Bouillin",
+  commentaires:"Une des escapades favorites de los fines de semana",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
   fichier:"photos/Edificio Hola.jpg", categorie:"social",
   legende:"Edificio Hola",
   periode:"1977/1978",
   personnes:"",
   commentaires:"Lieu de résidence de plusieurs générations de coopérants",
   fournisseur:"Eric Monnier"
+  },
+  {
+  fichier:"photos/P_Gry_4.png", categorie:"social",
+  legende:"Easy Rider ?",
+  periode:"1981",
+  personnes:"Patrice Gry",
+  commentaires:"Photo restaurée par IA",
+  fournisseur:"Patrice Gry"
   },
   {
   fichier:"photos/Anfiteatro.jpg", categorie:"iut",
@@ -289,15 +313,37 @@ window.PHOTOS = [
   commentaires:"Pas vraiment adaptées au public en génaral !",
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
-  {
-  fichier:"photos/P_Gry_4.png", categorie:"social",
-  legende:"Easy Rider ?",
-  periode:"1981",
-  personnes:"Patrice Gry",
-  commentaires:"Photo restaurée par IA",
-  fournisseur:"Patrice Gry"
+  fichier:"photos/Punta_Arenas", categorie:"cumana",
+  legende:"Punta Arenas",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"Au bout de la péninsule de Paria, près d'Araya",
+  fournisseur:"Ph. Bouillin"
   },
-  
+{
+  fichier:"photos/Pontiac_JPF.jpg", categorie:"cumana",
+  legende:"La Pontiac de Jean-Pierre Frachet",
+  periode:"1977/1978",
+  personnes:"Jean-Pierre Frachet",
+  commentaires:"Une légende de la route",
+  fournisseur:"Ph. Bouillin"
+  }
+ {
+  fichier:"photos/R4L_Margarita.jpg", categorie:"cumana",
+  legende:"R4L sur les routes en terre de Margarita",
+  periode:"1977/1978",
+  personnes:"Ph. Bouillin",
+  commentaires:"Toujours vaillante",
+  fournisseur:"Ph. Bouillin"
+  }
+  {
+  fichier:"photos/Sur_la_route_de_San_Fernando.jpg", categorie:"cumana",
+  legende:"Sur la route de San Fernando (Apure)",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"Pick-up à cheval ? Ou bien l'inverse ?",
+  fournisseur:"Ph. Bouillin"
+  }
   {
   fichier:"photos/EM_021.jpg", categorie:"cumana",
   legende:"Le lac d'asphalte de Guanaco",
@@ -475,6 +521,7 @@ window.PHOTOS = [
   commentaires:"Photo prise environ 25 ans plus tard...",
   fournisseur:"PVS"
   },
+  
   {
   fichier:"photos/Logo-IUT-Cumana.png", categorie:"iut",
   legende:"Un logo historique !",
