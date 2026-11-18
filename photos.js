@@ -314,7 +314,7 @@ window.PHOTOS = [
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
   {
-  fichier:"photos/Punta_Arenas", categorie:"cumana",
+  fichier:"photos/Punta_Arenas.jpg", categorie:"cumana",
   legende:"Punta Arenas",
   periode:"1977/1978",
   personnes:"",
