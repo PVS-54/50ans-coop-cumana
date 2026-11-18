@@ -151,7 +151,7 @@ window.PHOTOS = [
   commentaires:"Ofertas Camel, la notation polonaise inversée...",
   fournisseur:"PVS, image générée par IA"
   },
-    {
+  {
   fichier:"photos/Autobuses.png", categorie:"iut",
   legende:"Transporte escolar",
   periode:"",
@@ -313,6 +313,7 @@ window.PHOTOS = [
   commentaires:"Pas vraiment adaptées au public en génaral !",
   fournisseur:"https://www.facebook.com/Memoriadecumana/photos"
   },
+  {
   fichier:"photos/Punta_Arenas", categorie:"cumana",
   legende:"Punta Arenas",
   periode:"1977/1978",
@@ -320,22 +321,22 @@ window.PHOTOS = [
   commentaires:"Au bout de la péninsule de Paria, près d'Araya",
   fournisseur:"Ph. Bouillin"
   },
-{
+  {
   fichier:"photos/Pontiac_JPF.jpg", categorie:"cumana",
   legende:"La Pontiac de Jean-Pierre Frachet",
   periode:"1977/1978",
   personnes:"Jean-Pierre Frachet",
   commentaires:"Une légende de la route",
   fournisseur:"Ph. Bouillin"
-  }
- {
+  },
+  {
   fichier:"photos/R4L_Margarita.jpg", categorie:"cumana",
   legende:"R4L sur les routes en terre de Margarita",
   periode:"1977/1978",
   personnes:"Ph. Bouillin",
   commentaires:"Toujours vaillante",
   fournisseur:"Ph. Bouillin"
-  }
+  },
   {
   fichier:"photos/Sur_la_route_de_San_Fernando.jpg", categorie:"cumana",
   legende:"Sur la route de San Fernando (Apure)",
@@ -343,7 +344,7 @@ window.PHOTOS = [
   personnes:"",
   commentaires:"Pick-up à cheval ? Ou bien l'inverse ?",
   fournisseur:"Ph. Bouillin"
-  }
+  },
   {
   fichier:"photos/EM_021.jpg", categorie:"cumana",
   legende:"Le lac d'asphalte de Guanaco",
@@ -360,7 +361,6 @@ window.PHOTOS = [
   commentaires:"photo en partie restaurée par IA",
   fournisseur:"Eric Monnier"
   },
-  
   {
   fichier:"photos/Subiendo.jpg", categorie:"cumana",
   legende:"Subiendo al mirador de Mochima",
@@ -385,7 +385,7 @@ window.PHOTOS = [
   commentaires:"",
   fournisseur:""
   },
- {
+  {
   fichier:"photos/Araguaney.jpg", categorie:"cumana",
   legende:"Araguaney",
   periode:"",
@@ -393,7 +393,7 @@ window.PHOTOS = [
   commentaires:"Arbol nacional de Venezuela",
   fournisseur:"Wikipedia"
   },
- {
+  {
   fichier:"photos/Flamboyant.jpg", categorie:"cumana",
   legende:"Flamboyant",
   periode:"",
