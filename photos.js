@@ -96,6 +96,30 @@ window.PHOTOS = [
   fournisseur:"PVS"
   },
   {
+  fichier:"photos/Fiesta_nacional.jpg", categorie:"social",
+  legende:"Fiesta Nacional",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"Les trois ordres sur la tribune",
+  fournisseur:"Ph. Bouillin"
+  },
+ {
+  fichier:"photos/Carnaval_Carupano.jpg", categorie:"social",
+  legende:"Carnaval en Carupano",
+  periode:"1977/1978",
+  personnes:"Ph. Bouillin",
+  commentaires:"",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Cortando_lena.jpg", categorie:"social",
+  legende:"Cortando leña",
+  periode:"1977/1978",
+  personnes:"Ph. Bouillin",
+  commentaires:"En los Nevados de Merida",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
   fichier:"photos/Saliendo_Manzanares.jpg", categorie:"social",
   legende:"L'embouchure du Manzanares",
   periode:"1977/1978",
@@ -257,6 +281,22 @@ window.PHOTOS = [
   commentaires:"photo en partie restaurée par IA",
   fournisseur:"Eric Monnier"
   }, 
+  {
+  fichier:"photos/Juan_Griego.jpg", categorie:"cumana",
+  legende:"Dans le port de Juan Griego",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"Chargement de glace",
+  fournisseur:"Ph. Bouillin"
+  },
+  {
+  fichier:"photos/Calle_Marino.jpg", categorie:"cumana",
+  legende:"La calle Mariño",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"rue commerçante du centre ville",
+  fournisseur:"Ph. Bouillin"
+  },
   {
   fichier:"photos/Libreria Cervantes.jpg", categorie:"cumana",
   legende:"La librairie Cervantes",
@@ -521,7 +561,14 @@ window.PHOTOS = [
   commentaires:"Photo prise environ 25 ans plus tard...",
   fournisseur:"PVS"
   },
-  
+  {
+  fichier:"photos/Los_Nevados.jpg", categorie:"cumana",
+  legende:"Los Nevados de Merida",
+  periode:"1977/1978",
+  personnes:"",
+  commentaires:"",
+  fournisseur:"Ph. Bouillin"
+  },
   {
   fichier:"photos/Logo-IUT-Cumana.png", categorie:"iut",
   legende:"Un logo historique !",
