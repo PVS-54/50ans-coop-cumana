@@ -2,6 +2,14 @@
 
 window.TEMOIGNAGES = [
   {
+    datePublication: "2026-11-19",
+    titre: "Former la relève : une autre dimension de la coopération française à l’IUT de Cumaná",
+    auteur: "Philippe Vogt-Schilb — souvenirs et réflexion",
+    apercu: "De la formation des coopérants à la préparation de la relève vénézuélienne : souvenirs et appel aux anciens étudiants et enseignants de l’IUT.",
+    fichier: "temoignages/temoignage-releve.html"
+  },
+
+  {
     datePublication: "2026-10-20",
     titre: "Cumaná et Araya : une histoire entre mer, sel et rencontres",
     auteur: "Philippe Vogt-Schilb — repères historiques et souvenirs",
@@ -53,7 +61,7 @@ window.TEMOIGNAGES = [
     datePublication: "2026-09-30",
     titre: "Mes années à Cumaná",
     auteur: "Philippe Vogt-Schilb",
-    apercu: "C'était mon premier voyage en avion. La veille de Noël, j'ai quitté la France, un roman de Raphaëlle Billetdoux à la main, pour poser mes valises à Cumaná, de l'autre côté de l'Atlantique…",
+    apercu: "C'était mon premier voyage en avion. Entre Noël et le Nouvel An, j'ai quitté la France, un roman de Raphaëlle Billetdoux à la main, pour poser mes valises à Cumaná, de l'autre côté de l'Atlantique…",
     fichier: "temoignages/temoignage-pvs.html"
   }
 ];
@@ -64,9 +72,16 @@ window.TEMOIGNAGES = [
 (() => {
   const originaux = window.TEMOIGNAGES.map(item => ({...item}));
   const versionsEspagnoles = {
+  "temoignages/temoignage-releve.html": {
+    "titre": "Formar a quienes tomarían el relevo: otra dimensión de la cooperación francesa en el IUT de Cumaná",
+    "auteur": "Philippe Vogt-Schilb — recuerdos y reflexiones",
+    "apercu": "De la formación de los cooperantes a la preparación del relevo venezolano: recuerdos e invitación a antiguos estudiantes y docentes del IUT.",
+    "fichier": "/temoignages/temoignage-releve-es.html"
+  },
+
   "temoignages/temoignage-pvs.html": {
     "titre": "Mis años en Cumaná",
-    "apercu": "Era mi primer viaje en avión. En visperas de la Navidad, salí de Francia, con una novela de Raphaëlle Billetdoux en la mano, para llegar a Cumaná, al otro lado del Atlántico…",
+    "apercu": "Era mi primer viaje en avión. Entre Navidad y Año Nuevo, salí de Francia, con una novela de Raphaëlle Billetdoux en la mano, para llegar a Cumaná, al otro lado del Atlántico…",
     "fichier": "/temoignages/temoignage-pvs-es.html"
   },
   "temoignages/temoignage-contexte.html": {
