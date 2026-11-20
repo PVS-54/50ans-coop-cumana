@@ -112,7 +112,7 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
   {
-  fichier:"photos/Cortando_lena.jpg", categorie:"social",
+  fichier:"photos/Cortando_lena.jpg", categorie:"loin",
   legende:"Cortando leña",
   periode:"1977/1978",
   personnes:"Ph. Bouillin",
@@ -282,7 +282,7 @@ window.PHOTOS = [
   fournisseur:"Eric Monnier"
   }, 
   {
-  fichier:"photos/Juan_Griego.jpg", categorie:"cumana",
+  fichier:"photos/Juan_Griego.jpg", categorie:"loin",
   legende:"Dans le port de Juan Griego",
   periode:"1977/1978",
   personnes:"",
@@ -370,7 +370,7 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
   {
-  fichier:"photos/R4L_Margarita.jpg", categorie:"cumana",
+  fichier:"photos/R4L_Margarita.jpg", categorie:"loin",
   legende:"R4L sur les routes en terre de Margarita",
   periode:"1977/1978",
   personnes:"Ph. Bouillin",
@@ -378,7 +378,7 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
   {
-  fichier:"photos/Sur_la_route_de_San_Fernando.jpg", categorie:"cumana",
+  fichier:"photos/Sur_la_route_de_San_Fernando.jpg", categorie:"loin",
   legende:"Sur la route de San Fernando (Apure)",
   periode:"1977/1978",
   personnes:"",
@@ -418,7 +418,7 @@ window.PHOTOS = [
   fournisseur:""
   },
   {
-  fichier:"photos/Concorde_Maiquetia.jpg", categorie:"cumana",
+  fichier:"photos/Concorde_Maiquetia.jpg", categorie:"loin",
   legende:"Concorde à l'aéroport de Maiquetia",
   periode:"1979",
   personnes:"",
@@ -562,7 +562,7 @@ window.PHOTOS = [
   fournisseur:"PVS"
   },
   {
-  fichier:"photos/Los_Nevados.jpg", categorie:"cumana",
+  fichier:"photos/Los_Nevados.jpg", categorie:"loin",
   legende:"Los Nevados de Merida",
   periode:"1977/1978",
   personnes:"",

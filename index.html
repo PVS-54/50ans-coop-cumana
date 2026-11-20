@@ -363,7 +363,7 @@ header.hero::after{
 .people-count:focus-visible{outline:none}
 
   /* Navigation par chapitres photographiques */
-  .photo-chapters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0;}
+  .photo-chapters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:20px 0;}
   .photo-chapter{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px;cursor:pointer;text-align:left;font:inherit;color:var(--pine-dark);}
   .photo-chapter:hover,.photo-chapter[aria-pressed="true"]{border-color:var(--pine);background:#f3efe4;}
   .photo-chapter img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block;margin-bottom:8px;}
@@ -1349,15 +1349,16 @@ photoDialog.addEventListener('close',()=>{
 
 const photoChapterLabels={
   iut:{fr:'L’IUT — Locaux et enseignement',es:'El IUT — Instalaciones y enseñanza'},
-  social:{fr:'La vie sociale autour de l’IUT',es:'La vida social en torno al IUT'},
-  cumana:{fr:'Cumaná et alentours',es:'Cumaná y alrededores'}
+  social:{fr:'La vie sociale de l’IUT',es:'La vida social del IUT'},
+  cumana:{fr:'Cumaná et alentours',es:'Cumaná y alrededores'},
+  loin:{fr:'Plus loin',es:'Más lejos'}
 };
-const photoChapterOrder=['iut','social','cumana'];
+const photoChapterOrder=['iut','social','cumana','loin'];
 const photoChapters=document.getElementById('photoChapters');
 const photoChapterView=document.getElementById('photoChapterView');
 const photoChapterHeading=document.getElementById('photoChapterHeading');
 let currentPhotoChapter=null;
-const photoFigures={iut:[],social:[],cumana:[]};
+const photoFigures={iut:[],social:[],cumana:[],loin:[]};
 function photoChapterLabel(key){return photoChapterLabels[key][document.documentElement.lang.startsWith('es')?'es':'fr'];}
 function showPhotoChapter(key){
   currentPhotoChapter=key;
