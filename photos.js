@@ -575,7 +575,7 @@ window.PHOTOS = [
   periode:"Années 70 / 80",
   personnes:"",
   commentaires:"Ne pas abuser !",
-  fournisseur:"Internet"
+  fournisseur:"PVS, Internet"
   },
   {
   fichier:"photos/Venezuela_suya.png", categorie:"loin",
@@ -583,7 +583,7 @@ window.PHOTOS = [
   periode:"Années 70 / 80",
   personnes:"",
   commentaires:"Promotion touristique",
-  fournisseur:"Internet"
+  fournisseur:"PVS, Internet"
   },
   {
   fichier:"photos/Un pais para querer.png", categorie:"loin",
@@ -591,7 +591,7 @@ window.PHOTOS = [
   periode:"années 70 / 80",
   personnes:"",
   commentaires:"Promotion touristique",
-  fournisseur:"Internet"
+  fournisseur:"PVS, Internet"
   },
   {
   fichier:"photos/Logo-IUT-Cumana.png", categorie:"iut",
