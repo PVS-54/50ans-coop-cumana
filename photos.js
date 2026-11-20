@@ -426,7 +426,7 @@ window.PHOTOS = [
   fournisseur:""
   },
   {
-  fichier:"photos/Araguaney.jpg", categorie:"cumana",
+  fichier:"photos/Araguaney.jpg", categorie:"loin",
   legende:"Araguaney",
   periode:"",
   personnes:"",
@@ -434,7 +434,7 @@ window.PHOTOS = [
   fournisseur:"Wikipedia"
   },
   {
-  fichier:"photos/Flamboyant.jpg", categorie:"cumana",
+  fichier:"photos/Flamboyant.jpg", categorie:"loin",
   legende:"Flamboyant",
   periode:"",
   personnes:"",
