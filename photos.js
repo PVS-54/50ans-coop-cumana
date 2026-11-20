@@ -570,6 +570,30 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
   {
+  fichier:"photos/pub_productos.jpg", categorie:"loin",
+  legende:"Des produits iconiques",
+  periode:"Années 70 / 80",
+  personnes:"",
+  commentaires:"",
+  fournisseur:"Internet"
+  },
+  {
+  fichier:"photos/Venezuela_suya.png", categorie:"loin",
+  legende:"Venezuela Suya",
+  periode:"Années 70 / 80",
+  personnes:"",
+  commentaires:"Promotion touritique",
+  fournisseur:"Internet"
+  },
+  {
+  fichier:"photos/Un pais para querer.jpg", categorie:"loin",
+  legende:"Un pais para querer",
+  periode:"années 70 / 80",
+  personnes:"",
+  commentaires:"Promotion touristique",
+  fournisseur:"Internet"
+  },
+  {
   fichier:"photos/Logo-IUT-Cumana.png", categorie:"iut",
   legende:"Un logo historique !",
   periode:"Depuis 1973 ?",
