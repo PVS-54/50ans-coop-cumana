@@ -96,7 +96,7 @@ window.PHOTOS = [
   fournisseur:"PVS"
   },
   {
-  fichier:"photos/Fiesta_nacional.jpg", categorie:"social",
+  fichier:"photos/Fiesta_nacional.jpg", categorie:"cumana",
   legende:"Fiesta Nacional",
   periode:"1977/1978",
   personnes:"",
@@ -104,7 +104,7 @@ window.PHOTOS = [
   fournisseur:"Ph. Bouillin"
   },
  {
-  fichier:"photos/Carnaval_Carupano.jpg", categorie:"social",
+  fichier:"photos/Carnaval_Carupano.jpg", categorie:"cumana",
   legende:"Carnaval en Carupano",
   periode:"1977/1978",
   personnes:"Ph. Bouillin",
