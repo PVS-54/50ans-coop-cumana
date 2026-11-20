@@ -152,6 +152,14 @@ window.PHOTOS = [
   fournisseur:"Patrice Gry"
   },
   {
+  fichier:"photos/EM_011.jpg", categorie:"iut",
+  legende:"Bienvenue à l'IUT",
+  periode:"1977/1978",
+  personnes:"Eric Monnier",
+  commentaires:"photo en partie restaurée par IA",
+  fournisseur:"Eric Monnier"
+  }, 
+  {
   fichier:"photos/Anfiteatro.jpg", categorie:"iut",
   legende:"El anfiteatro",
   periode:"1979 ?",
@@ -273,14 +281,7 @@ window.PHOTOS = [
   },
   { fichier:"photos/UPTOS_1.jpg", categorie:"iut", legende:"UPTOS_1", fournisseur:"UPTOS" },
   { fichier:"photos/UPTOS_2.jpg", categorie:"iut", legende:"UPTOS_2", fournisseur:"UPTOS" },
-  {
-  fichier:"photos/EM_011.jpg", categorie:"iut",
-  legende:"Bienvenue à l'IUT",
-  periode:"1977/1978",
-  personnes:"Eric Monnier",
-  commentaires:"photo en partie restaurée par IA",
-  fournisseur:"Eric Monnier"
-  }, 
+  
   {
   fichier:"photos/Juan_Griego.jpg", categorie:"loin",
   legende:"Dans le port de Juan Griego",
