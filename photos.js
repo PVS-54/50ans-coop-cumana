@@ -566,7 +566,7 @@ window.PHOTOS = [
   legende:"Los Nevados de Merida",
   periode:"1977/1978",
   personnes:"",
-  commentaires:"",
+  commentaires:"Los Andes venezolanos",
   fournisseur:"Ph. Bouillin"
   },
   {
@@ -574,7 +574,7 @@ window.PHOTOS = [
   legende:"Des produits iconiques",
   periode:"Années 70 / 80",
   personnes:"",
-  commentaires:"",
+  commentaires:"Ne pas abuser !",
   fournisseur:"Internet"
   },
   {
@@ -582,7 +582,7 @@ window.PHOTOS = [
   legende:"Venezuela Suya",
   periode:"Années 70 / 80",
   personnes:"",
-  commentaires:"Promotion touritique",
+  commentaires:"Promotion touristique",
   fournisseur:"Internet"
   },
   {
