@@ -586,7 +586,7 @@ window.PHOTOS = [
   fournisseur:"Internet"
   },
   {
-  fichier:"photos/Un pais para querer.jpg", categorie:"loin",
+  fichier:"photos/Un pais para querer.png", categorie:"loin",
   legende:"Un pais para querer",
   periode:"années 70 / 80",
   personnes:"",
