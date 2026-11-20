@@ -586,6 +586,14 @@ window.PHOTOS = [
   fournisseur:"PVS, Internet"
   },
   {
+  fichier:"photos/Prensa.png", categorie:"loin",
+  legende:"Prensa",
+  periode:"années 70 / 80",
+  personnes:"",
+  commentaires:"El reino del papel, hasta 5 cuerpos y mas de 100 paginas",
+  fournisseur:"PVS, Internet"
+  },
+  {
   fichier:"photos/Un pais para querer.png", categorie:"loin",
   legende:"Un pais para querer",
   periode:"années 70 / 80",
